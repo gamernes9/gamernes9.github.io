@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Music Gallery from Doctor Who</title>
+  
+  
+  
+      <link rel="stylesheet" href="style.css">
+
+  
+</head>
+
+<body>
+  <head>
+  <link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Monoton" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+
+<body>
+  <audio autoplay id="tardis" src="https://dl.dropboxusercontent.com/s/dcxjjgs208ny95q/Doctor%20Who%20Sound%20FX-%20TARDIS%20take%20off%28%20Dematirielization%20%29.mp3?dl=0" type="audio/mp3">
+    </audio>
+  <audio loop id="psych" src="https://dl.dropboxusercontent.com/s/x1flryhayycrk6d/Psych%20Theme%20Song%20%28High%20Top%20Fade%29%20Boyz%20II%20Men%20Acapella%20Version.mp3?dl=0" type="audio/mp3">
+    </audio>
+  <audio loop autoplay id="maintheme" src="https://dl.dropboxusercontent.com/s/w6odvwtmn6o5e0i/Doctor%20Who%20OST%20Season%201%2B2%2001.Doctor%20Who%20Theme%20TV%20Version.mp3?dl=0" type="audio/mp3">
+    </audio>
+  <audio loop id="hartnell" src="https://dl.dropboxusercontent.com/s/n1603p5uwxoyo8p/First%20Doctor%20Theme.mp3?dl=0"></audio>
+  <audio loop id="troughton" src="https://dl.dropboxusercontent.com/s/xi1zpgadlf5ao3o/Second%20Doctor%20Title%20Sequence%20-%20Doctor%20Who%20-%20BBC.mp3?dl=0"></audio>
+  <audio loop id="pertwee" src="https://dl.dropboxusercontent.com/s/dzxhikfu77e3cfv/Third%20Doctor%20Titles%20Version%201%20-%20Doctor%20Who%20-%20BBC.mp3?dl=0"></audio>
+  <audio loop id="baker" src="https://dl.dropboxusercontent.com/s/ma21b83ipxdrewp/Fourth%20Doctor%20Titles%20Version%201%20-%20Doctor%20Who%20-%20BBC.mp3?dl=0"></audio>
+  <audio loop id="davison" src="https://dl.dropboxusercontent.com/s/e4nbfiypuhqwf3m/Fifth%20Doctor%20Theme.mp3?dl=0"></audio>
+  <audio loop id="baker2" src="https://dl.dropboxusercontent.com/s/y5k4583bkn51pz7/Sixth%20Doctor%20Titles%20-%20Trial%20Of%20A%20Time%20Lord%20Version%20-%20Doctor%20Who%20-%20BBC.mp3?dl=0"></audio>
+  <audio loop id="mccoy" src="https://dl.dropboxusercontent.com/s/vtu9nby4oa8osfr/Seventh%20Doctor%20Titles%20-%20Doctor%20Who%20-%20BBC.mp3?dl=0"></audio>
+  <audio loop id="mcgann" src="https://dl.dropboxusercontent.com/s/5frefgsd7ismd2h/Eighth%20Doctor%20Titles%20-%20Doctor%20Who%20-%20BBC.mp3?dl=0"></audio>
+  <audio loop id="eccleston" src="https://dl.dropboxusercontent.com/s/z216ml3e4woaeoa/Ninth%20Doctor%20Theme.mp3?dl=0"></audio>
+  <audio loop id="eccleston2" src="https://dl.dropboxusercontent.com/s/1x12bdn91gdimqg/Ninth%20Doctor%20Titles%20-%20Doctor%20Who%20-%20BBC.mp3?dl=0"></audio>
+  <audio loop id="tennant" src="https://dl.dropboxusercontent.com/s/pwt0f27r1qk9bvy/Tenth%20Doctor%20Theme.mp3?dl=0"></audio>
+  <audio loop id="tennant2" src="https://dl.dropboxusercontent.com/s/kah1iwpmg4j3qz0/Tenth%20Doctor%20Titles%20%28HD%29%20-%20Doctor%20Who%20-%20BBC.mp3?dl=0"></audio>
+  <audio loop id="smith" src="https://dl.dropboxusercontent.com/s/fypzd32afdnyvru/Doctor%20Who%20Series%205%20Soundtrack%20Disc%201%20-%209%20I%20Am%20The%20Doctor.mp3?dl=0"></audio>
+  <audio loop id="smith2" src="https://dl.dropboxusercontent.com/s/r4y0xv4ompn15zf/Eleventh%20Doctor%20Titles%20Version%201%20-%20Doctor%20Who%20-%20BBC.mp3?dl=0"></audio>
+  <audio loop id="capaldi" src="https://dl.dropboxusercontent.com/s/a0ouj476gipy8bi/Twelfth%20Doctor%20Theme.mp3?dl=0"></audio>
+  <audio loop id="capaldi2" src="https://dl.dropboxusercontent.com/s/ava5igu37sdoxm9/Twelfth%20Doctor%20Titles%20-%20Doctor%20Who%20-%20BBC.mp3?dl=0"></audio>
+  <div>
+    <h1 onmouseover="document.getElementById('psych').play()" onmouseout="document.getElementById('psych').pause()">Doctor Who?</h1></div>
+  <table align="center">
+    <tbody>
+      <tr>
+        <td>
+          <a href="https://goo.gl/JH3L4"><img src="http://www.doctorwho.tv/brand/assets/old-brand/img/profile-heros/first-doctor.png?v=2" title="William Hartnell" alt="https://s17.postimg.org/vxsvisl9b/first_doctor.png" onmouseover="document.getElementById('hartnell').play()" onmouseout="document.getElementById('hartnell').pause()"></a>
+        </td>
+        <td>
+          <a href="https://goo.gl/eW8pu7"><img src="http://www.doctorwho.tv/brand/assets/old-brand/img/profile-heros/second-doctor.png?v=2" title="Patrick Troughton" alt="https://utopiaofgeekblog.files.wordpress.com/2015/06/2nd.png?w=369&h=465" onmouseover="document.getElementById('troughton').play()"
+              onmouseout="document.getElementById('troughton').pause()"></a>
+        </td>
+        <td id = "pert">
+          <a href="https://goo.gl/HvFpnJ"><img src="http://www.doctorwho.tv/brand/assets/old-brand/img/profile-heros/third-doctor.png?v=2" title="Jon Pertwee" alt="https://utopiaofgeekblog.files.wordpress.com/2015/06/3rd.png?w=369&h=435" onmouseover="document.getElementById('pertwee').play()"
+              onmouseout="document.getElementById('pertwee').pause()"></a>
+        </td>
+        <td>
+          <a href="https://goo.gl/NtAZFO"><img src="http://www.doctorwho.tv/brand/assets/old-brand/img/profile-heros/fourth-doctor.png?v=2" title="Tom Baker" alt="https://utopiaofgeekblog.files.wordpress.com/2015/06/4th.png?w=388&h=509" onmouseover="document.getElementById('baker').play()"
+              onmouseout="document.getElementById('baker').pause()"></a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="https://goo.gl/jtyBHX"><img src="http://www.doctorwho.tv/brand/assets/old-brand/img/profile-heros/fifth-doctor.png?v=2" title="Peter Davison" alt="https://utopiaofgeekblog.files.wordpress.com/2015/06/5th.png?w=403&h=502" onmouseover="document.getElementById('davison').play()"
+              onmouseout="document.getElementById('davison').pause()"></a>
+        </td>
+        <td>
+          <a href="https://goo.gl/Xd2fmd"><img src="http://www.doctorwho.tv/brand/assets/old-brand/img/profile-heros/sixth-doctor.png?v=2" title="Colin Baker" alt="https://utopiaofgeekblog.files.wordpress.com/2015/06/6fh.png?w=305&h=414" onmouseover="document.getElementById('baker2').play()"
+              onmouseout="document.getElementById('baker2').pause()"></a>
+        </td>
+        <td>
+          <a href="https://goo.gl/ySJTqD"><img src="http://www.doctorwho.tv/brand/assets/old-brand/img/profile-heros/seventh-doctor.png?v=2" title="Sylvester Mccoy" alt="https://s12.postimg.org/5icxz2l59/seventh_doctor.png" onmouseover="document.getElementById('mccoy').play()" onmouseout="document.getElementById('mccoy').pause()"></a>
+        </td>
+        <td>
+          <a href="https://goo.gl/o4NqWU"><img src="http://www.doctorwho.tv/brand/assets/old-brand/img/profile-heros/eighth-doctor.png?v=2" title="Paul Mcgann" alt="https://s15.postimg.org/63yadx5mj/eighth_doctor.png" onmouseover="document.getElementById('mcgann').play()" onmouseout="document.getElementById('mcgann').pause()"></a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="https://goo.gl/nUvDG0"><img id="ecc" src="http://www.doctorwho.tv/brand/assets/old-brand/img/profile-heros/ninth-doctor.png?v=2" title="Christopher Eccleston" alt="https://s10.postimg.org/gttuc9xq1/ninth_doctor.png" onmouseover="document.getElementById('eccleston').play()"
+              onmouseout="document.getElementById('eccleston').pause()"></a>
+        </td>
+        <td>
+          <a href="https://goo.gl/DGTIGy"><img id="ten" src="http://www.doctorwho.tv/brand/assets/old-brand/img/profile-heros/tenth-doctor-mid.png" title="David Tennant" alt="https://s22.postimg.org/jo4suz51t/tenth_doctor_mid.png" onmouseover="document.getElementById('tennant').play()"
+              onmouseout="document.getElementById('tennant').pause()"></a>
+        </td>
+        <td>
+          <a href="https://goo.gl/gL114r"><img id="smi" src="http://www.doctorwho.tv/brand/assets/old-brand/img/profile-heros/eleventh-doctor.png?v=2" title="Matt Smith" alt="https://s13.postimg.org/p6cvv13sn/eleventh_doctor.png" onmouseover="document.getElementById('smith').play()"
+              onmouseout="document.getElementById('smith').pause()"></a>
+        </td>
+        <td>
+          <a href="https://goo.gl/wam2lr"><img id="cap" src="http://static.comicvine.com/uploads/original/11125/111250671/4817151-12d.png" title="Peter Capaldi" alt="http://egp.ucoz.com/advanced/doctor_who/12doctor.png" onmouseover="document.getElementById('capaldi').play()" onmouseout="document.getElementById('capaldi').pause()"></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div id="buttons">
+    <button id="buttonA" onclick="aFunction()">Character Themes</button>
+    <button id="buttonB" onclick="bFunction()">Main Themes</button>
+  </div>
+</body>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+
+    <script src="index.js"></script>
+
+</body>
+</html>
