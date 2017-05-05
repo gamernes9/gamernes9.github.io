@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Le' Golden Croissant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  <style>
+  /*good fonts*/
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/MTP_ySUJH_bn48VBG8sNSnhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Open Sans Extrabold'), local('OpenSans-Extrabold'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/EInbV5DfGHOiMmvb1Xr-hnhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+}
+/*white background*/
+html {
+  background-color: #fff;
+}
+/*from here to line 92 is the formatting for the nav bar*/
+.nav {
+  width: 100% !important;
+  left: 0px;
+  position: absolute;
+  overflow: hidden;
+  height: 65px;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 2px 1px rgba(50, 50, 50, 0.22);
+  -moz-box-shadow: 0px 2px 1px rgba(50, 50, 50, 0.22);
+  box-shadow: 0px 2px 1px rgba(50, 50, 50, 0.22);
+  padding-right: 20px;
+}
+
+.nav li {
+  text-align: center;
+  font-family: open sans;
+  font-size: 20px;
+  color: #000;
+  height: 47.5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  cursor: pointer;
+  padding-top: 17.5px !important;
+  float: left;
+  list-style: none;
+  font-weight: 200;
+  border-left: 1px solid rgba(0, 0, 0, .1);
+  background-color: none;
+  transition: background-color ease-in-out .5s;
+  -moz-transition: background-color ease-in-out .5s;
+  -webkit-transition: background-color ease-in-out .5s;
+  -o-transition: background-color ease-in-out .5s;
+  text-shadow: 0px -3px 3px rgba(255, 255, 255, 0.2);
+}
+
+.nav li a,
+a:visited,
+a:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+.nav li:first-child {
+  font-weight: bold;
+  border-left: none;
+}
+
+.nav li:hover {
+  background-color: rgba(255, 255, 255, .2);
+}
+
+.nav li.active {
+  background-color: rgba(255, 255, 255, .2);
+}
+/*end of nav bar css*/
+/*formatting for title*/
+h1 {
+  float: left;
+  clear: right;
+  display: inline-block;
+}
+/*formatting for logo*/
+img {
+  max-height: 4em;
+  margin-top: .4em;
+  float: left;
+  clear: left;
+}
+/*jumbotron formatting and background image and size is assigned here*/
+.jumbotron {
+  margin-top: 1.5em;
+  max-height: 20em;
+  background-image: url(http://assets.bwbx.io/images/iAV3CATd4akU/v2/-1x-1.jpg);
+  background-size: 100% 100%;
+}
+/*formatting for name and description of cronut*/
+#specialname {
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  font-weight: 300;
+}
+
+#special {
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+#specialdesc {
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+/*footer formatting, implemented from bootstrap lesson from codestream*/
+footer .row {
+  display: flex;
+  align-items: center;
+}
+footer {
+  font-size: 12px;
+  padding: 20px 0;
+}
+
+footer .col-sm-8 {
+  display: flex;
+  justify-content: flex-end;
+}
+
+footer ul {
+  list-style: none;
+}
+
+footer li img {
+  width: 32px;
+  height: 32px;
+}
+/*formatting for the paragraphs next to the categories*/
+#catp1 {
+  font-size: .6em;
+  margin-left: 14em;
+  margin-top:1em;
+}
+
+#catp2 {
+  font-size: .6em;
+  margin-left: 14em;
+  margin-top:-.2em;
+}
+
+#catp3 {
+  font-size: .6em;
+  margin-left: 14em;
+  margin-top:-6.9em;
+}
+/*formattting for category immages*/
+#img1{
+  margin-top:.7em;
+  max-width:8em;
+  max-height:7em;
+}
+#img2{
+  margin-top:1.3em;
+  max-width:8em;
+  max-height:7em;
+}
+#img3{
+  margin-top:1.3em;
+  max-width:8em;
+  max-height:7em;
+}
+/*category headings*/
+#h21{
+  margin-bottom:-.7em;
+  margin-top:-1em;
+}
+#h22{
+  margin-bottom:-.7em;
+  margin-top:-.4em;
+}
+#h23{
+  margin-bottom:-.7em;
+  margin-top:-.1em;
+}
+/*category 3 margins*/
+#cat3{
+  margin-top:-.1em;
+}
+/*title at the top xtra formatting*/
+#title{
+  margin-top:  .3em;
+  margin-left:-.3em;
+}
+/*first category top margin to seperate categories from jumbotron*/
+#cat1{
+  margin-top:1em;
+}
+  </style>
+</head>
+
+<body>
+  <!DOCTYPE html>
+<html lang="en">
+<!--header establishes title of page and link to latest bootstrap-->
+<head>
+  <title>Le' Golden Croissant</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+</head>
+<!--body has all the good stuff-->
+<body>
+  <!--Main logo and title, formatted in col-sm-? to implement bootstrap-->
+  <img src="http://www.culinaryschools.org/clipart/baking/croissant.gif" class="col-sm-1">
+  <h1 id="title" class="col-sm-4">Le' Golden Croissant<h1>
+  <!-- start of navbar, built with bootstrap and stretches across full page using css. each "title" is contained in li tags-->
+    <ul class="nav">
+    <li><a href="https://goo.gl/Es0W29">Location</a></li>
+    <li><a href="#">Today's Special</a></li>
+	<li><a href="#">
+    Croissants</a></li>
+	<li><a href="#">Cakes</a></li>
+	<li><a href="#">Drinks</a></li>
+  <li><a href="#">Contact Us</a></li>
+</ul>
+  <!--Start of bootstrap jumbotron, which is the picture of the cronuts with the text in front of it-->
+   <div class="jumbotron">
+    <h1 id = "special">Today's Special</h1><br><br> <br>
+  <h2 id="specialdesc">Donut + Croissant = Cronut</h2><br>
+  <h3 id="specialname">Today's Special is a new dessert rising out of the Northeast: the Cronut. This frankenstein mash-up is a donut on the outside and in physical appearance, but is actually a croissant on the inside. This unique combination provides a thrilling dessert. Come try yours today!</h3>
+  </div>
+    <!--This starts the three categories. Each one is contained in containers and formatted using bootstrap columns.-->
+  <div class="container">
+    <div id="cat1">
+      <h2 id="h21" class="col-sm-3">Croissants</h2>
+
+      <img id="img1" src="http://www.ecoleprivee-lorouxbottereau.fr/wp-content/uploads/2014/03/croissant.jpg" class="col-sm-4"><br>
+      <p id="catp1">These are our specialty! We even named the place after this dessert! Our croissants are warm, buttery, fluffy, and, most importantly, DELICIOUS! We custom-make these warm, tasty treats, and they have become world famous. Stop in and try yours today!</p>
+    </div>
+  </div>
+  <br><br><br>
+  <div class="container">
+    <div id="cat2">
+      <h2 id="h22" class="col-sm-3">Cakes</h2>
+
+      <img src="http://www.homesavvyatoz.com/wp-content/uploads/2011/07/Lava-Cake-8.jpg" alt="http://www.katherinemartinelli.com/wp-content/uploads/2011/09/Apple-Cake-Pomegranate-Glaze-49.jpg" id="img2" class="col-sm-4"><br><br><br>
+      <p id="catp2">
+        Whether you need cake for your next birthday, graduation, or any other special occasions (even weddings!), come to Le' Golden Croissant for a delicious custom cake to fulfill your needs!</p>
+    </div>
+  </div>
+  <br><br><br>
+  <div class="container">
+    <div id="cat3">
+      <h2 id="h23" class="col-sm-3">Drinks</h2>
+
+      <img src="http://cdn.foodbeast.com/content/uploads/2015/02/coffee-smell.jpeg" id="img3" class="col-sm-4">
+      <br> <br><br>
+      <p id="catp3" class="col-sm-9">We make our own coffee from beans imported from Columbia, which is known worldwide for having the best coffee. A small plantation down there has some of the best beans we've ever tried, and we believe that we have the best coffee in the world. Come
+        have a mug!</p>
+    </div>
+  </div>
+  <br><br><br>
+    <!--Here is the footer. It contains social media links for the business and such. RIP Harambe. -->
+  <footer class="container">
+    <div class="row">
+      <p class="col-sm-4">
+        &copy; 2016 gamernes9, for Harambe
+      </p>
+      <ul class="col-sm-8">
+        <li class="col-sm-1">
+          <a href="https://goo.gl/q8Cw17"><img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/twitter.svg"></a>
+        </li>
+        <li class="col-sm-1">
+          <a href="https://goo.gl/tCX2xY"><img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/facebook.svg"></a>
+        </li>
+        <li class="col-sm-1">
+          <a href="https://goo.gl/BtSVG3"><img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/instagram.svg"></a>
+        </li>
+        <li class="col-sm-1">
+         <a href="https://goo.gl/PYO2Tz"> <img src="https://s3.amazonaws.com/codecademy-content/projects/make-a-website/lesson-4/medium.svg"></a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+</body>
+
+</html>
+  
+  <!--Overall, generally simple code that i believe looks clean. Only 84 lines of code that is used to build a bootstrap website.-->
+  
+  
+</body>
+</html>
