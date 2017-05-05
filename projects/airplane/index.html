@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Responsive Breakpoint Mobile Design</title>
+  
+  <style>
+
+* {
+  margin:0;
+  padding:0;
+}
+body {
+  font-size: .813em;
+font-family: 'Varela Round', sans-serif;
+}
+ol, ul {
+  list-style: none;
+}
+h1 {
+  margin-bottom: .625em;
+}
+a, img {
+  border: none;
+  text-decoration:none;
+  color:#000;
+  font-weight: bold;
+}
+p {
+  margin-bottom: .625em;
+  line-height: 1.4em;
+  font-size: 1.2em;
+}
+img {
+  margin-bottom: .625em;
+}
+aside {
+  font-size: 0.9em;
+}
+aside, footer, header, nav, section {
+  display: block;
+}
+#wrapper {
+  width:98%;
+  max-width: 57.500em;
+  margin: auto;
+}
+#main {
+  width: 60%;
+  margin-right: 5%;
+  float: left;
+}
+aside {
+  width: 35%;
+  float: right;
+}
+header nav {
+  float: right;
+  margin-top: 2.500em;
+  margin-bottom:1em;
+}
+header nav li {
+  display: inline;
+  margin-left: .938em;
+}
+#banner {
+  margin-bottom:.938em;
+  width: 100%;
+}
+#banner img {
+  width: 100%;
+}
+@media screen and (max-width: 480px) {
+  header nav, #main, aside {
+    float: left;
+    clear: left;
+    margin: 0 0 .625em;
+    width: 100%;
+  }
+  header nav li {
+    margin: 0;
+    background: #efefef;
+    display: block;
+
+  }
+  header nav a {
+    display: block;
+    padding: .625em;
+    text-align: center;
+  }
+}
+@media screen and (min-width: 1080px){
+  img{
+    float:left;
+    clear:left;
+    display:inline;
+    max-width:60%;
+    margin-top:2.85em;
+    margin-bottom:1em;
+  }
+  aside{
+    float:right;
+    display: inline;
+    clear:right;
+    margin-top:-40em;
+  }
+  #main{
+    width:100%;
+  }
+}
+
+
+  </style>
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+</head>
+<body>
+  <div id="wrapper">
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#">Lorem</a></li>
+          <li><a href="#">Ipsum</a></li>
+          <li><a href="#">Dolor</a></li>
+          <li><a href="#">Sit</a></li>
+        </ul>
+      </nav>
+      <div id="banner">
+        <img src="http://1.bp.blogspot.com/-vxwR4f78xT4/UNFkmMxfEPI/AAAAAAAAAhA/jq4RNBSfGH4/s1600/IMG_2683.JPG">
+      </div>
+    </header>
+    <section id="main">
+      <h1>Main section</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </section>
+    <aside>
+      <h1>Aside</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </aside>
+  </div>
+</body>
+  
+  
+</body>
+</html>
