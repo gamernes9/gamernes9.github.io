@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>LCA5-6:Enrollment</title>
+  
+  <script>
+
+/*"Never Gonna Give You Up"
+Oooh
+We're no strangers to love
+You know the rules and so do I
+A full commitment's what I'm thinking of
+You wouldn't get this from any other guy
+I just wanna tell you how I'm feeling
+Gotta make you understand
+Never gonna give you up
+Never gonna let you down
+Never gonna run around and desert you
+Never gonna make you cry
+Never gonna say goodbye
+Never gonna tell a lie and hurt you
+We've known each other for so long
+Your heart's been aching, but
+You're too shy to say it
+Inside, we both know what's been going on
+We know the game and we're gonna play it
+And if you ask me how I'm feeling
+Don't tell me you're too blind to see
+Never gonna give you up
+Never gonna let you down
+Never gonna run around and desert you
+Never gonna make you cry
+Never gonna say goodbye
+Never gonna tell a lie and hurt you
+Never gonna give you up
+Never gonna let you down
+Never gonna run around and desert you
+Never gonna make you cry
+Never gonna say goodbye
+Never gonna tell a lie and hurt you
+(Ooh, give you up)
+(Ooh, give you up)
+Never gonna give, never gonna give
+(Give you up)
+Never gonna give, never gonna give
+(Give you up)
+We've known each other for so long
+Your heart's been aching, but
+You're too shy to say it
+Inside, we both know what's been going on
+We know the game and we're gonna play it
+I just wanna tell you how I'm feeling
+Gotta make you understand
+Never gonna give you up
+Never gonna let you down
+Never gonna run around and desert you
+Never gonna make you cry
+Never gonna say goodbye
+Never gonna tell a lie and hurt you
+Never gonna give you up
+Never gonna let you down
+Never gonna run around and desert you
+Never gonna make you cry
+Never gonna say goodbye
+Never gonna tell a lie and hurt you
+Never gonna give you up
+Never gonna let you down
+Never gonna run around and desert you
+Never gonna make you cry
+Never gonna say goodbye
+Never gonna tell a lie and hurt you
+*/
+
+  </script>
+
+
+
+  <style>
+
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+.cf:after {
+  clear: both;
+}
+.cf {
+  *zoom: 1;
+  margin:auto;
+}
+.menu,
+.submenu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.menu {
+  margin: 50px auto;
+  width: 3000px;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  width: fit-content;
+  margin-left:30%;
+  margin-right:30%;
+}
+.menu > li {
+  background: #34495e;
+  float: left;
+  position: relative;
+  transform: skewX(25deg);
+}
+.menu a {
+  display: block;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: Arial, Helvetica;
+  font-size: 1em;
+  align: center;
+}
+.menu li:hover {
+  background: #e74c3c;
+  z-index: 1;
+}
+.menu > li > a {
+  transform: skewX(-25deg);
+  padding: 1em 2em;
+}
+.submenu {
+  position: absolute;
+  width: 200px;
+  left: 50%;
+  margin-left: -100px;
+  transform: skewX(-25deg);
+  transform-origin: left top;
+}
+.submenu li {
+  background-color: #34495e;
+  position: relative;
+  overflow: hidden;
+  font-size: .7em;
+}
+.submenu > li > a {
+  padding: 1em 2em;
+}
+.submenu > li::after {
+  content: '';
+  position: absolute;
+  top: -125%;
+  height: 100%;
+  width: 100%;
+  box-shadow: 0 0 50px rgba(0, 0, 0, .9);
+}
+.submenu > li:nth-child(odd) {
+  transform: skewX(-25deg) translateX(0);
+}
+.submenu > li:nth-child(odd) > a {
+  transform: skewX(25deg);
+}
+.submenu > li:nth-child(odd)::after {
+  right: -50%;
+  transform: skewX(-25deg) rotate(3deg);
+}
+.submenu > li:nth-child(even) {
+  transform: skewX(25deg) translateX(0);
+}
+.submenu > li:nth-child(even) > a {
+  transform: skewX(-25deg);
+}
+.submenu > li:nth-child(even)::after {
+  left: -50%;
+  transform: skewX(25deg) rotate(3deg);
+}
+.submenu,
+.submenu li {
+  opacity: 0;
+  visibility: hidden;
+}
+.submenu li {
+  transition: .2s ease transform;
+}
+.menu > li:hover .submenu,
+.menu > li:hover .submenu li {
+  opacity: 1;
+  visibility: visible;
+}
+.menu > li:hover .submenu li:nth-child(even) {
+  transform: skewX(25deg) translateX(15px);
+}
+.menu > li:hover .submenu li:nth-child(odd) {
+  transform: skewX(-25deg) translateX(-15px);
+}
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+}
+.statement {
+  font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+  text-align: center;
+  font-size: 5em;
+  color: #000080;
+}
+.verses {
+  font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 3em;
+  color: #FF0000;
+  display: inline;
+}
+body {
+  font-size: 1.5em;
+}
+.rules {}
+.corevalue {
+  font-size: 2.3em;
+  font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+  color: #000080;
+}
+body {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+.wrapper {
+  margin: 0 auto;
+  padding: 40px;
+  max-width: 800px;
+}
+.table {
+  margin: 0 0 40px 0;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  display: table;
+}
+@media screen and (max-width: 580px) {
+  .table {
+    display: block;
+  }
+}
+.row {
+  display: table-row;
+  background: #f6f6f6;
+}
+.row:nth-of-type(odd) {
+  background: #e9e9e9;
+}
+.row.header {
+  font-weight: 900;
+  color: #ffffff;
+  background: #ea6153;
+}
+.row.green {
+  background: #27ae60;
+}
+.row.blue {
+  background: #2980b9;
+}
+@media screen and (max-width: 580px) {
+  .row {
+    padding: 8px 0;
+    display: block;
+  }
+}
+.cell {
+  padding: 6px 12px;
+  display: table-cell;
+}
+@media screen and (max-width: 580px) {
+  .cell {
+    padding: 2px 12px;
+    display: block;
+  }
+}
+.address {
+  font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 3em;
+  color: black;
+  display: inline;
+  margin: 0 auto;
+}
+.winner{
+   font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 2em;
+  color: #FF0000;
+  display: inline;
+}
+
+  </style>
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <!DOCTYPE html>
+<html>
+<head>
+  <title>
+    Enrollment
+  </title>
+</head>
+<body>
+  <ul class="menu cf">
+    <li><a href="http://www.jesuschrist.com">Home</a></li>
+    <li>
+      <a href="http://www.jesuschrist.com/Ministry">About Us</a>
+      <ul class="submenu">
+       
+        <li><a href="">Beliefs</a></li>
+        <li><a href="">Staff</a></li>
+        <li><a href="">Directions</a></li>
+      </ul>
+    </li>
+    <li><a href="">Enrollment</a></li>
+    <li><a href="">Calendar</a></li>
+  
+  </ul>
+  <p>
+    <div class="statement">Enrollment</div>
+    <br />
+  </p>
+  <p>
+    <div class="verses">Schedule a Tour</div>
+    <br />
+    <br /> LCA encourages all families to schedule a tour of the school. Tours include observing a classroom as well as a complete tour of the facilities available to LCA students.
+    <br />For tour information, contact the school office at:
+    <br />Phone: 972-219-3939
+    <br />E-mail: admin@lakelandchristianacademy.org<br /><br /><br />
+    <div class="verses">Enrollment Fees</div> <br /><br /> <br /><div class = "corevalue">Enrollment fees include:</div> <br /> Registration, Materials, Building and Text Fees: $350.00 non-refundable enrollment fee for Returning K5 thru 12th grade Students until January 31, 2016; $450.00 non-refundable enrollment fee for K5 thru 12th grade students. <br /> Tuition Payment Schedule for 2016-2017 Elementary, Intermediate and Secondary: 3 payment options:<ol> <li>June 1, 2016 through March 1, 2017</li><li>June 1, 2016 through May 1, 2017</li> <li>Payment in full</li> </ol> <div class = "winner">Admission Policies</div> <br /><br /> Lakeland Christian Academy is an interdenominational school offering a challenging program of Christ-centered education. In the preschool through high school, Christian families find a safe nurturing environment where Biblical values and principles are emphasized. LCA seeks to fully prepare children spiritually, academically, physically, and socially through a strong academic program enhanced with many extracurricular opportunities -- a balance designed to enable each student to fulfill God's plan for his or her life. <br /><br /><div class ="winner">Eligibility Considerations</div><br /><br /> Lakeland Christian Academy does reserve the right to select students for enrollment or re-enrollment on the basis of academic performance, compatible religious commitments and personal qualifications, including a willingness to cooperate with LCA administration and abide by its policies. <br /> <br /> <div class = "winner"> Evaluation Criteria </div> <br /> <br />Students seeking admission are evaluated on the basis of their transcripts, behavior, academics, references, admission questionnaires, interviews and demonstrated ability to perform satisfactorily at Lakeland Christian Academy. LCA is not equipped with the resources required to serve students seeking to be admitted into special educational programs. No student is guaranteed admission under any circumstance. Lakeland Christian Academy is not obligated to admit any student. All admission documents, interviews, and information will be formulated to determine if the school will be able to form a partnership with the family. Testing is required for students making application for entering grades K5-high school. A student who has a history of academic, discipline, or behavior problems may be accepted on probation after administrative consultation. Test scores and the completed admissions packet will be evaluated. After a decision has been reached, the applicant will be notified by phone or by letter. <br /> <br /> <div class ="winner"> Age Requirements </div> <br /> <br /> <ul><li>Children entering Kindergarten must have their fifth birthday on or before September 1 of the enrollment year.</li> <li>Students entering first grade must have their sixth birthday on or before September 1 of the enrollment year.</li> <li>Students entering second grade must have their seventh birthday on or before September 1 of the enrollment year.</li> <li>Students entering third grade must have their eighth birthday on or before September 1 of the enrollment year.</li> <li>Students entering fourth grade must have their ninth birthday on or before September 1 of the enrollment year.</li> <li>Students entering fifth grade must have their tenth birthday on or before September 1 of the enrollment year.</li> <li>Students entering sixth grade must have their eleventh birthday on or before September 1 of the enrollment year. </li></ul> <div class ="winner">Notice of Nondiscriminatory Policy as to Students</div> <br /> <br /> Lakeland Christian Academy admits students of any race, color, national and ethnic origin to all rights, privileges, programs and activities generally accorded or made available to students at the school. LCA does not discriminate on the basis of race, color, national and ethnic origin in administration of its education policies, admissions policies, and athletic and other school administered programs. <br /> <br /> <div class = "winner">Accreditation</div><br /><br /> Lakeland Christian Academy (LCA) is accredited with the Southern Association of Colleges and Schools (SACS) and the Association of Christian Schools International (ACSI). Headquartered in Colorado Springs, Colorado, ACSI is a ministry with the goal of being an "enabler" for the evangelical Christian community of preschools, elementary and secondary schools, and post-secondary schools.
+  </p>
+</body>
+</html>
+  
+    <script src="js/index.js"></script>
+
+</body>
+</html>
