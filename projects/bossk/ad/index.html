@@ -1,6 +1,56 @@
 <!DOCTYPE html>
 <html>
+<head>
+<script>
+$(document).ready(function(){
+$('#allps').hide();
+$('#allps').delay(250).fadeIn(2000);
+  });
 
+$("#crete").on("click", function(){
+  $('#around').show();
+});
+
+function newComment() {
+  var $input = $('#userComment').val();
+  var $nextGen = $('p.nextGen');
+  $nextGen.text($input);
+  $nextGen.append('<a href="" style="float:right;background:#FFFFFF;">Overwrite your advertising pitch</a>');
+  $('.new').fadeIn(100);
+  $('#around').hide();
+};
+</script>
+<style>
+  ::-webkit-scrollbar{width:0}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Varela Round', sans-serif;
+  max-width:96%;
+  margin: 0 auto;
+
+}
+
+#logo {
+  max-height: 1em;
+}
+
+#bossk1 {
+  display: block;
+  margin: 0 auto;
+  max-height: 20em;
+  margin-top: 4em;
+  margin-bottom: 1em;
+}
+#allps{
+  margin:15px 15px 15px 15px;
+    font-size:2em;
+}
+</style>
+</head>
 <body>
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
