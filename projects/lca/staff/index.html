@@ -1,438 +1,484 @@
 <!DOCTYPE html>
-<html >
+<html>
+
 <head>
   <meta charset="UTF-8">
   <title>LCA5-6:staff</title>
-  <link rel="icon" href="http://www.miclaymon.us/Logo/GN9_9_bw-cr_256.png" type="image/png" sizes="256x256">
+  <link rel="icon" href="http://www.gamernes9.com/hosting/images/main/GN9_9_bw-cr_256.png" type="image/png" sizes="256x256">
   <style>
-
-.cf:before,
-.cf:after {
-  content: " ";
-  display: table;
-}
-.cf:after {
-  clear: both;
-}
-.cf {
-  *zoom: 1;
-  margin:auto;
-}
-.menu,
-.submenu {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.menu {
-  margin: 50px auto;
-  width: 3000px;
-  width: -moz-fit-content;
-  
-  margin-left:30%;
-  margin-right:35%;
-}
-.menu > li {
-  background: #34495e;
-  float: left;
-  position: relative;
-  transform: skewX(25deg);
-}
-.menu a {
-  display: block;
-  color: #fff;
-  text-transform: uppercase;
-  text-decoration: none;
-  font-family: Arial, Helvetica;
-  font-size: 1em;
-  align: center;
-}
-.menu li:hover {
-  background: #e74c3c;
-  z-index: 1;
-}
-.menu > li > a {
-  transform: skewX(-25deg);
-  padding: 1em 2em;
-}
-.submenu {
-  position: absolute;
-  width: 200px;
-  left: 50%;
-  margin-left: -100px;
-  transform: skewX(-25deg);
-  transform-origin: left top;
-}
-.submenu li {
-  background-color: #34495e;
-  position: relative;
-  overflow: hidden;
-  font-size: .7em;
-}
-.submenu > li > a {
-  padding: 1em 2em;
-}
-.submenu > li::after {
-  content: '';
-  position: absolute;
-  top: -125%;
-  height: 100%;
-  width: 100%;
-  box-shadow: 0 0 50px rgba(0, 0, 0, .9);
-}
-.submenu > li:nth-child(odd) {
-  transform: skewX(-25deg) translateX(0);
-}
-.submenu > li:nth-child(odd) > a {
-  transform: skewX(25deg);
-}
-.submenu > li:nth-child(odd)::after {
-  right: -50%;
-  transform: skewX(-25deg) rotate(3deg);
-}
-.submenu > li:nth-child(even) {
-  transform: skewX(25deg) translateX(0);
-}
-.submenu > li:nth-child(even) > a {
-  transform: skewX(-25deg);
-}
-.submenu > li:nth-child(even)::after {
-  left: -50%;
-  transform: skewX(25deg) rotate(3deg);
-}
-.submenu,
-.submenu li {
-  opacity: 0;
-  visibility: hidden;
-}
-.submenu li {
-  transition: .2s ease transform;
-}
-.menu > li:hover .submenu,
-.menu > li:hover .submenu li {
-  opacity: 1;
-  visibility: visible;
-}
-.menu > li:hover .submenu li:nth-child(even) {
-  transform: skewX(25deg) translateX(15px);
-}
-.menu > li:hover .submenu li:nth-child(odd) {
-  transform: skewX(-25deg) translateX(-15px);
-}
-body {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-weight: 300;
-}
-.statement {
-  font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
-  text-align: center;
-  font-size: 5em;
-  color: #000080;
-}
-.verses {
-  font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 3em;
-  color: #FF0000;
-  display: inline;
-}
-body {
-  font-size: 1.5em;
-}
-.rules {}
-.corevalue {
-  font-size: 2.3em;
-  font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
-  color: #000080;
-}
-body {
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-}
-.wrapper {
-  margin: 0 auto;
-  padding: 40px;
-  max-width: 800px;
-}
-.table {
-  margin: 0 0 40px 0;
-  width: 100%;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  display: table;
-}
-@media screen and (max-width: 580px) {
-  .table {
-    display: block;
-  }
-}
-.row {
-  display: table-row;
-  background: #f6f6f6;
-}
-.row:nth-of-type(odd) {
-  background: #e9e9e9;
-}
-.row.header {
-  font-weight: 900;
-  color: #ffffff;
-  background:#000080;
-}
-.row.green {
-  background: #27ae60;
-}
-.row.blue {
-  background: #2980b9;
-}
-@media screen and (max-width: 580px) {
-  .row {
-    padding: 8px 0;
-    display: block;
-  }
-}
-.cell {
-  padding: 6px 12px;
-  display: table-cell;
-}
-@media screen and (max-width: 580px) {
-  .cell {
-    padding: 2px 12px;
-    display: block;
-  }
-}
-.address {
-  font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 3em;
-  color: black;
-  display: inline;
-  margin: 0 auto;
-}
-.winner{
-   font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 2em;
-  color: #FF0000;
-  display: inline;
-}
-
+    .cf:before,
+    .cf:after {
+      content: " ";
+      display: table;
+    }
+    
+    .cf:after {
+      clear: both;
+    }
+    
+    .cf {
+      *zoom: 1;
+      margin: auto;
+    }
+    
+    .menu,
+    .submenu {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    
+    .menu {
+      margin: 50px auto;
+      width: 3000px;
+      width: -moz-fit-content;
+      margin-left: 30%;
+      margin-right: 35%;
+    }
+    
+    .menu > li {
+      background: #34495e;
+      float: left;
+      position: relative;
+      transform: skewX(25deg);
+    }
+    
+    .menu a {
+      display: block;
+      color: #fff;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-family: Arial, Helvetica;
+      font-size: 1em;
+      align: center;
+    }
+    
+    .menu li:hover {
+      background: #e74c3c;
+      z-index: 1;
+    }
+    
+    .menu > li > a {
+      transform: skewX(-25deg);
+      padding: 1em 2em;
+    }
+    
+    .submenu {
+      position: absolute;
+      width: 200px;
+      left: 50%;
+      margin-left: -100px;
+      transform: skewX(-25deg);
+      transform-origin: left top;
+    }
+    
+    .submenu li {
+      background-color: #34495e;
+      position: relative;
+      overflow: hidden;
+      font-size: .7em;
+    }
+    
+    .submenu > li > a {
+      padding: 1em 2em;
+    }
+    
+    .submenu > li::after {
+      content: '';
+      position: absolute;
+      top: -125%;
+      height: 100%;
+      width: 100%;
+      box-shadow: 0 0 50px rgba(0, 0, 0, .9);
+    }
+    
+    .submenu > li:nth-child(odd) {
+      transform: skewX(-25deg) translateX(0);
+    }
+    
+    .submenu > li:nth-child(odd) > a {
+      transform: skewX(25deg);
+    }
+    
+    .submenu > li:nth-child(odd)::after {
+      right: -50%;
+      transform: skewX(-25deg) rotate(3deg);
+    }
+    
+    .submenu > li:nth-child(even) {
+      transform: skewX(25deg) translateX(0);
+    }
+    
+    .submenu > li:nth-child(even) > a {
+      transform: skewX(-25deg);
+    }
+    
+    .submenu > li:nth-child(even)::after {
+      left: -50%;
+      transform: skewX(25deg) rotate(3deg);
+    }
+    
+    .submenu,
+    .submenu li {
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .submenu li {
+      transition: .2s ease transform;
+    }
+    
+    .menu > li:hover .submenu,
+    .menu > li:hover .submenu li {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .menu > li:hover .submenu li:nth-child(even) {
+      transform: skewX(25deg) translateX(15px);
+    }
+    
+    .menu > li:hover .submenu li:nth-child(odd) {
+      transform: skewX(-25deg) translateX(-15px);
+    }
+    
+    body {
+      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+      font-weight: 300;
+    }
+    
+    .statement {
+      font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+      text-align: center;
+      font-size: 5em;
+      color: #000080;
+    }
+    
+    .verses {
+      font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 3em;
+      color: #FF0000;
+      display: inline;
+    }
+    
+    body {
+      font-size: 1.5em;
+    }
+    
+    .rules {}
+    
+    .corevalue {
+      font-size: 2.3em;
+      font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+      color: #000080;
+    }
+    
+    body {
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      font-smoothing: antialiased;
+    }
+    
+    .wrapper {
+      margin: 0 auto;
+      padding: 40px;
+      max-width: 800px;
+    }
+    
+    .table {
+      margin: 0 0 40px 0;
+      width: 100%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      display: table;
+    }
+    
+    @media screen and (max-width: 580px) {
+      .table {
+        display: block;
+      }
+    }
+    
+    .row {
+      display: table-row;
+      background: #f6f6f6;
+    }
+    
+    .row:nth-of-type(odd) {
+      background: #e9e9e9;
+    }
+    
+    .row.header {
+      font-weight: 900;
+      color: #ffffff;
+      background: #000080;
+    }
+    
+    .row.green {
+      background: #27ae60;
+    }
+    
+    .row.blue {
+      background: #2980b9;
+    }
+    
+    @media screen and (max-width: 580px) {
+      .row {
+        padding: 8px 0;
+        display: block;
+      }
+    }
+    
+    .cell {
+      padding: 6px 12px;
+      display: table-cell;
+    }
+    
+    @media screen and (max-width: 580px) {
+      .cell {
+        padding: 2px 12px;
+        display: block;
+      }
+    }
+    
+    .address {
+      font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 3em;
+      color: black;
+      display: inline;
+      margin: 0 auto;
+    }
+    
+    .winner {
+      font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 2em;
+      color: #FF0000;
+      display: inline;
+    }
   </style>
-  
-  
-      <link rel="stylesheet" href="css/style.css">
 
-  
+
+  <link rel="stylesheet" href="css/style.css">
+
+
 </head>
 
 <body>
   <!DOCTYPE html>
-<html>
-<head>
-  <title>
-    "Staff"
-  </title>
-</head>
-<body>
-  <ul class="menu cf">
-    <li><a href="/projects/lca">Home</a></li>
-    <li>
-      <a href="http://www.jesuschrist.com/Ministry">About Us</a>
-      <ul class="submenu">
-     
-        <li><a href="/projects/lca/beliefs">Beliefs</a></li>
-        <li><a href="/projects/lca/staff">Staff</a></li>
-        <li><a href="/projects/lca/contact">Directions</a></li>
-      </ul>
-    </li>
-    <li><a href="/projects/lca/enrollment">Enrollment</a></li>
-    <li><a href="/projects/lca/calendar">Calendar</a></li>
-   
-  </ul>
-  <p>
-    <div class="statement">Staff</div>
-  <br /> <div class = "verses">Secondary Staff</div> <br /><br />LCA is blessed to have a highly trained and devoted staff. Our goal as a staff is to see each of our students develop a life-guiding relationship with Jesus Christ and to achieve academic excellence. Our staff participates in regular
-    continuing education (both academic and Biblical) for educators. We believe that you should never stop learning!
-    <div class="wrapper">
-      <div class="table">
-        <div class="row header">
-          <div class="cell">
-            First Name
+  <html>
+
+  <head>
+    <title>
+      "Staff"
+    </title>
+  </head>
+
+  <body>
+    <ul class="menu cf">
+      <li><a href="/projects/lca">Home</a></li>
+      <li>
+        <a href="http://www.jesuschrist.com/Ministry">About Us</a>
+        <ul class="submenu">
+
+          <li><a href="/projects/lca/beliefs">Beliefs</a></li>
+          <li><a href="/projects/lca/staff">Staff</a></li>
+          <li><a href="/projects/lca/contact">Directions</a></li>
+        </ul>
+      </li>
+      <li><a href="/projects/lca/enrollment">Enrollment</a></li>
+      <li><a href="/projects/lca/calendar">Calendar</a></li>
+
+    </ul>
+    <p>
+      <div class="statement">Staff</div>
+      <br />
+      <div class="verses">Secondary Staff</div> <br /><br />LCA is blessed to have a highly trained and devoted staff. Our goal as a staff is to see each of our students develop a life-guiding relationship with Jesus Christ and to achieve academic excellence. Our staff participates
+      in regular continuing education (both academic and Biblical) for educators. We believe that you should never stop learning!
+      <div class="wrapper">
+        <div class="table">
+          <div class="row header">
+            <div class="cell">
+              First Name
+            </div>
+            <div class="cell">
+              Last Name
+            </div>
+            <div class="cell">
+              Occupation
+            </div>
+            <div class="cell">
+              Email
+            </div>
           </div>
-          <div class="cell">
-            Last Name
+          <div class="row">
+            <div class="cell">
+              Terry
+            </div>
+            <div class="cell">
+              Campbell
+            </div>
+            <div class="cell">
+              Seconary Principal & Superintendent
+            </div>
+            <div class="cell">
+              tcampbell@lakelandbaptist.org
+            </div>
           </div>
-          <div class="cell">
-            Occupation
+          <div class="row">
+            <div class="cell">
+              Doug
+            </div>
+            <div class="cell">
+              Jackson
+            </div>
+            <div class="cell">
+              Vice Principal, Guidance Counseling, & 11th & 12th Bible
+            </div>
+            <div class="cell">
+              djackson@lakelandbaptist.org
+            </div>
           </div>
-          <div class="cell">
-            Email
+          <div class="row">
+            <div class="cell">
+              Candace
+            </div>
+            <div class="cell">
+              Hardie
+            </div>
+            <div class="cell">
+              Dance, Drill Team, 7th Girls Bible
+            </div>
+            <div class="cell">
+              chardie@lakelandbaptist.org
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="cell">
-            Terry
+          <div class="row">
+            <div class="cell">
+              Melvin
+            </div>
+            <div class="cell">
+              Harper
+            </div>
+            <div class="cell">
+              Athletics' Director, Bible, Weight Training & Conditioning
+            </div>
+            <div class="cell">
+              mharper@lakelandbaptist.org
+            </div>
           </div>
-          <div class="cell">
-            Campbell
+          <div class="row">
+            <div class="cell">
+              Bob
+            </div>
+            <div class="cell">
+              Hembree
+            </div>
+            <div class="cell">
+              Science
+            </div>
+            <div class="cell">
+              rhembree@lakelandbaptist.org
+            </div>
           </div>
-          <div class="cell">
-            Seconary Principal & Superintendent
+          <div class="row">
+            <div class="cell">
+              Terra
+            </div>
+            <div class="cell">
+              Krause
+            </div>
+            <div class="cell">
+              JH & HS Drama
+            </div>
+            <div class="cell">
+              tkrause@lakelandbaptist.org
+            </div>
           </div>
-          <div class="cell">
-            tcampbell@lakelandbaptist.org
+          <div class="row">
+            <div class="cell">
+              Jennifer
+            </div>
+            <div class="cell">
+              Diaz
+            </div>
+            <div class="cell">
+              Art
+            </div>
+            <div class="cell">
+              jdiaz@lakelandbaptist.org
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="cell">
-            Doug
+          <div class="row">
+            <div class="cell">
+              Shelley
+            </div>
+            <div class="cell">
+              Marshall
+            </div>
+            <div class="cell">
+              7th & 8th Language Arts
+            </div>
+            <div class="cell">
+              smarshall@lakelandbaptist.org
+            </div>
           </div>
-          <div class="cell">
-            Jackson
+          <div class="row">
+            <div class="cell"> David </div>
+            <div class="cell"> McNeill </div>
+            <div class="cell"> Instrumental Music and Choir </div>
+            <div class="cell"> dmcneill@lakelandbaptist.org </div>
           </div>
-          <div class="cell">
-            Vice Principal, Guidance Counseling, & 11th & 12th Bible
+          <div class="row">
+            <div class="cell"> Norma </div>
+            <div class="cell"> Riley </div>
+            <div class="cell"> 7th Spanish </div>
+            <div class="cell"> nriley@lakelandbaptist.org </div>
           </div>
-          <div class="cell">
-            djackson@lakelandbaptist.org
+          <div class="row">
+            <div class="cell"> Sabrina </div>
+            <div class="cell"> Seward </div>
+            <div class="cell"> Mathematics </div>
+            <div class="cell"> sseward@lakelandbaptist.org </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="cell">
-            Candace
+          <div class="row">
+            <div class="cell"> Bret </div>
+            <div class="cell"> Simpson </div>
+            <div class="cell"> HS Social Studies, Physics, Coach </div>
+            <div class="cell"> bsimpson@lakelandbaptist.org </div>
           </div>
-          <div class="cell">
-            Hardie
+          <div class="row">
+            <div class="cell"> Deborah </div>
+            <div class="cell"> Simpson </div>
+            <div class="cell"> Mathematics</div>
+            <div class="cell"> dsimpson@lakelandbaptist.org </div>
           </div>
-          <div class="cell">
-            Dance, Drill Team, 7th Girls Bible
+          <div class="row">
+            <div class="cell"> Dustin </div>
+            <div class="cell"> Tarpley </div>
+            <div class="cell"> 7th & 8th History, 7th & 8th Boys Bible, Coach</div>
+            <div class="cell"> dtarpley@lakelandbaptist.org </div>
           </div>
-          <div class="cell">
-            chardie@lakelandbaptist.org
+          <div class="row">
+            <div class="cell"> Andrea </div>
+            <div class="cell"> Tryggestad </div>
+            <div class="cell"> Spanish 1 & 2</div>
+            <div class="cell"> atryggestad@lakelandbaptist.org </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="cell">
-            Melvin
+          <div class="row">
+            <div class="cell"> Mallory </div>
+            <div class="cell">Weaver </div>
+            <div class="cell"> Chemistry, 7th English, 10th Bible </div>
+            <div class="cell"> mweaver@lakelandbaptist.org </div>
           </div>
-          <div class="cell">
-            Harper
-          </div>
-          <div class="cell">
-            Athletics' Director, Bible, Weight Training & Conditioning
-          </div>
-          <div class="cell">
-            mharper@lakelandbaptist.org
-          </div>
-        </div>
-        <div class="row">
-          <div class="cell">
-            Bob
-          </div>
-          <div class="cell">
-            Hembree
-          </div>
-          <div class="cell">
-            Science
-          </div>
-          <div class="cell">
-            rhembree@lakelandbaptist.org
-          </div>
-        </div>
-        <div class="row">
-          <div class="cell">
-            Terra
-          </div>
-          <div class="cell">
-            Krause
-          </div>
-          <div class="cell">
-            JH & HS Drama
-          </div>
-          <div class="cell">
-            tkrause@lakelandbaptist.org
-          </div>
-        </div>
-        <div class="row">
-          <div class="cell">
-            Jennifer
-          </div>
-          <div class="cell">
-            Diaz
-          </div>
-          <div class="cell">
-            Art
-          </div>
-          <div class="cell">
-            jdiaz@lakelandbaptist.org
-          </div>
-        </div>
-        <div class="row">
-          <div class="cell">
-            Shelley
-          </div>
-          <div class="cell">
-            Marshall
-          </div>
-          <div class="cell">
-            7th & 8th Language Arts
-          </div>
-          <div class="cell">
-            smarshall@lakelandbaptist.org
-          </div>
-        </div>
-        <div class="row">
-          <div class="cell"> David </div>
-          <div class="cell"> McNeill </div>
-          <div class="cell"> Instrumental Music and Choir </div>
-          <div class="cell"> dmcneill@lakelandbaptist.org </div>
-        </div>
-        <div class="row">
-          <div class="cell"> Norma </div>
-          <div class="cell"> Riley </div>
-          <div class="cell"> 7th Spanish </div>
-          <div class="cell"> nriley@lakelandbaptist.org </div>
-        </div>
-        <div class="row">
-          <div class="cell"> Sabrina </div>
-          <div class="cell"> Seward </div>
-          <div class="cell"> Mathematics </div>
-          <div class="cell"> sseward@lakelandbaptist.org </div>
-        </div>
-        <div class="row">
-          <div class="cell"> Bret </div>
-          <div class="cell"> Simpson </div>
-          <div class="cell"> HS Social Studies, Physics, Coach </div>
-          <div class="cell"> bsimpson@lakelandbaptist.org </div>
-        </div>
-        <div class="row">
-          <div class="cell"> Deborah </div>
-          <div class="cell"> Simpson </div>
-          <div class="cell"> Mathematics</div>
-          <div class="cell"> dsimpson@lakelandbaptist.org </div>
-        </div>
-        <div class="row">
-          <div class="cell"> Dustin </div>
-          <div class="cell"> Tarpley </div>
-          <div class="cell"> 7th & 8th History, 7th & 8th Boys Bible, Coach</div>
-          <div class="cell"> dtarpley@lakelandbaptist.org </div>
-        </div>
-        <div class="row">
-          <div class="cell"> Andrea </div>
-          <div class="cell"> Tryggestad </div>
-          <div class="cell"> Spanish 1 & 2</div>
-          <div class="cell"> atryggestad@lakelandbaptist.org </div>
-        </div>
-        <div class="row">
-          <div class="cell"> Mallory </div>
-          <div class="cell">Weaver </div>
-          <div class="cell"> Chemistry, 7th English, 10th Bible </div>
-          <div class="cell"> mweaver@lakelandbaptist.org </div>
         </div>
       </div>
-    </div>
-  </p>
+    </p>
   </body>
-</html>
-  
-  
+
+  </html>
+
+
 </body>
+
 </html>
