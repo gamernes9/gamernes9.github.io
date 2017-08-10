@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>LCA5-6: beliefs</title>
+  <link rel="icon" href="http://www.gamernes9.com/hosting/images/main/GN9_9_bw-cr_256.png" type="image/png" sizes="256x256">
+  <style>
+    .cf:before,
+    .cf:after {
+      content: " ";
+      display: table;
+    }
+    
+    .cf:after {
+      clear: both;
+    }
+    
+    .cf {
+      *zoom: 1;
+      margin: auto;
+    }
+    
+    .menu,
+    .submenu {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    
+    .menu {
+      margin: 50px auto;
+      width: 3000px;
+      width: -moz-fit-content;
+      width: -webkit-fit-content;
+      width: fit-content;
+      margin-left: 30%;
+      margin-right: 30%;
+    }
+    
+    .menu > li {
+      background: #34495e;
+      float: left;
+      position: relative;
+      transform: skewX(25deg);
+    }
+    
+    .menu a {
+      display: block;
+      color: #fff;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-family: Arial, Helvetica;
+      font-size: 1em;
+      align: center;
+    }
+    
+    .menu li:hover {
+      background: #e74c3c;
+      z-index: 1;
+    }
+    
+    .menu > li > a {
+      transform: skewX(-25deg);
+      padding: 1em 2em;
+    }
+    
+    .submenu {
+      position: absolute;
+      width: 200px;
+      left: 50%;
+      margin-left: -100px;
+      transform: skewX(-25deg);
+      transform-origin: left top;
+    }
+    
+    .submenu li {
+      background-color: #34495e;
+      position: relative;
+      overflow: hidden;
+      font-size: .7em;
+    }
+    
+    .submenu > li > a {
+      padding: 1em 2em;
+    }
+    
+    .submenu > li::after {
+      content: '';
+      position: absolute;
+      top: -125%;
+      height: 100%;
+      width: 100%;
+      box-shadow: 0 0 50px rgba(0, 0, 0, .9);
+    }
+    
+    .submenu > li:nth-child(odd) {
+      transform: skewX(-25deg) translateX(0);
+    }
+    
+    .submenu > li:nth-child(odd) > a {
+      transform: skewX(25deg);
+    }
+    
+    .submenu > li:nth-child(odd)::after {
+      right: -50%;
+      transform: skewX(-25deg) rotate(3deg);
+    }
+    
+    .submenu > li:nth-child(even) {
+      transform: skewX(25deg) translateX(0);
+    }
+    
+    .submenu > li:nth-child(even) > a {
+      transform: skewX(-25deg);
+    }
+    
+    .submenu > li:nth-child(even)::after {
+      left: -50%;
+      transform: skewX(25deg) rotate(3deg);
+    }
+    
+    .submenu,
+    .submenu li {
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .submenu li {
+      transition: .2s ease transform;
+    }
+    
+    .menu > li:hover .submenu,
+    .menu > li:hover .submenu li {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .menu > li:hover .submenu li:nth-child(even) {
+      transform: skewX(25deg) translateX(15px);
+    }
+    
+    .menu > li:hover .submenu li:nth-child(odd) {
+      transform: skewX(-25deg) translateX(-15px);
+    }
+    
+    body {
+      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+      font-weight: 300;
+    }
+    
+    .statement {
+      font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+      text-align: center;
+      font-size: 5em;
+      color: #000080;
+    }
+    
+    .verses {
+      font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 4em;
+      color: #FF0000;
+      display: inline;
+    }
+    
+    body {
+      font-size: 1.5em;
+    }
+    
+    .rules {}
+    
+    .corevalue {
+      font-size: 2.3em;
+      font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+      color: #000080;
+      text-align: left;
+    }
+    
+    body {
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      font-smoothing: antialiased;
+    }
+    
+    .wrapper {
+      margin: 0 auto;
+      padding: 40px;
+      max-width: 800px;
+    }
+    
+    .table {
+      margin: 0 0 40px 0;
+      width: 100%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      display: table;
+    }
+    
+    @media screen and (max-width: 580px) {
+      .table {
+        display: block;
+      }
+    }
+    
+    .row {
+      display: table-row;
+      background: #f6f6f6;
+    }
+    
+    .row:nth-of-type(odd) {
+      background: #e9e9e9;
+    }
+    
+    .row.header {
+      font-weight: 900;
+      color: #ffffff;
+      background: #ea6153;
+    }
+    
+    .row.green {
+      background: #27ae60;
+    }
+    
+    .row.blue {
+      background: #2980b9;
+    }
+    
+    @media screen and (max-width: 580px) {
+      .row {
+        padding: 8px 0;
+        display: block;
+      }
+    }
+    
+    .cell {
+      padding: 6px 12px;
+      display: table-cell;
+    }
+    
+    @media screen and (max-width: 580px) {
+      .cell {
+        padding: 2px 12px;
+        display: block;
+      }
+    }
+    
+    .address {
+      font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 3em;
+      color: black;
+      display: inline;
+      margin: 0 auto;
+    }
+    
+    .winner {
+      font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 3em;
+      color: black;
+      display: inline;
+    }
+    
+    .days {
+      width: 102.35pt;
+      border-left: medium none;
+      border-right: 1.0pt solid windowtext;
+      border-top: 1.5pt solid windowtext;
+      border-bottom: 1.0pt solid windowtext;
+      padding-left: 5.4pt;
+      padding-right: 5.4pt;
+      padding-top: 0in;
+      padding-bottom: 0in;
+      valign: top;
+      width: 171;
+    }
+    
+    #sunday {
+      width: 102.3pt;
+      border-left: 1.5pt solid windowtext;
+      border-right: 1.0pt solid windowtext;
+      border-top: 1.5pt solid windowtext;
+      border-bottom: 1.0pt solid windowtext;
+      padding-left: 5.4pt;
+      padding-right: 5.4pt;
+      padding-top: 0in;
+      padding-bottom: 0in;
+      valign: top;
+      width: 171;
+    }
+    
+    #saturday {
+      width: 102.35pt;
+      border-left: medium none;
+      border-right: 1.5pt solid windowtext;
+      border-top: 1.5pt solid windowtext;
+      border-bottom: 1.0pt solid windowtext;
+      padding-left: 5.4pt;
+      padding-right: 5.4pt;
+      padding-top: 0in;
+      padding-bottom: 0in;
+      valign: top;
+      width: 171;
+    }
+    
+    #calendar {
+      border-collapse: collapse;
+      border: medium none;
+      border: 1;
+      cellspacing: 0;
+      cellpadding: 0;
+    }
+    
+    .tr1 {
+      height: 68.8pt;
+    }
+    
+    #td29 {
+      width: 102.3pt;
+      height: 68.8pt;
+      border-left: 1.5pt solid windowtext;
+      border-right: 1.0pt solid olive;
+      border-top: medium none;
+      border-bottom: 1.0pt solid windowtext;
+      padding-left: 5.4pt;
+      padding-right: 5.4pt;
+      padding-top: 0in;
+      padding-bottom: 0in;
+      background: #FFFFDD;
+      width: 171;
+      valign: top;
+    }
+    
+    #td30 {
+      width: 102.35pt;
+      height: 68.8pt;
+      border-left: medium none;
+      border-right: 1.0pt solid windowtext;
+      border-top: medium none;
+      border-bottom: 1.0pt solid windowtext;
+      padding-left: 5.4pt;
+      padding-right: 5.4pt;
+      padding-top: 0in;
+      padding-bottom: 0in;
+      background: #FFFFDD;
+      width: 171;
+    }
+    
+    .p29 {
+      color: olive;
+    }
+    
+    .weekday {
+      width: 171;
+      width: 102.35pt;
+      height: 68.8pt;
+      border-left: medium none;
+      border-right: 1.0pt solid windowtext;
+      border-top: medium none;
+      border-bottom: 1.0pt solid windowtext;
+      padding-left: 5.4pt;
+      padding-right: 5.4pt;
+      padding-top: 0in;
+      padding-bottom: 0in;
+    }
+    
+    .event {
+      color: #0000FF;
+    }
+    
+    .weekright {
+      width: 102.35pt;
+      height: 68.8pt;
+      border-left: medium none;
+      border-right: 1.5pt solid windowtext;
+      border-top: medium none;
+      border-bottom: 1.0pt solid windowtext;
+      padding-left: 5.4pt;
+      padding-right: 5.4pt;
+      padding-top: 0in;
+      padding-bottom: 0in;
+      width: 171;
+    }
+    
+    .weekleft {
+      width: 102.3pt;
+      height: 68.8pt;
+      border-left: 1.5pt solid windowtext;
+      border-right: 1.0pt solid windowtext;
+      border-top: medium none;
+      border-bottom: 1.0pt solid windowtext;
+      padding-left: 5.4pt;
+      padding-right: 5.4pt;
+      padding-top: 0in;
+      padding-bottom: 0in;
+      width: 171;
+    }
+    
+    .decor1 {
+      font-weight: bold;
+      text-decoration: underline;
+      color: #0000FF;
+    }
+    
+    .holiday {
+      color: red;
+    }
+    
+    #jan1 {
+      width: 102.35pt;
+      height: 68.8pt;
+      border-left: medium none;
+      border-right: 1.0pt solid olive;
+      border-top: medium none;
+      border-bottom: 1.0pt solid windowtext;
+      padding-left: 5.4pt;
+      padding-right: 5.4pt;
+      padding-top: 0in;
+      padding-bottom: 0in;
+      background: #FFFFDD;
+      width: 171;
+    }
+    
+    #jan2 {
+      width: 102.35pt;
+      height: 68.8pt;
+      border-left: medium none;
+      border-right: 1.5pt solid windowtext;
+      border-top: medium none;
+      border-bottom: 1.0pt solid windowtext;
+      padding-left: 5.4pt;
+      padding-right: 5.4pt;
+      padding-top: 0in;
+      padding-bottom: 0in;
+      background: #FFFFDD;
+      width: 171;
+    }
+    
+    #calendar {
+      align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+
+  <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+  <!DOCTYPE html>
+  <html>
+
+  <head>
+    <title>
+      "Beliefs"
+    </title>
+  </head>
+
+  <body>
+    <ul class="menu cf">
+      <li><a href="/lca">Home</a></li>
+      <li>
+        <a href="http://www.jesuschrist.com/Ministry">About Us</a>
+        <ul class="submenu">
+
+          <li><a href="/lca/beliefs">Beliefs</a></li>
+          <li><a href="/lca/staff">Staff</a></li>
+          <li><a href="/lca/contact">Directions</a></li>
+        </ul>
+      </li>
+      <li><a href="/lca/enrollment">Enrollment</a></li>
+      <li><a href="/lca/calendar">Calendar</a></li>
+
+    </ul>
+    <div class="statement">Statement of Faith</div> <br />
+    <br />
+    <ol>
+      <li><span class="rules">We believe the Bible to the inspired, the only infallible, authoritative, inerrant Word of God (II Timothy 3:15; II Peter 1:21).</span></li>
+      <br />
+      <li><span class="rules">We believe there is one God, eternally existent in three persons -- Father, Son, and Holy Spirit (Genesis 1:1; Matthew 28:19; John 10:30).</span></li>
+      <br />
+      <li><span class="rules">We believe in the deity of Christ (John 10:33); His virgin birth (Isaiah 7:14; Matthew 1:23; Luke 1:35); His sinless life (Hebrews 4:15; Hebrews 7:26); His miracles (John 2:11); His vicarious and atoning death (I Corinthians 15:3; Ephesians 1:7; Hebrews 2:9); His resurrection (John 11:25; I Corinthians 15:4); His Ascension to the right hand of the Father (Mark 16:19); and His personal return in power and glory (Acts 1:11; Revelation 19:11).</span></li>
+      <br />
+      <li><span class="rules">We believe in the absolute necessity of regeneration by the Holy Spirit for salvation because of the exceeding sinfulness of human nature; and that people are justified on the single ground of faith in the shed blood of Christ and that only by God's grace and through faith alone are we saved (John 3:16-19; John 5:24; Romans 3:23; Romans 5:8-9; Ephesians 2:8-10; Titus 3:5).</span></li>
+      <br />
+      <li><span class="rules">We believe in the resurrection of both the saved and the lost; they that are saved unto the resurrection of life, and they that are lost unto the resurrection of damnation (John 5:28-29).</span></li>
+      <br />
+      <li><span class="rules">We believe in the spiritual unity of believers in our Lord Jesus Christ (Romans 8:9; I Corinthians 12:12-13; Galatians 3:26-28).</li>
+<br />
+<li><span class = "rules">We believe in the present ministry of the Holy Spirit, by whose indwelling the Christian is enabled to live a godly life (Romans 8:13-14; I Corinthians 3:16; 1 Corinthians 6:19-20; Ephesians 4:30; Ephesians 5:18).</span></li>
+    </ol>
+    <br /> <br />
+    <div class="verses">Christian Education Philosophy</div> <br />
+    <br /> <br /> Lakeland Christian Academy endeavors to complement the home and the church in promoting the student's spiritual growth, academic training, physical growth and social development. LCA teaches all truth is God's truth in each subject area
+    studied and that Jesus Christ is the center of all learning and living.
+    <br /> <br />
+    <div class="corevalue">Proverbs 22:6 "Train up a child in the way he should go: and when he is old, he will <br /><br/>not depart from it."</div>
+    <br /> <br /> At Lakeland Christian Academy (LCA), the children will experience God's love for him/her through loving relationships and happy times. They will experience a variety of activities to encourage their growth in all areas of development.
+    We believe that children grow and develop in all of the following areas: Physical, social, emotional, cognitive, language, and spiritually. Each child begins at different levels of ability and progresses at his/her own rate. A child can excel in one
+    area and be slower in another and still be growing and developing normally. Children learn in many different ways. LCA curriculum is teacher lead, Christ-centered, developmentally appropriate and educationally sound. A hands-on activity when developmentally
+    appropriate will make a lasting effect. Children also learn about themselves and develop confidence when given choices in what activity they can participate. All areas of development should be encouraged each day through these activities.
+    <br /> <br />
+    <div class="corevalue">
+      Joshua 1:9 "Have I not commanded you? Be strong and of good courage; do not be afraid, nor be dismayed, for the Lord your God is with you wherever <br /> <br />you go."</div>
+    <br /><br /> We encourage the children to make good choices and to take risks when they encounter a new activity. Each day when the children leave the school, they learned something new and had fun in the process.
+    <br /> <br /> <br />
+    <div class="verses">Core Values</div>
+    <br /> <br /><br />
+    <div class="winner">Obedience</div>
+    <br/><br /> We please God when we obey.
+    <br /> <br />
+    <div class="corevalue">"Children, obey your parents in the Lord: for this is right." Ephesians 6:1</div>
+    <br/> <br />
+    <div class="winner">Respectfulness</div>
+    <br /><br /> We please God when we respect, or think highly of, people who are in charge of us.
+    <br /> <br/>
+    <div class="corevalue">"Honour thy father and thy mother." Exodus 20:12</div>
+    <br /> <br />
+    <div class="winner">Diligence</div>
+    <br /><br /> We please God when we work hard and do our best.
+    <br /> <br />
+    <div class="corevalue">"And whatsoever ye do, do it heartily, as to the Lord." Colossians 3:23</div>
+    </p>
+  </body>
+
+  </html>
+
+
+</body>
+
+</html>

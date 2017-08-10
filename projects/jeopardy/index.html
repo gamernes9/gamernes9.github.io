@@ -1,0 +1,1932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<style>
+
+	       @import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i');
+	@font-face {
+	 font-family: "ITC Korinna";
+	 src: url('Korinna.ttf') format('truetype');
+	}
+	html, body {
+	 background: #142283 !important;
+	 overflow-y:hidden;
+	}
+	hr {
+	 border-color: #DDD;
+	}
+	nav.navbar.navbar-inverse {
+	 height: 5vh !important;
+	 margin: 0px;
+	 padding: 0px !important;
+	 border: none;
+	 border-radius: 0px;
+	 border-bottom: 18px solid #222222;
+	}
+	nav.navbar .navbar-brand {
+	 height: 50px;
+	 margin: 0px 0px;
+	 padding: 0px 10px;
+	}
+	nav.navbar .navbar-brand img {
+	 height: 50px;
+	}
+	span.uploadTXT {
+	 display: inline;
+	 font-weight: 700;
+	 font-family: sans-serif;
+	}
+	span.uploadTXT:after {
+	 content: "!";
+	}
+	span.uploadYes {
+	 color: limegreen;
+	}
+	span.uploadNo {
+	 color: red;
+	}
+	#bs-modal {
+	 max-height: 100vh;
+	}
+	#bs-modal .modal-body {
+	 padding: 0px;
+	 max-height: 70vh;
+	 overflow-y: scroll;
+	}
+	#bs-modal .modal-body .container-fluid{
+	 padding: 0px 25px;
+	}
+	#bs-modal h3 {
+	 font-weight: 700;
+	 font-family: "Montserrat", sans-serif;
+	}
+	#bs-modal .nav-pills {
+	}
+	.smallinfo:nth-of-type(1) {
+	 color: #AAA;
+	 clear: left;
+	 margin: 3px 0px 0px 0px;
+	 font-size: 0.8em;
+	}
+	.smallinfo:nth-of-type(2) {
+	 color: #AAA;
+	 clear: left;
+	 margin: 0px 0px 3px 0px;
+	 font-size: 0.8em;
+	}
+	.team {
+	 width: 150px;
+	 color: #FFFFFF;
+	 cursor: cell;
+	 height: 50px;
+	 padding: 0px 15px;
+	 font-size: 36px;
+	 text-align: right;
+	 font-family: "Consolas", monospace;
+	}
+	.team:before {
+	 content: "$";
+	}
+	.teamRed {
+	 background: #FF0000;
+	 box-shadow: inset 0px 0px 10px 5px #8B0000;
+	}
+	.teamBlue {
+	 background: #0000FF;
+	 box-shadow: inset 0px 0px 10px 5px #00008B;
+	}
+	.teamBlue:hover {
+	 filter: brightness(105%);
+	}
+
+	.question {
+	 color: #EEEEEE;
+	 margin: 0px;
+	 padding: 25px 0px;
+	 font-size: 42px;
+	 text-align: center;
+	 font-weight: 400;
+	 font-family: "ITC Korinna", serif;
+	 text-shadow: 4px 4px black !important;
+	}
+	.answer {
+	 color: #CCCCCC;
+	 margin: 20px 0px 0px 0px;
+	 font-size: 36px;
+	 text-align: center;
+	 font-weight: 400;
+	 font-family: "ITC Korinna", serif;
+	 text-shadow: 4px 4px black !important;
+	}
+	table#gameboard {
+	 width: 100%;
+	 height: 45vh;
+	}
+	table#gameboard th {
+	 color: #DDDDDD;
+	 height: 50px;
+	 border: 4px solid black;
+	 font-size: 24px;
+	 background: #001D6F;
+	 text-align: center;
+	 font-weight: 400;
+	 font-family: "Swiss 911", "Impact", sans-serif;
+	 text-shadow: 2px 2px black;
+	}
+	table#gameboard td {
+	 color: #D49C53;
+	 height: 50px;
+	 border: 4px solid black;
+	 font-size: 36px;
+	 background: #001D6F;
+	 text-align: center;
+	 font-family: "Swiss 911", "Impact", sans-serif;
+	 text-shadow: 3px 3px black;
+	}
+	table#gameboard td:before {
+	 content: "$";
+	}
+	section#screen {
+	 width: 100%;
+	 height: 45.3vh;
+	 padding: 10px 50px;
+	 background: transparent;
+	}
+	section#screen div.row {
+	 margin-left: -50px;
+	 bottom: 25px;
+	 position: fixed;
+	}
+	div#overlay {
+	 width: 100%;
+	 height: 100vh;
+	 margin-top: -105vh;
+	 display: block;
+	 z-index: -40;
+	 padding: 50px;
+	 position: fixed;
+	 background: none;
+	}
+	div#overlay h1 {
+	 color: #BBBBBB;
+	 font-size: 256px;
+	 text-align: center;
+	 font-weight: 700;
+	 font-family: "Impact";
+	}
+	input[type="file"] {
+	 width: 200px;
+	 display: inline-block;
+	}
+	label {
+	 font-weight: 400;
+	}
+	button {
+	 outline: none !important;
+	}
+	.glyphicon-question-sign {
+	 color: #333 !important;
+	}
+
+	.btn-popout {
+	 width: 50px;
+	 height: 50px;
+	 position: fixed;
+	 background: #06F;
+	 border-radius: 100%;
+	 cursor: pointer;
+	 bottom: 20px;
+	 right: 20px;
+	 z-index: 1000 !important;
+	 transition: all 150ms ease-in-out;
+	 background: url("http://www.miclaymon.us/Logo/GN9_9_bw-cr_256.png");
+	 background-size: 100%;
+	 background-repeat: no-repeat;
+	 background-position: center center;
+	 background-attachment: absolute;
+	}
+	.btn-popout:hover {
+	 transition: all 150ms ease-in-out;
+	 box-shadow: 0px 0px 10px 1px white;
+	 background: url("http://www.miclaymon.us/Logo/GN9_9_wb-cr_256.png");
+	 background-size: 100%;
+	 background-repeat: no-repeat;
+	 background-position: center center;
+	 background-attachment: absolute;
+	}
+	.btn-popout span {
+	 color: #FFFFFF;
+	 font-size: 30px;
+	 text-align: center;
+	 position: absolute;
+	 top: 9px;
+	 right: 9px;
+	}
+	.autoQ:after {
+	 content: "?";
+	}
+
+
+
+
+
+	.excel {
+	 border: 1px solid black;
+	 min-width: 0px;
+	}
+	.excel td {
+	 color: black;
+	 width: 50%;
+	 height: 20px;
+	 border: 1px solid darkgreen;
+	 padding: 0px 5px;
+	 font-size: 12px;
+	 text-align: left;
+	 font-family: "Calibri", sans-serif;
+	 background: #ffffff;
+	 text-shadow: none;
+	}
+	div#my_file_output {
+	 border: none;
+	 min-width: 0px;
+	}
+	div#my_file_output td {
+	 color: black;
+	 width: 50%;
+	 height: 20px;
+	 border: none;
+	 padding: 0px 5px;
+	 font-size: 12px;
+	 text-align: left;
+	 font-family: "Calibri", sans-serif;
+	 background: #ffffff;
+	 text-shadow: none;
+	}
+
+
+
+
+
+
+
+
+	#bs-modal nav.navbar {
+	 border: none;
+	 border-radius: 0%;
+	}
+	#bs-modal nav.navbar section h2,
+	#bs-modal nav.navbar section img {
+	 display: inline;
+	 font-size: 2em;
+	}
+	#bs-modal nav.navbar section h2 {
+	 margin: 20px;
+	 font-size: 2em;
+	 font-weight: 700;
+	 font-family: "Montserrat", sans-serif;
+	}
+	#bs-modal nav.navbar section img#profilePic {
+	 height: 50px;
+	 margin: 10px 0px;
+	}
+	#bs-modal nav.navbar ul.navbar-right button.navbar-btn {
+	 margin: 20px 5px;
+	 font-weight: 700;
+	}
+
+
+
+	table#newsave-table {
+	 background: #666;
+	}
+	table#newsave-table textarea {
+	 margin: 0px;
+	}
+	table#newsave-table th, table#newsave-table td {
+	 border: 4px solid black;
+	}
+	table#newsave-table th textarea {
+	 resize: none;
+	 font-size: 1.5em;
+	 text-align: center;
+	}
+	table#newsave-table tr textarea {
+	 width: 100%;
+	 resize: vertical;
+	}
+	table#newsave-table td textarea:nth-of-type(1) {
+	 resize: none;
+	 outline: none;
+	 font-size: 2em;
+	 text-align: center;
+	 font-family: "Impact", sans-serif;
+	 box-shadow: inset 0px 0px 10px 1px black;
+	}
+
+
+
+
+
+
+	/*
+	.content-full {
+	 width: 100%;
+	 height: 100vh;
+	 display: block;
+	 z-index: 9999;
+	 position: absolute;
+	 background: black;
+	}
+	.content-full img {
+	 width: 33%;
+	 margin: 25vh 33%;
+	 opacity: 0;
+	 animation-name: dramatic-fadein;
+	 animation-delay: 1000ms;
+	 animation-duration: 5000ms;
+	 animation-timing-function: linear;
+	}
+
+	@keyframes dramatic-fadein {
+	   0% {opacity: 0;}
+	   80% {opacity: 1;}
+	   100% {opacity: 1;}
+	}
+	*/
+
+
+	table.teamtable tr td:nth-of-type(1) {
+	}
+	table.teamtable tr td:nth-of-type(2) {
+	 width: 110px;
+	}
+	table.teamtable tr td:nth-of-type(2) button {
+	 margin-top: 3px;
+	 margin-left: 5px;
+	}
+	table.teamtable textarea.teamMember {
+	 width: 100%;
+	 resize: none;
+	}
+
+	</style>
+	<title>Jeopardy!</title>
+</head>
+<body>
+	<audio id="jeopardy" loop="loop" src="http://www.gamernes9.com/hosting/audio/projects/jeopardy/theme.mp3"></audio> <audio id="endMusic" src="http://www.gamernes9.com/hosting/audio/projects/jeopardy/credits.mp3"></audio>
+	<meta charset="UTF-8">
+	<meta content="gamernes9, miclaymon, lca, lakeland chrsitian academy, jeopardy, game" name="keywords">
+	<meta content="Public Release 3.0" name="description">
+	<meta content="Michael Laymon, Nathaniel Smith" name="author"><!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">-->
+	<link rel="icon" href="http://www.gamernes9.com/hosting/images/main/GN9_9_bw-cr_256.png" type="image/png" sizes="256x256">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link href="jeopardy.css" rel="stylesheet" type="text/css">
+	<link href="http://miclaymon.us/resources/global.css" rel="stylesheet" type="text/css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.4-a/xls.js">
+	</script> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	</script> 
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+	</script> 
+	<script src="jeopardy.js" type="text/javascript">
+	</script> 
+	<script>
+
+	       var activeQuestion = "0";
+
+	var music = document.getElementById("jeopardy");
+	var endMusic = document.getElementById("endMusic");
+
+	var redScore = 0;
+	var blueScore = 0;
+
+	var question = 0;
+	var answer = 1;
+	var value = 2;
+
+	var winningTeam;
+
+	var antiSpam;
+
+	var usedCell = 0;
+
+	$(document).ready(function(){$('[data-toggle="popover"]').popover();});
+	$(document).ready(function(){$('span.uploadTXT').hide();});
+
+	$(document).ready(function() {
+	       $("#td1").click(function(){
+	           activeQuestion = "1";
+	           $('#td1').css("text-decoration","line-through");
+	           $('#td1').css("color","#666");
+	           $('#question').html(data[activeQuestion][0]);
+	           $('#answer').hide();
+	           music.play();
+	           $('#answer').html(data[activeQuestion][1]);
+	           antiSpam = 1;
+
+	       });
+	   $("#td2").click(function(){
+	       activeQuestion = "2";
+	       $('#td2').css("text-decoration","line-through");
+	       $('#td2').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	      
+	   });
+	   $("#td3").click(function(){
+	       activeQuestion = "3";
+	       $('#td3').css("text-decoration","line-through");
+	       $('#td3').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	       
+	   });
+	   $("#td4").click(function(){
+	       activeQuestion = "4";
+	       $('#td4').css("text-decoration","line-through");
+	       $('#td4').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	      
+	   });
+	   $("#td5").click(function(){
+	       activeQuestion = "5";
+	       $('#td5').css("text-decoration","line-through");
+	       $('#td5').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	      
+	   });
+	   $("#td6").click(function(){
+	       activeQuestion = "6";
+	       $('#td6').css("text-decoration","line-through");
+	       $('#td6').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	     
+	   });
+	   $("#td7").click(function(){
+	       activeQuestion = "7";
+	       $('#td7').css("text-decoration","line-through");
+	       $('#td7').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	      
+	   });
+	   $("#td8").click(function(){
+	       activeQuestion = "8";
+	       $('#td8').css("text-decoration","line-through");
+	       $('#td8').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	      
+	   });
+	   $("#td9").click(function(){
+	       activeQuestion = "9";
+	       $('#td9').css("text-decoration","line-through");
+	       $('#td9').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	    
+	   });
+	   $("#td10").click(function(){
+	       activeQuestion = "10";
+	       $('#td10').css("text-decoration","line-through");
+	       $('#td10').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	   
+	   });
+	   $("#td11").click(function(){
+	       activeQuestion = "11";
+	       $('#td11').css("text-decoration","line-through");
+	       $('#td11').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	      
+	   });
+	   $("#td12").click(function(){
+	       activeQuestion = "12";
+	       $('#td12').css("text-decoration","line-through");
+	       $('#td12').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	      
+	   });
+	   $("#td13").click(function(){
+	       activeQuestion = "13";
+	       $('#td13').css("text-decoration","line-through");
+	       $('#td13').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	      
+	   });
+	   $("#td14").click(function(){
+	       activeQuestion = "14";
+	       $('#td14').css("text-decoration","line-through");
+	       $('#td14').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	     
+	   });
+	   $("#td15").click(function(){
+	       activeQuestion = "15";
+	       $('#td15').css("text-decoration","line-through");
+	       $('#td15').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	      
+	   });
+	   $("#td16").click(function(){
+	       activeQuestion = "16";
+	       $('#td16').css("text-decoration","line-through");
+	       $('#td16').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	     
+	   });
+	   $("#td17").click(function(){
+	       activeQuestion = "17";
+	       $('#td17').css("text-decoration","line-through");
+	       $('#td17').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	      
+	   });
+	   $("#td18").click(function(){
+	       activeQuestion = "18";
+	       $('#td18').css("text-decoration","line-through");
+	       $('#td18').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	     
+	   });
+	   $("#td19").click(function(){
+	       activeQuestion = "19";
+	       $('#td19').css("text-decoration","line-through");
+	       $('#td19').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	      
+	   });
+	   $("#td20").click(function(){
+	       activeQuestion = "20";
+	       $('#td20').css("text-decoration","line-through");
+	       $('#td20').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	      
+	   });
+	   $("#td21").click(function(){
+	       activeQuestion = "21";
+	       $('#td21').css("text-decoration","line-through");
+	       $('#td21').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	      
+	   });
+	   $("#td22").click(function(){
+	       activeQuestion = "22";
+	       $('#td22').css("text-decoration","line-through");
+	       $('#td22').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	       
+	   });
+	   $("#td23").click(function(){
+	       activeQuestion = "23";
+	       $('#td23').css("text-decoration","line-through");
+	       $('#td23').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	       
+	   });
+	   $("#td24").click(function(){
+	       activeQuestion = "24";
+	       $('#td24').css("text-decoration","line-through");
+	       $('#td24').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	       
+	   });
+	   $("#td25").click(function(){
+	       activeQuestion = "25";
+	       $('#td25').css("text-decoration","line-through");
+	       $('#td25').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	      
+	   });
+	   $("#td26").click(function(){
+	       activeQuestion = "26";
+	       $('#td26').css("text-decoration","line-through");
+	       $('#td26').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	     
+	   });
+	   $("#td27").click(function(){
+	       activeQuestion = "27";
+	       $('#td27').css("text-decoration","line-through");
+	       $('#td27').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	      
+	   });
+	   $("#td28").click(function(){
+	       activeQuestion = "28";
+	       $('#td28').css("text-decoration","line-through");
+	       $('#td28').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	       
+	   });
+	   $("#td29").click(function(){
+	       activeQuestion = "29";
+	       $('#td29').css("text-decoration","line-through");
+	       $('#td29').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	       
+	   });
+	   $("#td30").click(function(){
+	       activeQuestion = "30";
+	       $('#td30').css("text-decoration","line-through");
+	       $('#td30').css("color","#666");
+	       $('#question').html(data[activeQuestion][0]);
+	       $('#answer').hide();
+	       music.play();
+	       $('#answer').html(data[activeQuestion][1]);
+	       antiSpam = 1;
+	      
+	   });
+	});
+
+	$(document).ready(function() {
+	   $("#revealAns").click(function(){
+	      $('#answer').toggle();
+	      music.load();
+	      music.pause();
+	      $(document).keyup(function(key) {
+	           switch(parseInt(key.which,10)) {
+	               case 82:
+	                   if(antiSpam>0){
+	                       redScore = redScore + parseInt(data[activeQuestion][2]);
+	                       $(".teamRed").html(redScore);
+	                       reset(activeQuestion);
+	                       antiSpam = 0;
+	                       usedCell = usedCell + 1;
+	                   }
+	               break;
+	               case 114:
+	                   if(antiSpam>0){
+	                       redScore = redScore + parseInt(data[activeQuestion][2]);
+	                       $(".teamRed").html(redScore);
+	                       reset(activeQuestion);
+	                       antiSpam = 0;
+	                       usedCell = usedCell + 1;
+	                       }
+	               break;
+	               case 66:
+	                   if(antiSpam>0){
+	                       blueScore = blueScore + parseInt(data[activeQuestion][2]);
+	                       $(".teamBlue").html(blueScore);
+	                       reset(activeQuestion);
+	                       antiSpam = 0;
+	                       usedCell = usedCell + 1;
+	                   }
+	               break;
+	               case 98:
+	               if(antiSpam>0){
+	                       blueScore = blueScore + parseInt(data[activeQuestion][2]);
+	                       $(".teamBlue").html(blueScore);
+	                       reset(activeQuestion);
+	                       antiSpam = 0;
+	                       usedCell = usedCell + 1;
+	               }
+	               break;
+	               case 88:
+	                       reset(activeQuestion);
+	                       usedCell = usedCell + 1;
+	               break;
+	               case 120:
+	                       reset(activeQuestion);
+	                       usedCell = usedCell + 1;
+	               break; 
+	               case 13:
+	                       $('#answer').toggle();
+	                       music.load();
+	                       music.pause();
+	               break;
+	           }
+	       });
+	   });
+	});    
+
+
+	$(document).ready(function(){
+	   $('#teamNameRed').keyup(function(){
+	       $('#redTeam').text($(this).val());
+	       $(".teamRed").attr("title",$(this).val());
+	   });
+	   $('#teamNameBlue').keyup(function(){
+	       $('#blueTeam').text($(this).val());
+	       $(".teamBlue").attr("title",$(this).val());
+	   });
+	   $('#colorRed').change(function(){
+	       $("#redTeam").css("color",$(this).val());
+	       $(".teamRed").css("background",$(this).val());
+	   });
+	   $('#colorBlue').change(function(){
+	       $("#blueTeam").css("color",$(this).val());
+	       $(".teamBlue").css("background",$(this).val());
+	   });
+	});
+
+	var hexColor = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'];
+	function changeShade(value,difference) {
+	   var oldShade = value;
+	   for (var it = oldShade.length - 1; i >= 0; i++) {
+	       //alert(oldShade[i]);
+
+	   }
+	   return newShade;
+	}
+
+	$(document).ready(function() {
+	   $('#survey-thanks').hide();
+	   $('#survey').dblclick(function(){
+	     $(this).fadeOut();
+	   });
+	   $('#survey button').click(function(){
+	     $('#survey').hide();
+	     $('#survey-thanks').fadeIn();
+	     $('#survey-thanks').delay(1000).fadeOut(2000);
+	   });
+
+
+	   var memberRow = '<tr><td><textarea class="teamMember form-control" rows="1"><\/textarea><\/td><td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove pull-left"><\/span><\/button><button class="btn btn-info pull-right"><span class="glyphicon glyphicon-plus"><\/span><\/button><\/td><\/tr>';
+	   $('table.teamtable button.btn-info').click(function(){
+	       $('table.teamtable tbody').append(memberRow);
+	       console.log( "Added player.");
+	   });
+	   $('table.teamtable button.btn-danger').click(function(){
+	       $(this).parent().parent().remove();
+	       console.log( "Removed player.");
+	   });
+
+
+
+	   /*$('#loadEngine img').fadeIn(3000,function(){
+	       $('#loadEngine').hide();
+	   });*/
+	   
+	   if($('#bs-modal').hasClass('in')){
+	       if(e.which == 13) {
+	           scan();
+	       }
+	   }
+	   else{
+	       $(document).keyup(function(e) {
+	           if(e.which == 13) {
+	                   $('#answer').toggle();
+	               music.load();
+	               music.pause();
+	           $(document).keyup(function(key) {
+	           switch(parseInt(key.which,10)) {
+	               case 82:
+	                   if(antiSpam>0){
+	                       redScore = redScore + parseInt(data[activeQuestion][2]);
+	                       $(".teamRed").html(redScore);
+	                       reset(activeQuestion);
+	                       antiSpam = 0;
+	                       usedCell = usedCell + 1;
+	                   }
+	               break;
+	               case 114:
+	                   if(antiSpam>0){
+	                       redScore = redScore + parseInt(data[activeQuestion][2]);
+	                       $(".teamRed").html(redScore);
+	                       reset(activeQuestion);
+	                       antiSpam = 0;
+	                       usedCell = usedCell + 1;
+	                       }
+	               break;
+	               case 66:
+	                   if(antiSpam>0){
+	                       blueScore = blueScore + parseInt(data[activeQuestion][2]);
+	                       $(".teamBlue").html(blueScore);
+	                       reset(activeQuestion);
+	                       antiSpam = 0;
+	                       usedCell = usedCell + 1;
+	                   }
+	               break;
+	               case 98:
+	               if(antiSpam>0){
+	                       blueScore = blueScore + parseInt(data[activeQuestion][2]);
+	                       $(".teamBlue").html(blueScore);
+	                       reset(activeQuestion);
+	                       antiSpam = 0;
+	                       usedCell = usedCell + 1;
+	               }
+	               break;
+	               case 88:
+	                       reset(activeQuestion);
+	                       usedCell = usedCell + 1;
+	               break;
+	               case 120:
+	                       reset(activeQuestion);
+	                       usedCell = usedCell + 1;
+	               break; 
+	               case 13:
+	                       $('#answer').toggle();
+	                       music.load();
+	                       music.pause();
+	               break;
+	                   }
+	               });
+	           }
+	       });
+	   }
+	});
+
+	function reset(activeQuestion) {
+	   activeQuestion = null;
+	   $('#answer').hide();
+	   $('#question').html("");
+	};
+
+	$(document).ready(function() {
+	 $(document).keyup(function(key) {
+	   switch(parseInt(key.which,10)) {
+	     case 27:
+	       if($('#bs-modal').hasClass('in')){
+	           $('#bs-modal').modal('hide');
+	       }
+	       else{
+	       var exitPrompt = confirm("Are you sure you want to end the game?");
+	       if (exitPrompt == true){
+	           music.pause();
+	           endMusic.play();
+	           $('#btn-popout').hide();
+	           $('#overlay').css("background-color","#142283");
+	           $('#revealAns').html('Restart the game');
+	           $('#revealAns').css("z-index","9999");
+	           $("#revealAns").click(function(){
+	               window.location.reload(true); 
+	           });
+	           if(blueScore<redScore){
+	               winningTeam = "RED TEAM WINS!";
+	               $('#overlay').css("background-color", "#ff1919");
+	               $('#screen').css("background-color", "#ff1919");
+	           }
+	           else if(blueScore>redScore){
+	               winningTeam = "BLUE TEAM WINS!";
+	           }
+	           else if(blueScore===redScore){
+	               winningTeam = "IT'S A TIE!";
+	           }
+	           else{
+	               winningTeam = "NEITHER TEAM WON!";
+	           } 
+	           $('#overlay h1').html(winningTeam);
+	           $('#overlay').css("z-index","9998");
+	       }
+	       else if (exitPrompt == false){
+	       }
+	     break;
+	   }
+	   }
+	 });
+	});
+
+	$(window).on('load',function(){ $('#bs-modal').modal('show'); });
+
+
+
+	var data={"category":["CAT1","CAT2","CAT3","CAT4","CAT5","CAT6"],"1":["question","answer","200"],"2":["question","answer","200"],"3":["question","answer","200"],"4":["question","answer","200"],"5":["question","answer","200"],"6":["question","answer","200"],"7":["question","answer","400"],"8":["question","answer","400"],"9":["question","answer","400"],"10":["question","answer","400"],"11":["question","answer","400"],"12":["question","answer","400"],"13":["question","answer","600"],"14":["question","answer","600"],"15":["question","answer","600"],"16":["question","answer","600"],"17":["question","answer","600"],"18":["question","answer","600"],"19":["question","answer","800"],"20":["question","answer","800"],"21":["question","answer","800"],"22":["question","answer","800"],"23":["question","answer","800"],"24":["question","answer","800"],"25":["question","answer","1000"],"26":["question","answer","1000"],"27":["question","answer","1000"],"28":["question","answer","1000"],"29":["question","answer","1000"],"30":["question","answer","1000"]};
+
+	// document scanner to import spreadsheet data
+
+	function scan() {
+	 $(document).ready(function(){$('span.uploadNo').show();});
+	 console.log("Searching for documents...");
+	 console.log("Found "+'1'+" document(s)");
+	 console.log("Scanning documents...");
+	 var sourceFile = "div#my_file_output td:nth-of-type(1)";
+	 var sf = sourceFile;
+	   loadProgress.text("92%");
+	   loadProgress.css("width","92%");
+	   loadProgress.attr("aria-valuenow","92");
+
+	   data = {
+	       "category":["CAT1","CAT2","CAT3","CAT4","CAT5","CAT6"],
+	       "1":["question","answer","200"],
+	       "2":["question","answer","200"],
+	       "3":["question","answer","200"],
+	       "4":["question","answer","200"],
+	       "5":["question","answer","200"],
+	       "6":["question","answer","200"],
+	       "7":["question","answer","400"],
+	       "8":["question","answer","400"],
+	       "9":["question","answer","400"],
+	       "10":["question","answer","400"],
+	       "11":["question","answer","400"],
+	       "12":["question","answer","400"],
+	       "13":["question","answer","600"],
+	       "14":["question","answer","600"],
+	       "15":["question","answer","600"],
+	       "16":["question","answer","600"],
+	       "17":["question","answer","600"],
+	       "18":["question","answer","600"],
+	       "19":["question","answer","800"],
+	       "20":["question","answer","800"],
+	       "21":["question","answer","800"],
+	       "22":["question","answer","800"],
+	       "23":["question","answer","800"],
+	       "24":["question","answer","800"],
+	       "25":["question","answer","1000"],
+	       "26":["question","answer","1000"],
+	       "27":["question","answer","1000"],
+	       "28":["question","answer","1000"],
+	       "29":["question","answer","1000"],
+	       "30":["question","answer","1000"]
+	   };
+
+	   loadProgress.text("95%");
+	   loadProgress.css("width","95%");
+	   loadProgress.attr("aria-valuenow","95");
+
+	   /* --------------- INITIALIZE DATA --------------- */
+
+	   // CATEGORY DATA
+	   data["category"][0] = $('div#my_file_output tr:nth-of-type(1) td:nth-of-type(1)').text(); // CAT1
+	   data["category"][1] = $('div#my_file_output tr:nth-of-type(2) td:nth-of-type(1)').text(); // CAT2
+	   data["category"][2] = $('div#my_file_output tr:nth-of-type(3) td:nth-of-type(1)').text(); // CAT3
+	   data["category"][3] = $('div#my_file_output tr:nth-of-type(4) td:nth-of-type(1)').text(); // CAT4
+	   data["category"][4] = $('div#my_file_output tr:nth-of-type(5) td:nth-of-type(1)').text(); // CAT5
+	   data["category"][5] = $('div#my_file_output tr:nth-of-type(6) td:nth-of-type(1)').text(); // CAT6
+	   // QUESTION DATA - ANSWER DATA
+	   data[1][question] =  $('div#my_file_output tr:nth-of-type(7)  td:nth-of-type(1)').text(); // CAT1:Q1
+	   data[1][answer] =    $('div#my_file_output tr:nth-of-type(7)  td:nth-of-type(2)').text(); // CAT1:A1
+	   data[2][question] =  $('div#my_file_output tr:nth-of-type(8)  td:nth-of-type(1)').text(); // CAT1:Q2
+	   data[2][answer] =    $('div#my_file_output tr:nth-of-type(8)  td:nth-of-type(2)').text(); // CAT1:A2
+	   data[3][question] =  $('div#my_file_output tr:nth-of-type(9)  td:nth-of-type(1)').text(); // CAT1:Q3
+	   data[3][answer] =    $('div#my_file_output tr:nth-of-type(9)  td:nth-of-type(2)').text(); // CAT1:A3
+	   data[4][question] =  $('div#my_file_output tr:nth-of-type(10) td:nth-of-type(1)').text(); // CAT1:Q4
+	   data[4][answer] =    $('div#my_file_output tr:nth-of-type(10) td:nth-of-type(2)').text(); // CAT1:A4
+	   data[5][question] =  $('div#my_file_output tr:nth-of-type(11) td:nth-of-type(1)').text(); // CAT1:Q5
+	   data[5][answer] =    $('div#my_file_output tr:nth-of-type(11) td:nth-of-type(2)').text(); // CAT1:A5
+	   data[6][question] =  $('div#my_file_output tr:nth-of-type(12) td:nth-of-type(1)').text(); // CAT2:Q1
+	   data[6][answer] =    $('div#my_file_output tr:nth-of-type(12) td:nth-of-type(2)').text(); // CAT2:A1
+	   data[7][question] =  $('div#my_file_output tr:nth-of-type(13) td:nth-of-type(1)').text(); // CAT2:Q2
+	   data[7][answer] =    $('div#my_file_output tr:nth-of-type(13) td:nth-of-type(2)').text(); // CAT2:A2
+	   data[8][question] =  $('div#my_file_output tr:nth-of-type(14) td:nth-of-type(1)').text(); // CAT2:Q3
+	   data[8][answer] =    $('div#my_file_output tr:nth-of-type(14) td:nth-of-type(2)').text(); // CAT2:A3
+	   data[9][question] =  $('div#my_file_output tr:nth-of-type(15) td:nth-of-type(1)').text(); // CAT2:Q4
+	   data[9][answer] =    $('div#my_file_output tr:nth-of-type(15) td:nth-of-type(2)').text(); // CAT2:A4
+	   data[10][question] = $('div#my_file_output tr:nth-of-type(16) td:nth-of-type(1)').text(); // CAT2:Q5
+	   data[10][answer] =   $('div#my_file_output tr:nth-of-type(16) td:nth-of-type(2)').text(); // CAT2:A5
+	   data[11][question] = $('div#my_file_output tr:nth-of-type(17) td:nth-of-type(1)').text(); // CAT3:Q1
+	   data[11][answer] =   $('div#my_file_output tr:nth-of-type(17) td:nth-of-type(2)').text(); // CAT3:A1
+	   data[12][question] = $('div#my_file_output tr:nth-of-type(18) td:nth-of-type(1)').text(); // CAT3:Q2
+	   data[12][answer] =   $('div#my_file_output tr:nth-of-type(18) td:nth-of-type(2)').text(); // CAT3:A2
+	   data[13][question] = $('div#my_file_output tr:nth-of-type(19) td:nth-of-type(1)').text(); // CAT3:Q3
+	   data[13][answer] =   $('div#my_file_output tr:nth-of-type(19) td:nth-of-type(2)').text(); // CAT3:A3
+	   data[14][question] = $('div#my_file_output tr:nth-of-type(20) td:nth-of-type(1)').text(); // CAT3:Q4
+	   data[14][answer] =   $('div#my_file_output tr:nth-of-type(20) td:nth-of-type(2)').text(); // CAT3:A4
+	   data[15][question] = $('div#my_file_output tr:nth-of-type(21) td:nth-of-type(1)').text(); // CAT3:Q5
+	   data[15][answer] =   $('div#my_file_output tr:nth-of-type(21) td:nth-of-type(2)').text(); // CAT3:A5
+	   data[16][question] = $('div#my_file_output tr:nth-of-type(22) td:nth-of-type(1)').text(); // CAT4:Q1
+	   data[16][answer] =   $('div#my_file_output tr:nth-of-type(22) td:nth-of-type(2)').text(); // CAT4:A1
+	   data[17][question] = $('div#my_file_output tr:nth-of-type(23) td:nth-of-type(1)').text(); // CAT4:Q2
+	   data[17][answer] =   $('div#my_file_output tr:nth-of-type(23) td:nth-of-type(2)').text(); // CAT4:A2
+	   data[18][question] = $('div#my_file_output tr:nth-of-type(24) td:nth-of-type(1)').text(); // CAT4:Q3
+	   data[18][answer] =   $('div#my_file_output tr:nth-of-type(24) td:nth-of-type(2)').text(); // CAT4:A3
+	   data[19][question] = $('div#my_file_output tr:nth-of-type(25) td:nth-of-type(1)').text(); // CAT4:Q4
+	   data[19][answer] =   $('div#my_file_output tr:nth-of-type(25) td:nth-of-type(2)').text(); // CAT4:A4
+	   data[20][question] = $('div#my_file_output tr:nth-of-type(26) td:nth-of-type(1)').text(); // CAT4:Q5
+	   data[20][answer] =   $('div#my_file_output tr:nth-of-type(26) td:nth-of-type(2)').text(); // CAT4:A5
+	   data[21][question] = $('div#my_file_output tr:nth-of-type(27) td:nth-of-type(1)').text(); // CAT5:Q1
+	   data[21][answer] =   $('div#my_file_output tr:nth-of-type(27) td:nth-of-type(2)').text(); // CAT5:A1
+	   data[22][question] = $('div#my_file_output tr:nth-of-type(28) td:nth-of-type(1)').text(); // CAT5:Q2
+	   data[22][answer] =   $('div#my_file_output tr:nth-of-type(28) td:nth-of-type(2)').text(); // CAT5:A2
+	   data[23][question] = $('div#my_file_output tr:nth-of-type(29) td:nth-of-type(1)').text(); // CAT5:Q3
+	   data[23][answer] =   $('div#my_file_output tr:nth-of-type(29) td:nth-of-type(2)').text(); // CAT5:A3
+	   data[24][question] = $('div#my_file_output tr:nth-of-type(30) td:nth-of-type(1)').text(); // CAT5:Q4
+	   data[24][answer] =   $('div#my_file_output tr:nth-of-type(30) td:nth-of-type(2)').text(); // CAT5:A4
+	   data[25][question] = $('div#my_file_output tr:nth-of-type(31) td:nth-of-type(1)').text(); // CAT5:Q5
+	   data[25][answer] =   $('div#my_file_output tr:nth-of-type(31) td:nth-of-type(2)').text(); // CAT5:A5
+	   data[26][question] = $('div#my_file_output tr:nth-of-type(32) td:nth-of-type(1)').text(); // CAT6:Q1
+	   data[26][answer] =   $('div#my_file_output tr:nth-of-type(32) td:nth-of-type(2)').text(); // CAT6:A1
+	   data[27][question] = $('div#my_file_output tr:nth-of-type(33) td:nth-of-type(1)').text(); // CAT6:Q2
+	   data[27][answer] =   $('div#my_file_output tr:nth-of-type(33) td:nth-of-type(2)').text(); // CAT6:A2
+	   data[28][question] = $('div#my_file_output tr:nth-of-type(34) td:nth-of-type(1)').text(); // CAT6:Q3
+	   data[28][answer] =   $('div#my_file_output tr:nth-of-type(34) td:nth-of-type(2)').text(); // CAT6:A3
+	   data[29][question] = $('div#my_file_output tr:nth-of-type(35) td:nth-of-type(1)').text(); // CAT6:Q4
+	   data[29][answer] =   $('div#my_file_output tr:nth-of-type(35) td:nth-of-type(2)').text(); // CAT6:A4
+	   data[30][question] = $('div#my_file_output tr:nth-of-type(36) td:nth-of-type(1)').text(); // CAT6:Q5
+	   data[30][answer] =   $('div#my_file_output tr:nth-of-type(36) td:nth-of-type(2)').text(); // CAT6:A5
+
+	   for (i=1; i<=30; i++) {
+	       for (k=0; k<=2; k++) {
+	           console.log(data[i][k]);
+
+	       }
+	   }
+
+	   for (j=0; j<=5; j++) {
+	       var nam = j+1;
+	       //console.log(data[0][j]);
+	       console.log( "Category "+ nam + ": " + data["category"][j] );
+	   }
+
+	   loadProgress.text("97%");
+	   loadProgress.css("width","97%");
+	   loadProgress.attr("aria-valuenow","97");
+
+	   // CHANGE CATEGORY LABELS
+	   $('th#cat1').html( data["category"][0] );
+	   $('th#cat2').html( data["category"][1] );
+	   $('th#cat3').html( data["category"][2] );
+	   $('th#cat4').html( data["category"][3] );
+	   $('th#cat5').html( data["category"][4] );
+	   $('th#cat6').html( data["category"][5] );
+
+
+	   /* --------------- ORGANIZE DATA --------------- */
+
+	   loadProgress.text("98%");
+	   loadProgress.css("width","98%");
+	   loadProgress.attr("aria-valuenow","98");
+
+	   // CATEGORY DATA
+	   data["category"][0] = $('div#my_file_output tr:nth-of-type(1) td:nth-of-type(1)').text(); // CAT1
+	   data["category"][1] = $('div#my_file_output tr:nth-of-type(2) td:nth-of-type(1)').text(); // CAT2
+	   data["category"][2] = $('div#my_file_output tr:nth-of-type(3) td:nth-of-type(1)').text(); // CAT3
+	   data["category"][3] = $('div#my_file_output tr:nth-of-type(4) td:nth-of-type(1)').text(); // CAT4
+	   data["category"][4] = $('div#my_file_output tr:nth-of-type(5) td:nth-of-type(1)').text(); // CAT5
+	   data["category"][5] = $('div#my_file_output tr:nth-of-type(6) td:nth-of-type(1)').text(); // CAT6
+	   // QUESTION DATA - ANSWER DATA
+	   data[1][question] =  $('div#my_file_output tr:nth-of-type(7)  td:nth-of-type(1)').text(); // CAT1:Q1
+	   data[1][answer] =    $('div#my_file_output tr:nth-of-type(7)  td:nth-of-type(2)').text(); // CAT1:A1
+	   data[7][question] =  $('div#my_file_output tr:nth-of-type(8)  td:nth-of-type(1)').text(); // CAT1:Q2
+	   data[7][answer] =    $('div#my_file_output tr:nth-of-type(8)  td:nth-of-type(2)').text(); // CAT1:A2
+	   data[13][question] = $('div#my_file_output tr:nth-of-type(9)  td:nth-of-type(1)').text(); // CAT1:Q3
+	   data[13][answer] =   $('div#my_file_output tr:nth-of-type(9)  td:nth-of-type(2)').text(); // CAT1:A3
+	   data[19][question] = $('div#my_file_output tr:nth-of-type(10) td:nth-of-type(1)').text(); // CAT1:Q4
+	   data[19][answer] =   $('div#my_file_output tr:nth-of-type(10) td:nth-of-type(2)').text(); // CAT1:A4
+	   data[25][question] = $('div#my_file_output tr:nth-of-type(11) td:nth-of-type(1)').text(); // CAT1:Q5
+	   data[25][answer] =   $('div#my_file_output tr:nth-of-type(11) td:nth-of-type(2)').text(); // CAT1:A5
+	   data[2][question] =  $('div#my_file_output tr:nth-of-type(12) td:nth-of-type(1)').text(); // CAT2:Q1
+	   data[2][answer] =    $('div#my_file_output tr:nth-of-type(12) td:nth-of-type(2)').text(); // CAT2:A1
+	   data[8][question] =  $('div#my_file_output tr:nth-of-type(13) td:nth-of-type(1)').text(); // CAT2:Q2
+	   data[8][answer] =    $('div#my_file_output tr:nth-of-type(13) td:nth-of-type(2)').text(); // CAT2:A2
+	   data[14][question] = $('div#my_file_output tr:nth-of-type(14) td:nth-of-type(1)').text(); // CAT2:Q3
+	   data[14][answer] =   $('div#my_file_output tr:nth-of-type(14) td:nth-of-type(2)').text(); // CAT2:A3
+	   data[20][question] = $('div#my_file_output tr:nth-of-type(15) td:nth-of-type(1)').text(); // CAT2:Q4
+	   data[20][answer] =   $('div#my_file_output tr:nth-of-type(15) td:nth-of-type(2)').text(); // CAT2:A4
+	   data[26][question] = $('div#my_file_output tr:nth-of-type(16) td:nth-of-type(1)').text(); // CAT2:Q5
+	   data[26][answer] =   $('div#my_file_output tr:nth-of-type(16) td:nth-of-type(2)').text(); // CAT2:A5
+	   data[3][question] =  $('div#my_file_output tr:nth-of-type(17) td:nth-of-type(1)').text(); // CAT3:Q1
+	   data[3][answer] =    $('div#my_file_output tr:nth-of-type(17) td:nth-of-type(2)').text(); // CAT3:A1
+	   data[9][question] =  $('div#my_file_output tr:nth-of-type(18) td:nth-of-type(1)').text(); // CAT3:Q2
+	   data[9][answer] =    $('div#my_file_output tr:nth-of-type(18) td:nth-of-type(2)').text(); // CAT3:A2
+	   data[15][question] = $('div#my_file_output tr:nth-of-type(19) td:nth-of-type(1)').text(); // CAT3:Q3
+	   data[15][answer] =   $('div#my_file_output tr:nth-of-type(19) td:nth-of-type(2)').text(); // CAT3:A3
+	   data[21][question] = $('div#my_file_output tr:nth-of-type(20) td:nth-of-type(1)').text(); // CAT3:Q4
+	   data[21][answer] =   $('div#my_file_output tr:nth-of-type(20) td:nth-of-type(2)').text(); // CAT3:A4
+	   data[27][question] = $('div#my_file_output tr:nth-of-type(21) td:nth-of-type(1)').text(); // CAT3:Q5
+	   data[27][answer] =   $('div#my_file_output tr:nth-of-type(21) td:nth-of-type(2)').text(); // CAT3:A5
+	   data[4][question] =  $('div#my_file_output tr:nth-of-type(22) td:nth-of-type(1)').text(); // CAT4:Q1
+	   data[4][answer] =    $('div#my_file_output tr:nth-of-type(22) td:nth-of-type(2)').text(); // CAT4:A1
+	   data[10][question] = $('div#my_file_output tr:nth-of-type(23) td:nth-of-type(1)').text(); // CAT4:Q2
+	   data[10][answer] =   $('div#my_file_output tr:nth-of-type(23) td:nth-of-type(2)').text(); // CAT4:A2
+	   data[16][question] = $('div#my_file_output tr:nth-of-type(24) td:nth-of-type(1)').text(); // CAT4:Q3
+	   data[16][answer] =   $('div#my_file_output tr:nth-of-type(24) td:nth-of-type(2)').text(); // CAT4:A3
+	   data[22][question] = $('div#my_file_output tr:nth-of-type(25) td:nth-of-type(1)').text(); // CAT4:Q4
+	   data[22][answer] =   $('div#my_file_output tr:nth-of-type(25) td:nth-of-type(2)').text(); // CAT4:A4
+	   data[28][question] = $('div#my_file_output tr:nth-of-type(26) td:nth-of-type(1)').text(); // CAT4:Q5
+	   data[28][answer] =   $('div#my_file_output tr:nth-of-type(26) td:nth-of-type(2)').text(); // CAT4:A5
+	   data[5][question] =  $('div#my_file_output tr:nth-of-type(27) td:nth-of-type(1)').text(); // CAT5:Q1
+	   data[5][answer] =    $('div#my_file_output tr:nth-of-type(27) td:nth-of-type(2)').text(); // CAT5:A1
+	   data[11][question] = $('div#my_file_output tr:nth-of-type(28) td:nth-of-type(1)').text(); // CAT5:Q2
+	   data[11][answer] =   $('div#my_file_output tr:nth-of-type(28) td:nth-of-type(2)').text(); // CAT5:A2
+	   data[17][question] = $('div#my_file_output tr:nth-of-type(29) td:nth-of-type(1)').text(); // CAT5:Q3
+	   data[27][answer] =   $('div#my_file_output tr:nth-of-type(29) td:nth-of-type(2)').text(); // CAT5:A3
+	   data[23][question] = $('div#my_file_output tr:nth-of-type(30) td:nth-of-type(1)').text(); // CAT5:Q4
+	   data[23][answer] =   $('div#my_file_output tr:nth-of-type(30) td:nth-of-type(2)').text(); // CAT5:A4
+	   data[29][question] = $('div#my_file_output tr:nth-of-type(31) td:nth-of-type(1)').text(); // CAT5:Q5
+	   data[29][answer] =   $('div#my_file_output tr:nth-of-type(31) td:nth-of-type(2)').text(); // CAT5:A5
+	   data[6][question] =  $('div#my_file_output tr:nth-of-type(32) td:nth-of-type(1)').text(); // CAT6:Q1
+	   data[6][answer] =    $('div#my_file_output tr:nth-of-type(32) td:nth-of-type(2)').text(); // CAT6:A1
+	   data[12][question] = $('div#my_file_output tr:nth-of-type(33) td:nth-of-type(1)').text(); // CAT6:Q2
+	   data[12][answer] =   $('div#my_file_output tr:nth-of-type(33) td:nth-of-type(2)').text(); // CAT6:A2
+	   data[18][question] = $('div#my_file_output tr:nth-of-type(34) td:nth-of-type(1)').text(); // CAT6:Q3
+	   data[18][answer] =   $('div#my_file_output tr:nth-of-type(34) td:nth-of-type(2)').text(); // CAT6:A3
+	   data[24][question] = $('div#my_file_output tr:nth-of-type(35) td:nth-of-type(1)').text(); // CAT6:Q4
+	   data[24][answer] =   $('div#my_file_output tr:nth-of-type(35) td:nth-of-type(2)').text(); // CAT6:A4
+	   data[30][question] = $('div#my_file_output tr:nth-of-type(36) td:nth-of-type(1)').text(); // CAT6:Q5
+	   data[30][answer] =   $('div#my_file_output tr:nth-of-type(36) td:nth-of-type(2)').text(); // CAT6:A5
+
+	   console.log(data);
+	   
+	   loadProgress.text("99%");
+	   loadProgress.css("width","99%");
+	   loadProgress.attr("aria-valuenow","99");
+
+	   for (i=1; i<=30; i++) {
+	       for (k=0; k<=2; k++) {
+	           console.log(data[i][k]);
+	       }
+	   }
+
+	   for (j=0; j<=5; j++) {
+	       var nam = j+1;
+	       //console.log(data[0][j]);
+	       console.log( "Category "+ nam + ": " + data["category"][j] );
+	   }
+
+	   // CHANGE CATEGORY LABELS
+	   $('th#cat1').html( data["category"][0] );
+	   $('th#cat2').html( data["category"][1] );
+	   $('th#cat3').html( data["category"][2] );
+	   $('th#cat4').html( data["category"][3] );
+	   $('th#cat5').html( data["category"][4] );
+	   $('th#cat6').html( data["category"][5] );
+
+	   $(document).ready(function(){$('span.uploadNo').hide();});
+	   console.log("Imported data from external file.");
+	   $('div#my_file_output').addClass("excel");
+	   //$('.excel').hide();
+	   $(document).ready(function(){$('span.uploadYes').show();});
+
+	   loadProgress.text("100%");
+	   loadProgress.css("width","100%");
+	   loadProgress.attr("aria-valuenow","100");
+
+	};
+
+
+
+	var loadProgress = $('div#importgame-progress');
+	loadProgress.text("0%");
+	loadProgress.css("width","0%");
+	loadProgress.attr("aria-valuenow","0");
+
+
+	loadProgress.text("0%");
+	loadProgress.css("width","0%");
+	loadProgress.attr("aria-valuenow","0");
+
+	//excel reading... DO NOT TOUCH
+
+	var oFileIn;
+
+	$(function() {
+	   oFileIn = document.getElementById('my_file_input');
+	   if(oFileIn.addEventListener) {
+	       oFileIn.addEventListener('change', filePicked, false);
+	   }
+	});
+
+	function filePicked(oEvent) {
+	   // Get The File From The Input
+	   loadProgress.text("5%");
+	   loadProgress.css("width","5%");
+	   loadProgress.attr("aria-valuenow","5");
+	   var oFile = oEvent.target.files[0];
+	   var sFilename = oFile.name;
+	   // Create A File Reader HTML5
+	   loadProgress.text("17%");
+	   loadProgress.css("width","17%");
+	   loadProgress.attr("aria-valuenow","17");
+	   var reader = new FileReader();
+	   $(document).ready(function(){$('span.uploadNo').show();});
+
+	   // Ready The Event For When A File Gets Selected
+	   loadProgress.text("36%");
+	   loadProgress.css("width","36%");
+	   loadProgress.attr("aria-valuenow","36");
+	   reader.onload = function(e) {
+	       var dat = e.target.result;
+	       var cfb = XLS.CFB.read(dat, {type: 'binary'});
+	       loadProgress.text("42%");
+	       loadProgress.css("width","42%");
+	       loadProgress.attr("aria-valuenow","42");
+	       var wb = XLS.parse_xlscfb(cfb);
+	       // Loop Over Each Sheet
+	       loadProgress.text("67%");
+	       loadProgress.css("width","67%");
+	       loadProgress.attr("aria-valuenow","67");
+	       wb.SheetNames.forEach(function(sheetName) {
+	           // Obtain The Current Row As CSV
+	           var sCSV = XLS.utils.make_csv(wb.Sheets[sheetName]);
+	           var dat = XLS.utils.sheet_to_json(wb.Sheets[sheetName], {header:1});
+	           loadProgress.text("74%");
+	           loadProgress.css("width","74%");
+	           loadProgress.attr("aria-valuenow","74");
+	           $.each(dat, function( indexR, valueR ) {
+	               var sRow = "<tr>";
+	               $.each(dat[indexR], function( indexC, valueC ) {
+	                   sRow = sRow + "<td>" + valueC + "<\/td>";
+	               });
+	               loadProgress.text("83%");
+	               loadProgress.css("width","83%");
+	               loadProgress.attr("aria-valuenow","83");
+	               sRow = sRow + "<\/tr>";
+	               $('div#my_file_output').hide();
+	               $("#my_file_output").append(sRow);
+	               loadProgress.text("88%");
+	               loadProgress.css("width","88%");
+	               loadProgress.attr("aria-valuenow","88");
+	               loadProgress.text("89%");
+	               loadProgress.css("width","89%");
+	               loadProgress.attr("aria-valuenow","89");
+	           });
+	       });
+	   };
+
+	   // Tell JS To Start Reading The File.. You could delay this if desired
+	   reader.readAsBinaryString(oFile);
+
+	 $(document).ready(function(){$('span.uploadNo').hide();});
+	 $(document).ready(function(){$('span.uploadYes').show();});
+
+	// miclaymon added
+	var outputDocument = oFile;
+
+	loadProgress.text("90%");
+	loadProgress.css("width","90%");
+	loadProgress.attr("aria-valuenow","90");
+
+	scan();
+
+	}
+
+	//end excel reading
+
+
+
+
+
+
+
+
+
+	function checkYT() {
+	   var gtmv = $('#newsave-music').val();
+	   if ( gtmv != undefined || gtmr != " " ) {
+	       if ( gtmv.toString().includes("http") && gtmv.toString().includes("youtube") ) {
+	           $('#newsave-music-p').addClass("has-success has-feedback");
+	           $('#newsave-music-a').addClass("collapse");
+	       }
+	       else if ( gtmv.toString().includes("http") && gtmv.toString().includes("youtu.be") ) {
+	           $('#newsave-music-p').addClass("has-success has-feedback");
+	           $('#newsave-music-a').addClass("collapse");
+	       }
+	       else {
+	           $('#newsave-music-p').addClass("has-error has-feedback");
+	           $('#newsave-music-a').addClass("in");
+	       }
+	   }
+	   var customMusic = gtmv;
+	   alert(gtmv);
+	};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/*
+
+	function setCookie(cname,cvalue,exdays) {
+	   var d = new Date(); // get Date
+	   d.setTime(d.getTime() + (exdays*24*60*60*1000)); // get Date & Time
+	   var expires = "expires=" + d.toGMTString(); // set expire to Date & Time
+	   alert(expires);
+	   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/"; // finalize the cookie with function parameter values
+	   alert(cname+"="+cvalue+";"+expires+";path=/");
+	}
+
+	function getCookie(cname) {
+	   var name = cname + "="; // set name equal to the name of cookie
+	   alert(name);
+	   var decodedCookie = decodeURIComponent(document.cookie); // decode the cookie
+	   alert(decodedCookie);
+	   var ca = decodedCookie.split(';'); // split the cookie
+	   alert(ca);
+	   for(var i = 0; i < ca.length; i++) {
+	       var c = ca[i];
+	       alert(c);
+	       while (c.charAt(0) == ' ') {
+	           c = c.substring(1);
+	       }
+	       if (c.indexOf(name) == 0) {
+	           return c.substring(name.length, c.length);
+	       }
+	   }
+	   return "";
+	}
+
+	function checkCookie() {
+	   var user=getCookie("username");
+	   alert(user);
+	   if (user != "") {
+	       alert("Welcome again " + user);
+	   } else {
+	      user = prompt("Please enter your name:","");
+	      if (user != "" && user != null) {
+	          setCookie("username", user, 30);
+	      }
+	   }
+	}
+
+
+	function saveGame(slot) {
+
+	   var webSaves = [data];
+	   var localSaves;
+	   document.cookie = localSaves+"="+webSaves+";"+"path=/";
+	   alert(webSaves);
+	   alert(localSaves);
+	  // document.cookie = saveSlot1 + "=" + data + ";" + expires + ";path=/";
+	};
+
+	*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/*
+
+	function saveLoad() {
+
+	};
+
+	*/
+
+	</script> <!--
+    <div id="loadEngine" class="content-full container-fluid" onload=" $('#loadEngine').delay(5000).css('height','0vh'); ">
+      <img src="http://miclaymon.us/Logo/GAMERNES9_white(4K).svg">
+    </div>
+-->
+	<div class="modal fade" id="bs-modal" role="dialog">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content hidden-xs">
+				<div class="modal-header no-select">
+					<button class="close" data-dismiss="modal" type="button">&times;</button>
+					<h4 class="modal-title">Jeopardy! 3.1 <span class="label label-default">BETA</span></h4>
+				</div>
+				<div class="modal-body">
+					<nav class="navbar navbar-default no-select">
+						<div class="container-fluid">
+							<section class="pull-left">
+								<img class="pull-left" id="profilePic" src="http://www.freeiconspng.com/uploads/am-a-19-year-old-multimedia-artist-student-from-manila--21.png">
+								<h2 class="pull-right">Jillian Faulk</h2>
+							</section>
+							<div class="nav navbar-nav navbar-right" style="margin-left: 2em">
+								<button class="btn btn-primary navbar-btn"><span class="glyphicon glyphicon-check"></span> Sign Up</button> <button class="btn btn-success navbar-btn"><span class="glyphicon glyphicon-log-in"></span> Login</button> <button class="btn btn-danger navbar-btn"><span class="glyphicon glyphicon-log-out"></span> Logout</button>
+							</div>
+						</div>
+					</nav>
+					<div class="container-fluid">
+						<section id="modal_signin">
+							<!-- this section will be hidden if a username cookie is detected, thus singling out first-timers -->
+							<h3>Sign In</h3>
+							<section class="form-horizontal">
+								<div class="form-group">
+									<label class="control-label col-sm-2 no-select" for="username">Username:</label>
+									<div class="col-sm-6">
+										<input class="form-control" id="username" name="username" type="text">
+									</div>
+								</div>
+							</section>
+						</section><br>
+						<hr>
+						<button onclick="changeShade('#00FF00',30)"></button>
+						<h3>Saves</h3>
+						<ul class="nav nav-tabs no-select">
+							<li>
+								<a data-toggle="tab" href="#bs-online"><span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;Online</a>
+							</li>
+							<li class="active">
+								<a data-toggle="tab" href="#bs-local"><span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;Local</a>
+							</li>
+							<li>
+								<a data-toggle="tab" href="#bs-new"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New</a>
+							</li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane fade" id="bs-online">
+								<br>
+								<div class="alert alert-danger">
+									<strong><span class="glyphicon glyphicon-exclamation-sign"></span></strong> This feature is not yet available.
+								</div>
+							</div>
+							<div class="tab-pane fade in active" id="bs-local">
+								<br>
+								<ul class="nav nav-pills nav-justified no-select">
+									<li class="active">
+										<a data-toggle="pill" href="#browser"><span class="glyphicon glyphicon-globe"></span>&nbsp;&nbsp;Browser</a>
+									</li>
+									<li>
+										<a data-toggle="pill" href="#computer"><span class="glyphicon glyphicon-hdd"></span>&nbsp;&nbsp;My PC</a>
+									</li>
+								</ul>
+								<div class="tab-content">
+									<div class="tab-pane fade in active" id="browser">
+										<br>
+										<div class="alert alert-success">
+											<strong><span class="glyphicon glyphicon-exclamation-sign"></span></strong> Work in progress.
+										</div>
+									</div>
+									<div class="tab-pane fade" id="computer">
+										<br>
+										<div class="progress">
+											<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="33" class="progress-bar progress-bar-striped active" id="importgame-progress" role="progressbar" style="width:33%">
+												33%
+											</div>
+										</div><input id="my_file_input" type="file"><span class="uploadTXT uploadYes">Success</span><span class="uploadTXT uploadNo">Failed</span>
+										<section style="display:block;">
+											<a href="http://www.miclaymon.us/resources/template.xls" onclick="window.open('http://www.miclaymon.us/resources/excel.rtf')">Download Template</a>&nbsp;<a data-content="Download file that you can overwrite, save, and re-upload." data-toggle="popover" data-trigger="focus" href="#" style="display:inline-block;"><span class="glyphicon glyphicon-question-sign no-select pointer"></span></a>
+											<section>
+												<section style="display:block;">
+													<a href="http://www.miclaymon.us/resources/instructions.rtf">Download Instructions</a>&nbsp;<a data-content="Download file that you can overwrite, save, and re-upload." data-toggle="popover" data-trigger="focus" href="#" style="display:inline-block;"><span class="glyphicon glyphicon-question-sign no-select pointer"></span></a>
+													<section></section>
+												</section>
+											</section>
+										</section>
+									</div>
+								</div>
+							</div>
+							<div class="tab-pane fade" id="bs-new">
+								<br>
+								<div class="alert alert-warning">
+									<strong><span class="glyphicon glyphicon-exclamation-sign"></span></strong> This feature is not yet available.
+								</div>
+								<section class="form-horizontal">
+									<div class="form-group">
+										<div class="col-sm-12">
+											<input class="form-control" id="newsave-name" name="newsave-name" placeholder="Title" type="text">
+										</div>
+									</div>
+									<div class="form-group" id="newsave-music-p">
+										<div class="col-sm-12">
+											<input class="form-control" id="newsave-music" onchange="checkYT();" placeholder="Paste YouTube URL here" type="text">
+										</div>
+									</div>
+									<div class="alert alert-danger collapse" id="newsave-music-a">
+										<span class="glyphicon glyphicon-remove-sign"></span> This form only accepts <strong>YouTube</strong> videos.
+									</div>
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h5 style="margin:0px;font-size:1.33em;display:inline;"><span class="glyphicon glyphicon-wrench"></span>&nbsp;&nbsp;<strong>Tools</strong></h5><span class="glyphicon glyphicon-info-sign pull-right pointer no-select" data-content="You can press tab when you finish a cell to move on to the next one." data-placement="left" data-toggle="popover" data-trigger="hover" style="font-size:1.33em;" title="Tip:"></span>
+										</div>
+										<div class="panel-body">
+											<label class="checkbox-inline no-select"><input data-target=".newsave-value" data-toggle="collapse" type="checkbox" value="">Toggle Values</label> <label class="checkbox-inline no-select"><input checked data-target=".newsave-question" data-toggle="collapse" type="checkbox" value="">Toggle Question</label> <label class="checkbox-inline no-select"><input checked data-target=".newsave-answer" data-toggle="collapse" type="checkbox" value="">Toggle Answer</label> <label class="checkbox-inline no-select"><input checked data-target=".newsave-category" data-toggle="collapse" type="checkbox" value="">Toggle Category</label> <button class="btn btn-danger pull-right" data-content="This action cannot be undone." data-placement="left" data-toggle="popover" data-trigger="hover" title="Warning!"><span class="glyphicon glyphicon-floppy-remove"></span>&nbsp;Clear</button> <!--<button title="Resets displays but not values" onclick="var oP4d9 = $('table#newsave-table textarea'); oP4d9.removeClass('in'); oP4d9.addClass('collapse'); oP4d9.addClass('in');">Reset</button>-->
+										</div>
+									</div>
+								</section>
+								<table id="newsave-table">
+									<tr>
+										<th>
+										<textarea class="newsave-category in" placeholder="Category" rows="1"></textarea></th>
+										<th>
+										<textarea class="newsave-category in" placeholder="Category" rows="1"></textarea></th>
+										<th>
+										<textarea class="newsave-category in" placeholder="Category" rows="1"></textarea></th>
+										<th>
+										<textarea class="newsave-category in" placeholder="Category" rows="1"></textarea></th>
+										<th>
+										<textarea class="newsave-category in" placeholder="Category" rows="1"></textarea></th>
+										<th>
+										<textarea class="newsave-category in" placeholder="Category" rows="1"></textarea></th>
+									</tr>
+									<tr>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$200</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$200</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$200</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$200</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$200</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$200</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+									</tr>
+									<tr>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$400</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$400</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$400</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$400</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$400</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$400</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+									</tr>
+									<tr>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$600</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$600</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$600</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$600</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$600</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$600</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+									</tr>
+									<tr>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$800</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$800</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$800</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$800</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$800</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$800</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+									</tr>
+									<tr>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$1000</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$1000</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$1000</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$1000</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$1000</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+										<td>
+										<textarea class="newsave-value collapse" disabled rows="1">$1000</textarea> 
+										<textarea class="newsave-question in" placeholder="Question" rows="4"></textarea> 
+										<textarea class="newsave-answer in" placeholder="Answer" rows="4"></textarea></td>
+									</tr>
+								</table><br>
+								<div class="panel panel-default">
+									<div class="panel-body">
+										<input id="autoQ" name="autoQuestionMark" type="checkbox" value="autoQuestionMark"><label for="autoQ">&nbsp;Automatically add "?"</label><!-- If checked, addClass .autoQ to either Question or Answer -->
+										 <button class="btn btn-primary navbar-btn pull-right"><span class="glyphicon glyphicon-floppy-saved"></span>&nbsp;Save</button>
+									</div>
+								</div><br>
+							</div>
+						</div><br>
+						<div id="my_file_output"></div><br>
+						<hr>
+						<h3>Game Settings</h3><br>
+						<div class="container-fluid">
+							<input id="gameRandomization" name="gameRandomization" type="radio" value="falseRandom"> <span class="gameType-TXT" id="gameType-TXT1" style="font-family: sans-serif">Default Cells</span><br>
+							<input id="gameRandomization" name="gameRandomization" type="radio" value="trueRandom"> <span class="gameType-TXT" id="gameType-TXT1" style="font-family: sans-serif">Randomize Cells</span><br>
+							<section class="container-fluid">
+								<input id="gameRandomizationCategories" name="gameRandomizationCategories" type="radio" value="allRandom"> <span class="gameType-TXT" id="gameType-TXT1" style="font-family: sans-serif">Ignore categories</span><br>
+								<input id="gameRandomizationCategories" name="gameRandomizationCategories" type="radio" value="categoryRandom"> <span class="gameType-TXT" id="gameType-TXT1" style="font-family: sans-serif">Do not ignore categories</span>
+							</section><br>
+							<input id="gameType" name="gameType" type="radio" value="TermFirst"> <span class="gameType-TXT" id="gameType-TXT1" style="font-family: sans-serif">Default (term then definition)</span><br>
+							<input id="gameType" name="gameType" type="radio" value="DefinitionFirst"> <span class="gameType-TXT" id="gameType-TXT1" style="font-family: sans-serif">Default (definition then term)</span><br>
+							<input id="gameType" name="gameType" type="radio" value="AnswersFirst"> <span class="gameType-TXT" id="gameType-TXT1" style="font-family: sans-serif">Jeopardy (answer with question form)</span><br>
+							<input id="gameType" name="gameType" type="radio" value="QuestionsFirst"> <span class="gameType-TXT" id="gameType-TXT2" style="font-family: sans-serif">Classic (answer with answer form)</span><br>
+							<br>
+							<input id="useDailyDouble" name="DailyDouble" type="checkbox" value="DailyDouble"><label for="useDailyDouble">&nbsp;Daily Double</label><br>
+							<input id="useDoubleJeopardy" name="DoubleJeopardy" type="checkbox" value="DoubleJeopardy"><label for="useDoubleJeopardy">&nbsp;Double Jeopardy</label><br>
+							<br>
+							<hr>
+							<h3>Teams</h3>
+							<div class="row">
+								<div class="col-xs-6">
+									<h4 id="redTeam" style="color:#FF0000;text-align:center;font-size:2.2em;font-weight:700;font-family:'Montserrat',sans-serif;">Red Team</h4>
+									<div class="form-group">
+										<label for="teamNameRed">Team Name:</label> <input class="form-control" id="teamNameRed" type="text" value="Red Team"> <input class="form-control" id="colorRed" name="teamColorRed" type="color" value="#FF0000">
+									</div><label for="teamNameRed">Members:</label>
+									<table class="table table-condensed teamtable" style="margin-bottom:5px;">
+										<tbody>
+											<tr>
+												<td>
+												<textarea class="teamMember form-control" rows="1"></textarea></td>
+												<td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove pull-left"></span></button><button class="btn btn-info pull-right"><span class="glyphicon glyphicon-plus"></span></button></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="col-xs-6">
+									<h4 id="blueTeam" style="color:#0000FF;text-align:center;font-size:2.2em;font-weight:700;font-family:'Montserrat',sans-serif;">Blue Team</h4>
+									<div class="form-group">
+										<label for="teamNameBlue">Team Name:</label> <input class="form-control" id="teamNameBlue" type="text" value="Blue Team"> <input class="form-control" id="colorBlue" name="teamColorBlue" type="color" value="#0000FF">
+									</div><label for="teamNameRed">Members:</label>
+									<table class="table table-condensed teamtable" style="margin-bottom:5px;">
+										<tbody>
+											<tr>
+												<td>
+												<textarea class="teamMember form-control" rows="1"></textarea></td>
+												<td><button class="btn btn-danger"><span class="glyphicon glyphicon-remove pull-left"></span></button><button class="btn btn-info pull-right"><span class="glyphicon glyphicon-plus"></span></button></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div><br>
+						</div><br>
+						<hr>
+						<h3>Survey</h3>
+						<div class="well" id="survey">
+							<h4>Which of the following do you find the most useful?</h4>
+							<div class="container-fluid">
+								<button class="btn btn-info btn-block">Saving files through an online account</button> <button class="btn btn-info btn-block">Making an intuitive editor</button> <button class="btn btn-info btn-block">Multiplayer servers</button> <button class="btn btn-info btn-block">Improving performance</button>
+							</div>
+						</div>
+						<h6 class="col-sm-12" id="survey-thanks" style="font-size:2em;text-align:center;">Thanks! :)</h6><br>
+					</div>
+				</div>
+				<div class="modal-footer no-select">
+					<button class="btn btn-default" data-dismiss="modal" type="button"><span class="glyphicon glyphicon-remove"></span>&nbsp;Cancel</button> <button class="btn btn-primary" data-dismiss="modal" onclick="scan();" type="button"><span class="glyphicon glyphicon-play"></span>&nbsp;<b>Play</b></button>
+					<p class="smallinfo pull-left"><a href="mailto:jeopardy@gamernes9.com">Feedback</a></p>
+					<p class="smallinfo pull-left">&copy; 2017 TeamCodeFlow - <span title="2017.05.10">Jeopardy v.3.1 Beta</span></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<nav class="navbar navbar-inverse no-select">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href=""><img src="http://www.gamernes9.com/hosting/images/projects/jeopardy/logo.jpg"></a>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<li style="list-style: none"><button class="btn btn-lg btn-default navbar-btn pull-left" data-target="#bs-modal" data-toggle="modal" style="margin:5px 15px;"><span class="glyphicon glyphicon-cog"></span></button></li>
+				<li class="team teamRed" data-content="team.members" data-placement="bottom" data-toggle="popover" data-trigger="hover" title="team.name">0</li>
+				<li class="team teamBlue" data-content="team.members" data-placement="bottom" data-toggle="popover" data-trigger="hover" title="team.name">0</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="">
+		<table class="hidden-xs no-select" id="gameboard">
+			<tr>
+				<th class="category" id="cat1">Category 1</th>
+				<th class="category" id="cat2">Category 2</th>
+				<th class="category" id="cat3">Category 3</th>
+				<th class="category" id="cat4">Category 4</th>
+				<th class="category" id="cat5">Category 5</th>
+				<th class="category" id="cat6">Category 6</th>
+			</tr>
+			<tr id="jRow1">
+				<td id="td1">200</td>
+				<td id="td2">200</td>
+				<td id="td3">200</td>
+				<td id="td4">200</td>
+				<td id="td5">200</td>
+				<td id="td6">200</td>
+			</tr>
+			<tr id="jRow2">
+				<td id="td7">400</td>
+				<td id="td8">400</td>
+				<td id="td9">400</td>
+				<td id="td10">400</td>
+				<td id="td11">400</td>
+				<td id="td12">400</td>
+			</tr>
+			<tr id="jRow3">
+				<td id="td13">600</td>
+				<td id="td14">600</td>
+				<td id="td15">600</td>
+				<td id="td16">600</td>
+				<td id="td17">600</td>
+				<td id="td18">600</td>
+			</tr>
+			<tr id="jRow4">
+				<td id="td19">800</td>
+				<td id="td20">800</td>
+				<td id="td21">800</td>
+				<td id="td22">800</td>
+				<td id="td23">800</td>
+				<td id="td24">800</td>
+			</tr>
+			<tr id="jRow5">
+				<td id="td25">1000</td>
+				<td id="td26">1000</td>
+				<td id="td27">1000</td>
+				<td id="td28">1000</td>
+				<td id="td29">1000</td>
+				<td id="td30">1000</td>
+			</tr>
+		</table>
+		<section id="screen">
+			<h5 class="question" id="question"></h5>
+			<h4 class="answer collapse" id="answer"></h4>
+			<div class="row col-xs-12" style="">
+				<button class="btn btn-default col-sm-2 col-sm-offset-5" data-toggle="collapse" id="revealAns" type="button">Show/Hide Answer</button>
+			</div>
+		</section>
+	</div>
+	<div id="overlay">
+		<h1><span style="color: red !important;"></span><br></h1>
+	</div>
+	<div class="content-full" id="loadEngine"><img src="http://miclaymon.us/Logo/GAMERNES9_white(4K).svg"></div><!-- CREDIT BUTTONS -->
+	<section id="overlay-shelf">
+		<div class="no-select pointer btn-popout" data-content="fullscreen" data-placement="right" data-toggle="popover" data-trigger="hover" id="FULL">
+			<span class="glyphicon glyphicon-fullscreen"></span>
+		</div>
+		<style type="text/css">
+		/*shelf*/section#overlay-shelf{width:50px;height:250px;position:fixed;background:transparent;bottom:20px;left:20px;z-index:1000 !important;}/*fullscreen*/#FULL.btn-popout{color:black !important;width:50px;height:50px;position:fixed;border-radius:100%;cursor:pointer;bottom:20px;left:20px;z-index:1000 !important;transition:all 150ms ease-in-out;background-size:100%;background-repeat:no-repeat;background:url();background-position:center center;background-attachment:absolute;}#FULL.btn-popout:hover{transition:all 150ms ease-in-out;box-shadow:0px 0px 10px 1px #FFF;background-size:100%;background-repeat:no-repeat;background-position:center center;background-attachment:absolute;background:black;}
+		</style>
+	</section><!-- CREDIT BUTTONS -->
+	<section id="overlay-shelf">
+		<a href="http://www.gamernes9.com">
+		<div class="no-select btn-popout" data-content="gamernes9" data-placement="left" data-toggle="popover" data-trigger="hover" id="GN9"></div></a><a href="http://www.miclaymon.us">
+		<div class="no-select btn-popout" data-content="miclaymon" data-placement="left" data-toggle="popover" data-trigger="hover" id="MIC"></div></a>
+		<style type="text/css">
+		/*shelf*/section#overlay-shelf{width:50px;height:250px;position:fixed;background:transparent;bottom:20px;right:20px;z-index:1000 !important;}/*gamernes9*/#GN9.btn-popout{width:50px;height:50px;position:fixed;border-radius:100%;cursor:pointer;bottom:20px;right:20px;z-index:1000 !important;transition:all 150ms ease-in-out;background: url("http://www.miclaymon.us/Logo/GN9_9_bw-cr_256.png");background-size:100%;background-repeat:no-repeat;background-position:center center;background-attachment:absolute;}#GN9.btn-popout:hover{transition:all 150ms ease-in-out;box-shadow:0px 0px 10px 1px #FFF;background:url("http://www.miclaymon.us/Logo/GN9_9_wb-cr_256.png");background-size:100%;background-repeat:no-repeat;background-position:center center;background-attachment:absolute;}/*miclaymon*/#MIC.btn-popout{width:50px;height:50px;position:fixed;border-radius:100%;cursor:pointer;bottom:90px;right:20px;z-index:1000 !important;transition:all 150ms ease-in-out;background: url("http://www.miclaymon.us/Logo/MIC_M_bw-cr_512.png");background-size:100%;background-repeat:no-repeat;background-position:center center;background-attachment:absolute;}#MIC.btn-popout:hover{height:50px;transition:all 150ms ease-in-out;box-shadow:0px 0px 10px 1px #FFF;background:url("http://www.miclaymon.us/Logo/MIC_M_wb-cr_512.png");background-size:100%;background-repeat:no-repeat;background-position:center center;background-attachment:absolute;bottom:90px;}
+		</style>
+	</section>
+</body>
+</html>

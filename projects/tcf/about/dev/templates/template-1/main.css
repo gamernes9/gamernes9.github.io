@@ -1,0 +1,44 @@
+
+
+@import url('https://fonts.googleapis.com/css?family=Francois+One|Montserrat:700');
+
+nav.navbar {
+	background: gold;
+}
+
+.navbar-brand {
+	padding: 4px 16px;
+}
+#logo {
+	height: 42px;
+}
+.jumbotron {
+	cursor: default;
+	background: url("https://4.bp.blogspot.com/-dmtGdxGFjJg/Uv-O1JwhIAI/AAAAAAAAkzo/IJnUeSbFVHc/s0/hot+coffee_Ultra+HD.jpg");
+	background-size: 110%;
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-attachment: fixed;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+.jumbotron h1 {
+	font-weight: 700;
+	font-family: "Montserrat", sans-serif;
+}
+.jumbotron h2 {
+	font-weight: 400;
+	font-family: "Francois One", sans-serif;
+}
+section	{
+	height: 40vh;
+	background: #DDD;
+}
+@media (max-width: 500px) {
+	.jumbotron {
+		height: 30vh;
+		background-size: 150%;
+	}
+}

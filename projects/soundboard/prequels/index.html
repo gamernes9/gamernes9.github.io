@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    html,
+    body {
+      padding-top: 6vh !important;
+    }
+    
+    .header {
+      top: 0px;
+      color: #000;
+      width: 100%;
+      height: 12vh;
+      margin: 0px;
+      z-index: 100;
+      display: block;
+      padding: 0px !important;
+      position: fixed;
+      background: #006;
+      border-bottom: 4px solid #003;
+    }
+    
+    .header h2 {
+      color: #FFF;
+      float: left;
+      clear: left;
+      width: auto;
+      margin: 0px 0px 0px 10px;
+      cursor: default;
+      display: inline;
+      font-size: 4em;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+    
+    .header section {
+      float: right;
+      clear: right;
+      margin: 2em;
+    }
+    
+    .header select {
+      float: right;
+      width: auto;
+      display: inline;
+      padding: 3px 5px 2px 0px;
+      font-size: 1.4em;
+    }
+    
+    .header input {
+      width: 300px;
+      padding: 0px 10px 0px 2px;
+      font-size: 1.4em;
+    }
+    
+    .soundbite {
+      color: #FFF;
+      padding: 0em !important;
+      text-align: justify;
+      border-bottom: 1px solid #000;
+      background: #111;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+    
+    .soundbite:hover {
+      cursor: pointer;
+      background: #222;
+    }
+    
+    .soundbite section {
+      margin: 10px 10px 10px 70px;
+    }
+    
+    .soundbite .person {
+      float: left;
+      width: 50px;
+      height: 50px;
+      margin: 10px;
+      border: 2px solid rgba(0, 0, 0, 0);
+      border-radius: 100%;
+      background-color: #000000;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-attachment: absolute;
+    }
+    
+    .anakin {
+      /* Anakin Skywalker */
+      background-size: 125%;
+      background-image: url("http://www.gamernes9.com/hosting/images/projects/soundboard/anakin.png");
+    }
+    
+    .kenobi {
+      /* (General) Obi-Wan Kenobi */
+      background-size: 100%;
+      background-image: url("http://www.gamernes9.com/hosting/images/projects/soundboard/kenobi.png");
+    }
+    
+    .senate {
+      /* Sheev Palpatine */
+      background-size: 100%;
+      background-image: url("http://www.gamernes9.com/hosting/images/projects/soundboard/senate.png");
+    }
+    
+    .grievous {
+      /* General Grievous */
+      background-size: 100%;
+      background-image: url("http://www.gamernes9.com/hosting/images/projects/soundboard/grievous.jpg");
+    }
+    
+    .padme {
+      /* Padme Amidalla */
+      background-size: 125%;
+      background-image: url("http://www.gamernes9.com/hosting/images/projects/soundboard/padme.jpg");
+    }
+    
+    .windu {
+      /* Mace Windu */
+      background-size: 125%;
+      background-image: url("http://www.gamernes9.com/hosting/images/projects/soundboard/windu.jpg");
+    }
+    
+    .lucas-son {
+      /* Annoying Youngling that happens to be George Lucas' son */
+      background-size: 125%;
+      background-image: url("http://www.gamernes9.com/hosting/images/projects/soundboard/lucas-son.png");
+    }
+    
+    .emperor {
+      /* The Emperor */
+      background-size: 150%;
+      background-image: url("http://www.gamernes9.com/hosting/images/projects/soundboard/emperor.png");
+    }
+    
+    .medic-droid {
+      /* Medical Birthing Droid */
+      background-size: 125%;
+      background-image: url("http://www.gamernes9.com/hosting/images/projects/soundboard/medic-droid.png");
+    }
+    
+    .vader {
+      /* Darth Vader */
+      background-size: 125%;
+      background-image: url("http://www.gamernes9.com/hosting/images/projects/soundboard/vader.png");
+    }
+    
+    .krennic {
+      /* Orson Krennic */
+      background-size: 125%;
+      background-image: url("http://www.gamernes9.com/hosting/images/projects/soundboard/krennic.png");
+    }
+    
+    .sithgungan {
+      /* Jar Jar Binks */
+      /* reference to alt gamernes9 */
+      background-size: 125%;
+      background-image: url("http://www.gamernes9.com/hosting/images/projects/soundboard/sithgungan.png");
+    }
+    
+    .fake-tarkin{
+      /* Grand Moff Wilhelm Tarkin */
+      /* reference to the bad CGI */
+      background-size: 125%;
+      background-image: url("http://www.gamernes9.com/hosting/images/projects/soundboard/fake-tarkin.jpg");
+    }
+
+    .dooku{
+      background-size: 100%;
+      background-image: url("http://www.gamernes9.com/hosting/images/projects/soundboard/dooku.jpeg");
+    }
+
+    .babyanakin{
+      background-size: 100%;
+      background-image: url("http://www.gamernes9.com/hosting/images/projects/soundboard/babyanakin.jpg");
+    }
+    .qui-gon{
+      background-size: 100%;
+      background-image: url("http://www.gamernes9.com/hosting/images/projects/soundboard/qui-gon.png");
+    }
+    .redleader{
+      background-size: 100%;
+      background-image: url("http://www.gamernes9.com/hosting/images/projects/soundboard/redleader.jpg");
+    }
+    .blueleader{
+      background-size: 110%;
+      background-image: url("http://www.gamernes9.com/hosting/images/projects/soundboard/blueleader.jpg");
+    }
+    .goldleader{
+      background-size: 110%;
+      background-image: url("http://www.gamernes9.com/hosting/images/projects/soundboard/goldleader.png");
+    }
+    .raddus{
+      background-size: 110%;
+      background-image: url("http://www.gamernes9.com/hosting/images/projects/soundboard/raddus.png");
+    }
+    .soundbite .person:hover {
+      border: 2px solid rgba(0, 102, 255, 0.5);
+    }
+    
+    .soundbite h5 {
+      color: #FFF;
+      font-size: 2em;
+      font-weight: 700;
+    }
+    
+    .soundbite h6 {
+      color: #BBB;
+      font-size: 1.4em;
+      font-style: italic;
+      text-align: left;
+      display: inline;
+    }
+    
+    @media (max-width: 768px) {
+      .header h2 {
+        width: 100%;
+        margin: 0.33em 0px 0px 0px;
+        font-size: 4em;
+        text-align: center;
+      }
+    }
+    
+    @media (max-width: 1175px) {
+      .header input {
+        width: 250px;
+      }
+    }
+    
+    @media (max-width: 1125px) {
+      .header input {
+        width: 200px;
+      }
+    }
+    
+    @media (max-width: 1075px) {
+      .header input {
+        width: 150px;
+      }
+    }
+  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="keywords" content="miclaymon, gamernes9, soundboard, star wars">
+  <meta name="description" content="Beta version of a soundboard developed by miclaymon and gemernes9 at miclaymon.us">
+  <meta name="author" content="Michael Laymon, Nathaniel Smith">
+  <title>Star Wars Prequels Soundboard</title>
+  <link rel="icon" href="http://www.gamernes9.com/hosting/images/main/GN9_9_bw-cr_256.png" type="image/png" sizes="256x256">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="http://miclaymon.us/resources/global.css">
+  <link rel="stylesheet" type="text/css" href="soundboard.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.4-a/xls.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+    function runFilter(x) {
+      console.log("Filter:" + x);
+      $("#narrowSound").val(x);
+      $(".soundbite").hide();
+      x = x.toString();
+      x = "." + x;
+      $(x).show();
+    }
+    
+    $("#narrowSound").dblclick(function() {
+      $(this).val("soundbite");
+      $(".soundbite").show();
+    });
+    
+    function playSound(sb) {
+      var sound = document.getElementById(sb);
+      console.log("Playing soundbite: " + sb);
+      return sound.play();
+    }
+  </script>
+</head>
+
+<body>
+  <div class="header">
+    <h2>♫ Soundboard</h2>
+    <!-- eventually include gifBoard -->
+    <section class="hidden-xs hidden-sm">
+      <input type="text" name="Search" placeholder="Search" disabled>
+      <select name="" id="narrowSound" class="" onchange="var ft = $(this).find(':selected').val().toString(); runFilter(ft);">
+          <option value="soundbite">All</option>
+            <option value="SW1">Star Wars I: The Phantom Menace</option>
+            <option value="SW2">Star Wars II: Attack of the Clones</option>
+            <option value="SW3">Star Wars III: Revenge of the Sith</option>
+            <option value="SWRO">Rogue One: A Star Wars Story</option>
+            <option value="SWHS" title = "Coming soon!" disabled>Han Solo: A Star Wars Story</option>
+        </select>
+    </section>
+  </div>
+
+  <!-- KEY
+    SW1 = Star Wars I: The Phantom Menace
+    SW2 = Star Wars II: Attack of the Clones
+    SW3 = Star Wars III: Revenge of the Sith
+    SWRO = Rogue One: A Star Wars Story
+    SWHS = Han Solo: A Star Wars Story
+    -->
+  <div class="soundbite SW1 col-xs-12" onclick="playSound('SW1_03');">
+    <div class="person qui-gon"></div>
+    <section>
+      <h5>The ability to speak does not make you intelligent. Now get out of here.</h5>
+      <h6 onclick="var ft = 'SW1'; runFilter(ft);">Star Wars: The Phantom Menace</h6>
+    </section>
+  </div>
+  <div class="soundbite SW1 col-xs-12" onclick="playSound('SW1_04');">
+    <div class="person qui-gon"></div>
+    <section>
+      <h5>There's always a bigger fish.</h5>
+      <h6 onclick="var ft = 'SW1'; runFilter(ft);">Star Wars: The Phantom Menace</h6>
+    </section>
+  </div>
+  <div class="soundbite SW1 col-xs-12" onclick="playSound('SW1_02');">
+    <div class="person babyanakin"></div>
+    <section>
+      <h5>It's working! It's working!</h5>
+      <h6 onclick="var ft = 'SW1'; runFilter(ft);">Star Wars: The Phantom Menace</h6>
+    </section>
+  </div>
+  <div class="soundbite SW1 col-xs-12" onclick="playSound('SW1_01');">
+    <div class="person senate"></div>
+    <section>
+      <h5>A surprise, to be sure, but a welcome one.</h5>
+      <h6 onclick="var ft = 'SW1'; runFilter(ft);">Star Wars: The Phantom Menace</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_28');">
+    <div class="person anakin"></div>
+    <section>
+      <h5>This is where the fun begins.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_38');">
+    <div class="person kenobi"></div>
+    <section>
+      <h5>No no no, nothing too fancy.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_43');">
+    <div class="person anakin"></div>
+    <section>
+      <h5>My powers have doubled since the last time we met, Count.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_44');">
+    <div class="person dooku"></div>
+    <section>
+      <h5>Good. Twice the pride, double the fall.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_40');">
+    <div class="person senate"></div>
+    <section>
+      <h5>Good, Anakin, good.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_41');">
+    <div class="person senate"></div>
+    <section>
+      <h5>Kill him. Kill him now.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_42');">
+    <div class="person senate"></div>
+    <section>
+      <h5>Do it.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_29');">
+    <div class="person kenobi"></div>
+    <section>
+      <h5>Wait a minute, how did this happen? We're smarter than this.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_02');">
+    <div class="person kenobi"></div>
+    <section>
+      <h5>Artoo, activate elevator 31174.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_07');">
+    <div class="person anakin"></div>
+    <section>
+      <h5>General Grievous. You're shorter than I expected.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_30');">
+    <div class="person anakin"></div>
+    <section>
+      <h5>We lost something.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_23');">
+    <div class="person kenobi"></div>
+    <section>
+      <h5>Not to worry. We are still flying half a ship.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_26');">
+    <div class="person kenobi"></div>
+    <section>
+      <h5>Another happy landing.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_45');">
+    <div class="person windu"></div>
+    <section>
+      <h5>You are on this council, but we do not grant you the rank of master.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_46');">
+    <div class="person anakin"></div>
+    <section>
+      <h5>What?</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_47');">
+    <div class="person anakin"></div>
+    <section>
+      <h5>How can you do this? This is outrageous, it's unfair!</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_48');">
+    <div class="person anakin"></div>
+    <section>
+      <h5>How can you be on the council, and not be a master?</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_03');">
+    <div class="person senate"></div>
+    <section>
+      <h5>Did you ever hear the tragedy of Darth Plagueis The Wise? No. I thought not. It's not a story the Jedi would tell you.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_09');">
+    <div class="person kenobi"></div>
+    <section>
+      <h5>Hello There!</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_08');">
+    <div class="person grievous"></div>
+    <section>
+      <h5>General Kenobi.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_25');">
+    <div class="person kenobi"></div>
+    <section>
+      <h5>So uncivilized.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_01');">
+    <div class="person senate"></div>
+    <section>
+      <h5>Are you threatening me, Master Jedi?</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_12');">
+    <div class="person senate"></div>
+    <section>
+      <h5>I am the Senate!</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_19');">
+    <div class="person senate"></div>
+    <section>
+      <h5>It's treason, then.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_10');">
+    <div class="person windu"></div>
+    <section>
+      <h5>He's too dangerous to be left alive!</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_21');">
+    <div class="person lucas-son"></div>
+    <section>
+      <h5>Master Skywalker, there are too many of them. What are we going to do?</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_15');">
+    <div class="person kenobi"></div>
+    <section>
+      <h5>I have seen a security hologram of him... killing younglings.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_11');">
+    <div class="person kenobi"></div>
+    <section>
+      <h5>I am so sorry.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_49');">
+    <div class="person padme"></div>
+    <section>
+      <h5>Anakin, you're breaking my heart.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_50');">
+    <div class="person padme"></div>
+    <section>
+      <h5>You're going down a path I can't follow.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_20');">
+    <div class="person anakin"></div>
+    <section>
+      <h5>Liar!</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_32');">
+    <div class="person anakin"></div>
+    <section>
+      <h5>You are with him!</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_34');">
+    <div class="person anakin"></div>
+    <section>
+      <h5>You turned her against me!</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_33');">
+    <div class="person kenobi"></div>
+    <section>
+      <h5>You have done that yourself.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_14');">
+    <div class="person anakin"></div>
+    <section>
+      <h5>I have brought peace, freedom, justice, and security to my new Empire.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_04');">
+    <div class="person anakin"></div>
+    <section>
+      <h5>Don't lecture me, Obi-Wan. I see through the lies of the Jedi.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_27');">
+    <div class="person anakin"></div>
+    <section>
+      <h5>This is the end for you, my master.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_06');">
+    <div class="person anakin"></div>
+    <section>
+      <h5>From my point of view the Jedi are evil!</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_31');">
+    <div class="person kenobi"></div>
+    <section>
+      <h5>Well then you are lost!</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_18');">
+    <div class="person kenobi"></div>
+    <section>
+      <h5>It's over Anakin! I have the high ground!</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_35');">
+    <div class="person anakin"></div>
+    <section>
+      <h5>You underestimate my power.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_05');">
+    <div class="person kenobi"></div>
+    <section>
+      <h5>Don't try it.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_37');">
+    <div class="person kenobi"></div>
+    <section>
+      <h5>You were the Chosen One!</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_17');">
+    <div class="person kenobi"></div>
+    <section>
+      <h5>It was said that you would destroy the Sith not join them!</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_39');">
+    <div class="person kenobi"></div>
+    <section>
+      <h5>Bring balance to the Force, not leave it in darkness!</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_13');">
+    <div class="person anakin"></div>
+    <section>
+      <h5>I hate you!</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_36');">
+    <div class="person kenobi"></div>
+    <section>
+      <h5>You were my brother Anakin! I loved you.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_24');">
+    <div class="person medic-droid"></div>
+    <section>
+      <h5>She has lost the will to live.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_16');">
+    <div class="person emperor"></div>
+    <section>
+      <h5>It seems in your anger... you killed her.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_22');">
+    <div class="person vader"></div>
+    <section>
+      <h5>No!</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SWRO col-xs-12" onclick="playSound('SWRO_01');">
+    <div class="person krennic"></div>
+    <section>
+      <h5>We stand here amidst my achievement, not yours!</h5>
+      <h6 onclick="var ft = 'SWRO'; runFilter(ft);">Rogue One: A Star Wars Story</h6>
+    </section>
+  </div>
+  <div class="soundbite SWRO col-xs-12" onclick="playSound('SWRO_02');">
+    <div class="person fake-tarkin"></div>
+    <section>
+      <h5>You may fire when ready.</h5>
+      <h6 onclick="var ft = 'SWRO'; runFilter(ft);">Rogue One: A Star Wars Story</h6>
+    </section>
+  </div>
+  <div class="soundbite SWRO col-xs-12" onclick="playSound('SWRO_03');">
+    <div class="person fake-tarkin"></div>
+    <section>
+      <h5>That won't be necessary. We need a statement, not a manifesto.</h5>
+      <h6 onclick="var ft = 'SWRO'; runFilter(ft);">Rogue One: A Star Wars Story</h6>
+    </section>
+  </div>
+  <div class="soundbite SWRO col-xs-12" onclick="playSound('SWRO_05');">
+    <div class="person vader"></div>
+    <section>
+      <h5>Be careful not to choke on your aspirations, Director.</h5>
+      <h6 onclick="var ft = 'SWRO'; runFilter(ft);">Rogue One: A Star Wars Story</h6>
+    </section>
+  </div>
+  <div class="soundbite SWRO col-xs-12" onclick="playSound('SWRO_04');">
+    <div class="person krennic"></div>
+    <section>
+      <h5>Are we blind? Deploy the garrison! Move!</h5>
+      <h6 onclick="var ft = 'SWRO'; runFilter(ft);">Rogue One: A Star Wars Story</h6>
+    </section>
+  </div>
+  <div class="soundbite SWRO col-xs-12" onclick="playSound('SWRO_06');">
+    <div class="person blueleader"></div>
+    <section>
+      <h5>Blue leader, standing by.</h5>
+      <h6 onclick="var ft = 'SWRO'; runFilter(ft);">Rogue One: A Star Wars Story</h6>
+    </section>
+  </div>
+  <div class="soundbite SWRO col-xs-12" onclick="playSound('SWRO_08');">
+    <div class="person redleader"></div>
+    <section>
+      <h5>This is red leader, standing by.</h5>
+      <h6 onclick="var ft = 'SWRO'; runFilter(ft);">Rogue One: A Star Wars Story</h6>
+    </section>
+  </div>
+  <div class="soundbite SWRO col-xs-12" onclick="playSound('SWRO_07');">
+    <div class="person goldleader"></div>
+    <section>
+      <h5>This is gold leader, standing by.</h5>
+      <h6 onclick="var ft = 'SWRO'; runFilter(ft);">Rogue One: A Star Wars Story</h6>
+    </section>
+  </div>
+  <div class="soundbite SWRO col-xs-12" onclick="playSound('SWRO_09');">
+    <div class="person raddus"></div>
+    <section>
+      <h5>That star destroyer is disabled!</h5>
+      <h6 onclick="var ft = 'SWRO'; runFilter(ft);">Rogue One: A Star Wars Story</h6>
+    </section>
+  </div>
+  <audio id="SW3_28" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_28.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_29" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_29.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_02" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_02.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_07" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_07.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_30" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_30.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_23" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_23.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_26" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_26.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_10" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_10.mp3" type="audio/mp3"></audio>
+  <audio id="SW1_01" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW1_01.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_03" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_03.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_09" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_09.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_08" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_08.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_25" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_25.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_01" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_01.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_12" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_12.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_19" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_19.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_21" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_21.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_15" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_15.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_11" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_11.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_20" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_20.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_32" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_32.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_34" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_34.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_33" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_33.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_14" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_14.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_04" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_04.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_27" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_27.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_06" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_06.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_31" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_31.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_18" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_18.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_35" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_35.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_05" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_05.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_37" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_37.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_17" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_17.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_13" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_13.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_36" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_36.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_24" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_24.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_16" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_16.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_22" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_22.mp3" type="audio/mp3"></audio>
+  <audio id="SWRO_01" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SWRO_01.mp3" type="audio/mp3"></audio>
+  <audio id="SWRO_02" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SWRO_02.mp3" type="audio/mp3"></audio>
+  <audio id="SWRO_03" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SWRO_03.mp3" type="audio/mp3"></audio>
+  <audio id="SWRO_04" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SWRO_04.mp3" type="audio/mp3"></audio>
+  <audio id="SWRO_05" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SWRO_05.mp3" type="audio/mp3"></audio>
+  <audio id="SWRO_06" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SWRO_06.mp3" type="audio/mp3"></audio>
+  <audio id="SWRO_07" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SWRO_07.mp3" type="audio/mp3"></audio>
+  <audio id="SWRO_08" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SWRO_08.mp3" type="audio/mp3"></audio>
+  <audio id="SWRO_09" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SWRO_09.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_38" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_38.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_39" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_39.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_40" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_40.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_41" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_41.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_42" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_42.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_43" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_43.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_44" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_44.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_45" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_45.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_46" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_46.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_47" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_47.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_48" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_48.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_49" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_49.mp3" type="audio/mp3"></audio>
+  <audio id="SW3_50" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW3_50.mp3" type="audio/mp3"></audio>
+  <audio id="SW1_02" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW1_02.mp3" type="audio/mp3"></audio>
+  <audio id="SW1_03" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW1_03.mp3" type="audio/mp3"></audio>
+  <audio id="SW1_04" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW1_04.mp3" type="audio/mp3"></audio>
+   <!-- CREDIT BUTTONS --><section id="overlay-shelf"><a href="http://www.gamernes9.com"><div id="GN9" class="no-select btn-popout" data-toggle="popover" data-trigger="hover" data-placement="left" data-content="gamernes9"></div></a><a href="http://www.miclaymon.us"><div id="MIC" class="no-select btn-popout" data-toggle="popover" data-trigger="hover" data-placement="left" data-content="miclaymon"></div></a><style type="text/css">/*shelf*/section#overlay-shelf{width:50px;height:250px;position:fixed;background:transparent;bottom:20px;right:20px;z-index:1000 !important;}/*gamernes9*/#GN9.btn-popout{width:50px;height:50px;position:fixed;border-radius:100%;cursor:pointer;bottom:20px;right:20px;z-index:1000 !important;transition:all 150ms ease-in-out;background: url("http://www.gamernes9.com/hosting/images/projects/jeopardy/GN9_9_bw-cr_256.png");background-size:100%;background-repeat:no-repeat;background-position:center center;background-attachment:absolute;}#GN9.btn-popout:hover{transition:all 150ms ease-in-out;box-shadow:0px 0px 10px 1px #FFF;background:url("http://www.gamernes9.com/hosting/images/projects/jeopardy/GN9_9_wb-cr_256.png");background-size:100%;background-repeat:no-repeat;background-position:center center;background-attachment:absolute;}</style></section>
+</body>
+
+</html>

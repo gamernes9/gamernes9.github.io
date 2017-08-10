@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="http://www.gamernes9.com/hosting/images/main/GN9_9_bw-cr_256.png" type="image/png" sizes="256x256">
+  <title>Interactive Music Gallery from Doctor Who</title>
+  <style>
+    img[src^="http://"] {
+      max-width: 10.5em;
+      max-height: 10.5em;
+      margin: 0em auto;
+    }
+    
+    img[src^="https://"] {
+      max-width: 10.5em;
+      max-height: 10.5em;
+      margin: 0em auto;
+    }
+    
+    td {
+      width: 10.5em;
+      height: 10.5em;
+    }
+    
+    td:hover {
+      background-size: 200% auto;
+      background-repeat: no-repeat;
+      background-attachment: absolute;
+      background-position: center;
+    }
+    
+    table {
+      margin: auto;
+    }
+    
+    h1 {
+      font-family: 'Bungee Shade', 'Monoton', sans-serif;
+      text-align: center;
+    }
+    
+    #buttons {
+      text-align: center;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Monoton" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <audio autoplay id="tardis" src="http://www.gamernes9.com/hosting/audio/projects/doctorwho/tardis.mp3" type="audio/mp3">
+    </audio>
+    <audio loop id="psych" src="http://www.gamernes9.com/hosting/audio/projects/doctorwho/psych.mp3" type="audio/mp3">
+    </audio>
+    <audio loop autoplay id="maintheme" src="http://www.gamernes9.com/hosting/audio/projects/doctorwho/maintheme.mp3" type="audio/mp3">
+    </audio>
+    <audio loop id="hartnell" src="http://www.gamernes9.com/hosting/audio/projects/doctorwho/hartnell.mp3"></audio>
+    <audio loop id="troughton" src="http://www.gamernes9.com/hosting/audio/projects/doctorwho/troughton.mp3"></audio>
+    <audio loop id="pertwee" src="http://www.gamernes9.com/hosting/audio/projects/doctorwho/pertwee.mp3"></audio>
+    <audio loop id="baker" src="http://www.gamernes9.com/hosting/audio/projects/doctorwho/baker.mp3"></audio>
+    <audio loop id="davison" src="http://www.gamernes9.com/hosting/audio/projects/doctorwho/davison.mp3"></audio>
+    <audio loop id="baker2" src="http://www.gamernes9.com/hosting/audio/projects/doctorwho/baker2.mp3"></audio>
+    <audio loop id="mccoy" src="http://www.gamernes9.com/hosting/audio/projects/doctorwho/mccoy.mp3"></audio>
+    <audio loop id="mcgann" src="http://www.gamernes9.com/hosting/audio/projects/doctorwho/mcgann.mp3"></audio>
+    <audio loop id="eccleston" src="http://www.gamernes9.com/hosting/audio/projects/doctorwho/eccleston.mp3"></audio>
+    <audio loop id="eccleston2" src="http://www.gamernes9.com/hosting/audio/projects/doctorwho/eccleston2.mp3"></audio>
+    <audio loop id="tennant" src="http://www.gamernes9.com/hosting/audio/projects/doctorwho/tennant.mp3"></audio>
+    <audio loop id="tennant2" src="http://www.gamernes9.com/hosting/audio/projects/doctorwho/tennant2.mp3"></audio>
+    <audio loop id="smith" src="http://www.gamernes9.com/hosting/audio/projects/doctorwho/smith.mp3"></audio>
+    <audio loop id="smith2" src="http://www.gamernes9.com/hosting/audio/projects/doctorwho/smith2.mp3"></audio>
+    <audio loop id="capaldi" src="http://www.gamernes9.com/hosting/audio/projects/doctorwho/capaldi.mp3"></audio>
+    <audio loop id="capaldi2" src="http://www.gamernes9.com/hosting/audio/projects/doctorwho/capaldi2.mp3"></audio>
+    <div>
+      <h1 onmouseover="document.getElementById('psych').play()" onmouseout="document.getElementById('psych').pause()">Doctor Who?</h1></div>
+    <table align="center">
+      <tbody>
+        <tr>
+          <td>
+            <a href="https://goo.gl/JH3L4"><img src="http://www.gamernes9.com/hosting/images/projects/doctorwho/firstdoctor.png" onmouseover="document.getElementById('hartnell').play()" onmouseout="document.getElementById('hartnell').pause()"></a>
+          </td>
+          <td>
+            <a href="https://goo.gl/eW8pu7"><img src="http://www.gamernes9.com/hosting/images/projects/doctorwho/seconddoctor.png" title="Patrick Troughton" onmouseover="document.getElementById('troughton').play()"
+                onmouseout="document.getElementById('troughton').pause()"></a>
+          </td>
+          <td id="pert">
+            <a href="https://goo.gl/HvFpnJ"><img src="http://www.gamernes9.com/hosting/images/projects/doctorwho/thirddoctor.png" title="Jon Pertwee" onmouseover="document.getElementById('pertwee').play()"
+                onmouseout="document.getElementById('pertwee').pause()"></a>
+          </td>
+          <td>
+            <a href="https://goo.gl/NtAZFO"><img src="http://www.gamernes9.com/hosting/images/projects/doctorwho/fourthdoctor.png" title="Tom Baker" onmouseover="document.getElementById('baker').play()"
+                onmouseout="document.getElementById('baker').pause()"></a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="https://goo.gl/jtyBHX"><img src="http://www.gamernes9.com/hosting/images/projects/doctorwho/fifthdoctor.png" title="Peter Davison" onmouseover="document.getElementById('davison').play()"
+                onmouseout="document.getElementById('davison').pause()"></a>
+          </td>
+          <td>
+            <a href="https://goo.gl/Xd2fmd"><img src="http://www.gamernes9.com/hosting/images/projects/doctorwho/sixthdoctor.png" title="Colin Baker" onmouseover="document.getElementById('baker2').play()"
+                onmouseout="document.getElementById('baker2').pause()"></a>
+          </td>
+          <td>
+            <a href="https://goo.gl/ySJTqD"><img src="http://www.gamernes9.com/hosting/images/projects/doctorwho/seventhdoctor.png" title="Sylvester Mccoy" onmouseover="document.getElementById('mccoy').play()" onmouseout="document.getElementById('mccoy').pause()"></a>
+          </td>
+          <td>
+            <a href="https://goo.gl/o4NqWU"><img src="http://www.gamernes9.com/hosting/images/projects/doctorwho/eighthdoctor.png" title="Paul Mcgann" onmouseover="document.getElementById('mcgann').play()" onmouseout="document.getElementById('mcgann').pause()"></a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="https://goo.gl/nUvDG0"><img id="ecc" src="http://www.gamernes9.com/hosting/images/projects/doctorwho/ninthdoctor.png" title="Christopher Eccleston" onmouseover="document.getElementById('eccleston').play()"
+                onmouseout="document.getElementById('eccleston').pause()"></a>
+          </td>
+          <td>
+            <a href="https://goo.gl/DGTIGy"><img id="ten" src="http://www.gamernes9.com/hosting/images/projects/doctorwho/tenthdoctor.png" title="David Tennant" onmouseover="document.getElementById('tennant').play()"
+                onmouseout="document.getElementById('tennant').pause()"></a>
+          </td>
+          <td>
+            <a href="https://goo.gl/gL114r"><img id="smi" src="http://www.gamernes9.com/hosting/images/projects/doctorwho/eleventhdoctor.png" title="Matt Smith" onmouseover="document.getElementById('smith').play()"
+                onmouseout="document.getElementById('smith').pause()"></a>
+          </td>
+          <td>
+            <a href="https://goo.gl/wam2lr"><img id="cap" src="http://www.gamernes9.com/hosting/images/projects/doctorwho/twelfthdoctor.png" title="Peter Capaldi" onmouseover="document.getElementById('capaldi').play()" onmouseout="document.getElementById('capaldi').pause()"></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div id="buttons">
+      <button id="buttonA" onclick="aFunction()">Character Themes</button>
+      <button id="buttonB" onclick="bFunction()">Main Themes</button>
+    </div>
+  </body>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+
+  <script>
+    $(document).ready(function() {});
+    var cooljams = document.getElementById("maintheme");
+    var tardis1 = document.getElementById("tardis");
+    $(function() {
+      $("td")
+        .on("mouseenter", function() {
+          cooljams.pause();
+          tardis1.pause();
+        })
+        .on("mouseleave", function() {
+          cooljams.play();
+        });
+    });
+    $(function() {
+      $("div")
+        .on("mouseenter", function() {
+          cooljams.pause();
+          tardis1.pause();
+        })
+        .on("mouseleave", function() {
+          cooljams.play();
+        });
+    });
+    var audio = document.getElementById("tardis");
+    cooljams.pause();
+    audio.addEventListener("ended", function() {
+      cooljams.play();
+    });
+    
+    function bFunction() {
+      document
+        .getElementById("ecc")
+        .setAttribute(
+          "onmouseover",
+          "document.getElementById('eccleston2').play()"
+        );
+      document
+        .getElementById("ecc")
+        .setAttribute(
+          "onmouseout",
+          "document.getElementById('eccleston2').pause()"
+        );
+      document
+        .getElementById("ten")
+        .setAttribute("onmouseover", "document.getElementById('tennant2').play()");
+      document
+        .getElementById("ten")
+        .setAttribute("onmouseout", "document.getElementById('tennant2').pause()");
+      document
+        .getElementById("smi")
+        .setAttribute("onmouseover", "document.getElementById('smith2').play()");
+      document
+        .getElementById("smi")
+        .setAttribute("onmouseout", "document.getElementById('smith2').pause()");
+      document
+        .getElementById("cap")
+        .setAttribute("onmouseover", "document.getElementById('capaldi2').play()");
+      document
+        .getElementById("cap")
+        .setAttribute("onmouseout", "document.getElementById('capaldi2').pause()");
+    }
+    
+    function aFunction() {
+      document
+        .getElementById("ecc")
+        .setAttribute("onmouseover", "document.getElementById('eccleston').play()");
+      document
+        .getElementById("ecc")
+        .setAttribute("onmouseout", "document.getElementById('eccleston').pause()");
+      document
+        .getElementById("ten")
+        .setAttribute("onmouseover", "document.getElementById('tennant').play()");
+      document
+        .getElementById("ten")
+        .setAttribute("onmouseout", "document.getElementById('tennant').pause()");
+      document
+        .getElementById("smi")
+        .setAttribute("onmouseover", "document.getElementById('smith').play()");
+      document
+        .getElementById("smi")
+        .setAttribute("onmouseout", "document.getElementById('smith').pause()");
+      document
+        .getElementById("cap")
+        .setAttribute("onmouseover", "document.getElementById('capaldi').play()");
+      document
+        .getElementById("cap")
+        .setAttribute("onmouseout", "document.getElementById('capaldi').pause()");
+    }
+    var backgroundMusic = document.getElementById("maintheme");
+    backgroundMusic.volume = 0.5;
+    var tennantMusic = document.getElementById("tennant");
+    tennantMusic.volume = 2;
+  </script>
+
+</body>
+
+</html>

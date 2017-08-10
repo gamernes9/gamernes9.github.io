@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Identity Project</title>
+
+  <link rel="icon" href="http://www.gamernes9.com/hosting/images/main/GN9_9_bw-cr_256.png" type="image/png" sizes="256x256">
+
+  <style>
+    /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+    /* Typography and Type Color*/
+    
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: -apple-system, '.SFNSText-Regular', 'Helvetica Neue', 'Roboto', 'Segoe UI', sans-serif;
+      font-weight: 400;
+      margin: 0;
+      color: #333333;
+    }
+    
+    body,
+    p,
+    a,
+    li {
+      font-family: -apple-system, '.SFNSText-Regular', 'Helvetica Neue', 'Roboto', 'Segoe UI', sans-serif;
+      font-weight: 300;
+      font-size: 20px;
+      color: #333333;
+    }
+    
+    a {
+      text-decoration: none;
+      transition: 300ms;
+    }
+    
+    a:hover,
+    a.light:hover,
+    a:active,
+    a.light:active {
+      color: rgb(252, 217, 153);
+    }
+    
+    a.light {
+      color: #fff;
+      transition: 300ms;
+    }
+    
+    h3 {
+      font-size: 50px;
+      line-height: 55px;
+      margin-bottom: 15px;
+      text-shadow: 3px 3px #fff;
+    }
+    
+    h4 {
+      font-size: 28px;
+      line-height: 30px;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px #fff;
+    }
+    /* Default Colors */
+    
+    body {
+      background-color: #f0f0f0;
+      margin: 0;
+    }
+    
+    #testdiv {
+      background-color: #F6F6F6;
+    }
+    /* Main Content Styling */
+    
+    .inner-content {
+      max-width: 1080px;
+      margin: auto;
+    }
+    
+    .homepage-panel {
+      min-height: 100vh;
+    }
+    /* Top panel */
+    
+    .top-panel {
+      background: url("http://www.gamernes9.com/hosting/images/projects/identity/imac.jpg") no-repeat #000 center;
+      background-size: cover;
+      background-attachment: fixed;
+      background-opacity: 0.5;
+      height: 100vh;
+    }
+    
+    .top-panel-text {
+      padding-top: 20vh;
+      text-align: center;
+    }
+    /* Navigation */
+    
+    .navigation-wrapper {
+      width: 100%;
+      background-color: #333333;
+      position: fixed;
+      top: 0;
+      z-index: 999999;
+    }
+    
+    .navigation {
+      padding: 0;
+      list-style: none;
+    }
+    
+    .navigation>li {
+      display: inline-block;
+      box-sizing: border-box;
+      padding: 7px 15px;
+      color: #fff;
+    }
+    
+    .navigation>li a {
+      color: #fff;
+    }
+    
+    .navigation>li.right {
+      float: right;
+    }
+    /* About */
+    
+    .about-wrapper {
+      background-color: #fff;
+      box-sizing: border-box;
+      padding: 100px 10px;
+      text-align: center;
+    }
+    /* Lightboxes */
+    
+    .link-boxes {
+      margin: 100px auto;
+      text-align: center;
+    }
+    
+    .link-box-wrapper {
+      max-height: 480px;
+      max-width: 310px;
+      height: 480px;
+      width: 320px;
+      position: relative;
+      overflow: hidden;
+      background-color: #fff;
+      display: inline-block;
+      vertical-align: top;
+      margin: 10px;
+    }
+    
+    .link-box {
+      width: 100%;
+      height: 100%;
+    }
+    
+    .link-box.link.box-1 {
+      background: url("http://www.gamernes9.com/hosting/images/projects/identity/NES.jpg") no-repeat #000 center;
+      background-size: cover;
+    }
+    
+    .link-box.link.box-2 {
+      background: url("http://www.gamernes9.com/hosting/images/projects/identity/binary.png") no-repeat #000 center;
+      background-size: cover;
+    }
+    
+    .link-box.link.box-3 {
+      background: url("http://www.gamernes9.com/hosting/images/projects/identity/comic.jpg") no-repeat #000 center;
+      background-size: cover;
+    }
+    
+    .link-box.link {
+      display: block;
+      -webkit-transition: all 0.4s ease-in-out;
+      -moz-transition: all 0.4s ease-in-out;
+      -ms-transition: all 0.4s ease-in-out;
+      -o-transition: all 0.4s ease-in-out;
+    }
+    
+    .lb-overlay {
+      position: absolute;
+      z-index: 100;
+      background-color: #fff;
+      left: 0;
+      right: 0;
+    }
+    
+    .lb-top {
+      top: 0;
+      height: 70%;
+      border-bottom-right-radius: 160px;
+      border-bottom-left-radius: 160px;
+      transition-property: all;
+      transition-duration: .5s;
+      transition-timing-function: cubic-bezier(0, 1, 0.8, 1);
+    }
+    
+    .link-box:hover .lb-top {
+      transform: translateY(-350px) scaleX(50);
+    }
+    
+    .lb-top-text {
+      position: absolute;
+      top: 30px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      box-sizing: border-box;
+      padding: 15px;
+      z-index: 200;
+      transition: 300ms;
+    }
+    
+    .link-box:hover .lb-top-text {
+      transform: translateY(-20px);
+    }
+    
+    .link-box:hover .lb-top-text>p {
+      opacity: 0;
+    }
+    
+    .lb-bottom {
+      bottom: 0;
+      height: 0;
+      max-height: 50px;
+      transition-property: all;
+      transition-duration: .5s;
+      transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+      text-align: center;
+    }
+    
+    .lb-bottom h4 {
+      margin-top: 10px;
+      transition: 200ms;
+    }
+    
+    .link-box:hover .lb-bottom {
+      height: 50px;
+    }
+    
+    .lb-bottom:hover h4 {
+      transform: scale(1.05);
+    }
+    
+    .lb-screen {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: #000;
+      opacity: 0.5;
+      z-index: 1;
+      transition: 500ms;
+    }
+    
+    .link-box:hover .lb-screen {
+      opacity: 0;
+    }
+    /* contact panel */
+    
+    .contact-wrapper {
+      width: 100%;
+      background-color: rgb(171, 211, 255);
+      text-align: center;
+      box-sizing: border-box;
+      padding: 100px 20px 50px 20px;
+    }
+    
+    .textinput {
+      padding: 12px;
+      border-radius: 5px;
+      border: 0;
+      width: 100%;
+      max-width: 700px;
+      margin: 10px 0;
+      font-family: 'Open Sans Condensed', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+    }
+    
+    textarea {
+      resize: vertical;
+    }
+    
+    textarea:focus,
+    .textinput:focus {
+      outline: 0;
+    }
+    
+    .submit {
+      display: block;
+      margin: 10px auto;
+      border: 0;
+      background: #333333;
+      color: #fff;
+      border-radius: 5px;
+      padding: 10px 20px;
+      transition: 200ms;
+      cursor: pointer;
+      box-shadow: 0 10px 0 #000, 0 8px 30px #000;
+      font-family: 'Pacifico', cursive;
+      font-weight: 300;
+      font-size: 18px;
+    }
+    
+    .submit:hover,
+    .submit:focus {
+      outline: 0;
+    }
+    
+    .submit:active {
+      box-shadow: 0 5px 0 #000, 0 3px 10px #000;
+      transform: translateY(5px);
+    }
+    
+    ::-webkit-input-placeholder {
+      font-family: 'Open Sans Condensed', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+    }
+    
+    :-moz-placeholder {
+      /* Firefox 18- */
+      font-family: 'Open Sans Condensed', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+    }
+    
+    ::-moz-placeholder {
+      /* Firefox 19+ */
+      font-family: 'Open Sans Condensed', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+    }
+    
+    :-ms-input-placeholder {
+      font-family: 'Open Sans Condensed', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+    }
+    
+    #bigheader {
+      font-family: -apple-system, '.SFNSText-Regular', 'Helvetica Neue', 'Roboto', 'Segoe UI', sans-serif;
+      font-weight: 400;
+      margin: 0;
+      color: #fff;
+      font-size: 150px;
+      line-height: 150px;
+      margin-bottom: 30px;
+      text-shadow: 4px 4px #333333;
+    }
+    
+    .h2class {
+      font-family: -apple-system, '.SFNSText-Regular', 'Helvetica Neue', 'Roboto', 'Segoe UI', sans-serif;
+      font-weight: 400;
+      margin: 0;
+      color: #333333;
+      font-size: 70px;
+      line-height: 75px;
+      margin-bottom: 30px;
+      text-shadow: 4px 4px #fff;
+    }
+    
+    #identity {
+      color: #fff;
+    }
+    /**
+ * See: http://www.css-101.org/articles/ken-burns_effect/css-transition.php
+ */
+    /**
+ * Styling the container (the wrapper)
+ * 
+ * position is used to make this box a containing block (it becomes a reference for its absolutely positioned children). overflow will hide part of the images moving outside of the box.
+ */
+    
+    #slideshow {
+      position: relative;
+      width: 800px;
+      height: 400px;
+      overflow: hidden;
+      margin: auto;
+    }
+    /**
+ * Styling the images
+ *
+ * position:absolute is to put all images in a stack. Dimensions are set to increase the size of these images so their edges do not appear in the parent box when we move them inside the said box.
+ * Because the images are now larger than their parent container, we use top, left and margin values to align them in the center of the box.
+ * Finally, we set the transition (property and duration). Note that duration values are different for opacity and transform as we want the "fade-in" effect to be faster than the "panning" effect.
+ */
+    
+    #slideshow img {
+      position: absolute;
+      width: 800px;
+      height: 400px;
+      top: 50%;
+      left: 50%;
+      margin-left: -400px;
+      margin-top: -200px;
+      opacity: 0;
+      -webkit-transition-property: opacity, -webkit-transform;
+      -webkit-transition-duration: 3s, 10s;
+      -moz-transition-property: opacity, -moz-transform;
+      -moz-transition-duration: 3s, 10s;
+      -ms-transition-property: opacity, -ms-transform;
+      -ms-transition-duration: 3s, 10s;
+      -o-transition-property: opacity, -o-transform;
+      -o-transition-duration: 3s, 10s;
+      transition-property: opacity, transform;
+      transition-duration: 3s, 10s;
+    }
+    /**
+ * We change the point of origin using four corners so images do not move in the same direction. 
+ * This technique allows us to create various paths while applying the same translate() values to all images (see the 'fx' class further below).
+ */
+    
+    #slideshow img {
+      -webkit-transform-origin: bottom left;
+      -moz-transform-origin: bottom left;
+      -ms-transform-origin: bottom left;
+      -o-transform-origin: bottom left;
+      transform-origin: bottom left;
+    }
+    
+    #slideshow:nth-child(2n+1) {
+      -webkit-transform-origin: top right;
+      -moz-transform-origin: top right;
+      -ms-transform-origin: top right;
+      -o-transform-origin: top right;
+      transform-origin: top right;
+    }
+    
+    #slideshow:nth-child(3n+1) {
+      -webkit-transform-origin: top left;
+      -moz-transform-origin: top left;
+      -ms-transform-origin: top left;
+      -o-transform-origin: top left;
+      transform-origin: top left;
+    }
+    
+    #slideshow:nth-child(4n+1) {
+      -webkit-transform-origin: bottom right;
+      -moz-transform-origin: bottom right;
+      -ms-transform-origin: bottom right;
+      -o-transform-origin: bottom right;
+      transform-origin: bottom right;
+    }
+    /**
+ * Because of the stacking context, we need to make sure that the first image (in source) is not hidden by the last one. 
+ * The rule below moves all images past the second one down the stack. 
+ * This is because the second image needs to show on top of the first one when it transitions in.
+ */
+    
+    #slideshow .fx:first-child + img ~ img {
+      z-index: -1;
+    }
+    /**
+ * Because images are styled with a different point of origin, the following rule will create different panning effects.
+ */
+    
+    #slideshow .fx {
+      opacity: 1;
+      -webkit-transform: scale(1.1);
+      -moz-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+      -o-transform: scale(1.1);
+      transform: scale(1.1);
+    }
+    
+    #thing p {
+      padding: 2px 0;
+      font-size: 15px;
+    }
+    
+    #thing b {
+      color: #FFD357;
+    }
+    
+    #thing i {
+      color: #ABEBD9;
+    }
+    
+    #thing {
+      font-family: monospace;
+      margin: 0 auto;
+      max-width: 300px;
+      height: 250px;
+      display: block;
+      text-shadow: 1px 1px 0 black;
+      background-color: #333333;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#333333), to(#000000));
+      background-image: -webkit-linear-gradient(top, #333333, #000000);
+      background-image: linear-gradient(to bottom, #333333, #000000);
+      color: white;
+      padding: 1em;
+      border-color: rgba(255, 255, 255, 0.3);
+      border-width: 3px;
+      border-style: solid;
+      border-radius: 10px;
+    }
+    
+    #thing::before {
+      content: "html";
+      float: right;
+      color: black;
+      text-shadow: -1px 1px 0 #666;
+      font-size: 1.5em;
+      margin: 3px;
+      height: 100%;
+    }
+    
+    #thing {
+      padding: 10px 5%;
+    }
+    /* Typography and Type Color*/
+    
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: -apple-system, '.SFNSText-Regular', 'Helvetica Neue', 'Roboto', 'Segoe UI', sans-serif;
+      font-weight: 400;
+      margin: 0;
+      color: #333333;
+    }
+    
+    body,
+    p,
+    a,
+    li {
+      font-family: -apple-system, '.SFNSText-Regular', 'Helvetica Neue', 'Roboto', 'Segoe UI', sans-serif;
+      font-weight: 300;
+      font-size: 20px;
+      color: #333333;
+    }
+    
+    a {
+      text-decoration: none;
+      transition: 300ms;
+    }
+    
+    a:hover,
+    a.light:hover,
+    a:active,
+    a.light:active {
+      color: rgb(252, 217, 153);
+    }
+    
+    a.light {
+      color: #fff;
+      transition: 300ms;
+    }
+    
+    h3 {
+      font-size: 50px;
+      line-height: 55px;
+      margin-bottom: 15px;
+      text-shadow: 3px 3px #fff;
+    }
+    
+    h4 {
+      font-size: 28px;
+      line-height: 30px;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px #fff;
+    }
+    /* Default Colors */
+    
+    body {
+      background-color: #f0f0f0;
+      margin: 0;
+    }
+    
+    #testdiv {
+      background-color: #F6F6F6;
+    }
+    /* Main Content Styling */
+    
+    .inner-content {
+      max-width: 1080px;
+      margin: auto;
+    }
+    
+    .homepage-panel {
+      min-height: 100vh;
+    }
+    /* Top panel */
+    
+    .top-panel {
+      background: url("http://www.gamernes9.com/hosting/images/projects/identity/imac.jpg") no-repeat #000 center;
+      background-size: cover;
+      background-attachment: fixed;
+      background-opacity: 0.5;
+      height: 100vh;
+    }
+    
+    .top-panel-text {
+      padding-top: 20vh;
+      text-align: center;
+    }
+    /* Navigation */
+    
+    .navigation-wrapper {
+      width: 100%;
+      background-color: #333333;
+      position: fixed;
+      top: 0;
+      z-index: 999999;
+    }
+    
+    .navigation {
+      padding: 0;
+      list-style: none;
+    }
+    
+    .navigation>li {
+      display: inline-block;
+      box-sizing: border-box;
+      padding: 7px 15px;
+      color: #fff;
+    }
+    
+    .navigation>li a {
+      color: #fff;
+    }
+    
+    .navigation>li.right {
+      float: right;
+    }
+    /* About */
+    
+    .about-wrapper {
+      background-color: #fff;
+      box-sizing: border-box;
+      padding: 100px 10px;
+      text-align: center;
+    }
+    /* Lightboxes */
+    
+    .link-boxes {
+      margin: 100px auto;
+      text-align: center;
+    }
+    
+    .link-box-wrapper {
+      max-height: 480px;
+      max-width: 310px;
+      height: 480px;
+      width: 320px;
+      position: relative;
+      overflow: hidden;
+      background-color: #fff;
+      display: inline-block;
+      vertical-align: top;
+      margin: 10px;
+    }
+    
+    .link-box {
+      width: 100%;
+      height: 100%;
+    }
+    
+    .link-box.link.box-1 {
+      background: url("http://www.gamernes9.com/hosting/images/projects/identity/NES.jpg") no-repeat #000 center;
+      background-size: cover;
+    }
+    
+    .link-box.link.box-2 {
+      background: url("http://www.gamernes9.com/hosting/images/projects/identity/binary.png") no-repeat #000 center;
+      background-size: cover;
+    }
+    
+    .link-box.link.box-3 {
+      background: url("http://www.gamernes9.com/hosting/images/projects/identity/comic.jpg") no-repeat #000 center;
+      background-size: cover;
+    }
+    
+    .link-box.link {
+      display: block;
+      -webkit-transition: all 0.4s ease-in-out;
+      -moz-transition: all 0.4s ease-in-out;
+      -ms-transition: all 0.4s ease-in-out;
+      -o-transition: all 0.4s ease-in-out;
+    }
+    
+    .lb-overlay {
+      position: absolute;
+      z-index: 100;
+      background-color: #fff;
+      left: 0;
+      right: 0;
+    }
+    
+    .lb-top {
+      top: 0;
+      height: 70%;
+      border-bottom-right-radius: 160px;
+      border-bottom-left-radius: 160px;
+      transition-property: all;
+      transition-duration: .5s;
+      transition-timing-function: cubic-bezier(0, 1, 0.8, 1);
+    }
+    
+    .link-box:hover .lb-top {
+      transform: translateY(-350px) scaleX(50);
+    }
+    
+    .lb-top-text {
+      position: absolute;
+      top: 30px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      box-sizing: border-box;
+      padding: 15px;
+      z-index: 200;
+      transition: 300ms;
+    }
+    
+    .link-box:hover .lb-top-text {
+      transform: translateY(-20px);
+    }
+    
+    .link-box:hover .lb-top-text>p {
+      opacity: 0;
+    }
+    
+    .lb-bottom {
+      bottom: 0;
+      height: 0;
+      max-height: 50px;
+      transition-property: all;
+      transition-duration: .5s;
+      transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+      text-align: center;
+    }
+    
+    .lb-bottom h4 {
+      margin-top: 10px;
+      transition: 200ms;
+    }
+    
+    .link-box:hover .lb-bottom {
+      height: 50px;
+    }
+    
+    .lb-bottom:hover h4 {
+      transform: scale(1.05);
+    }
+    
+    .lb-screen {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: #000;
+      opacity: 0.5;
+      z-index: 1;
+      transition: 500ms;
+    }
+    
+    .link-box:hover .lb-screen {
+      opacity: 0;
+    }
+    /* contact panel */
+    
+    .contact-wrapper {
+      width: 100%;
+      background-color: rgb(171, 211, 255);
+      text-align: center;
+      box-sizing: border-box;
+      padding: 100px 20px 50px 20px;
+    }
+    
+    .textinput {
+      padding: 12px;
+      border-radius: 5px;
+      border: 0;
+      width: 100%;
+      max-width: 700px;
+      margin: 10px 0;
+      font-family: 'Open Sans Condensed', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+    }
+    
+    textarea {
+      resize: vertical;
+    }
+    
+    textarea:focus,
+    .textinput:focus {
+      outline: 0;
+    }
+    
+    .submit {
+      display: block;
+      margin: 10px auto;
+      border: 0;
+      background: #333333;
+      color: #fff;
+      border-radius: 5px;
+      padding: 10px 20px;
+      transition: 200ms;
+      cursor: pointer;
+      box-shadow: 0 10px 0 #000, 0 8px 30px #000;
+      font-family: 'Pacifico', cursive;
+      font-weight: 300;
+      font-size: 18px;
+    }
+    
+    .submit:hover,
+    .submit:focus {
+      outline: 0;
+    }
+    
+    .submit:active {
+      box-shadow: 0 5px 0 #000, 0 3px 10px #000;
+      transform: translateY(5px);
+    }
+    
+    ::-webkit-input-placeholder {
+      font-family: 'Open Sans Condensed', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+    }
+    
+    :-moz-placeholder {
+      /* Firefox 18- */
+      font-family: 'Open Sans Condensed', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+    }
+    
+    ::-moz-placeholder {
+      /* Firefox 19+ */
+      font-family: 'Open Sans Condensed', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+    }
+    
+    :-ms-input-placeholder {
+      font-family: 'Open Sans Condensed', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+    }
+    
+    #bigheader {
+      font-family: -apple-system, '.SFNSText-Regular', 'Helvetica Neue', 'Roboto', 'Segoe UI', sans-serif;
+      font-weight: 400;
+      margin: 0;
+      color: #fff;
+      font-size: 150px;
+      line-height: 150px;
+      margin-bottom: 30px;
+      text-shadow: 4px 4px #333333;
+    }
+    
+    .h2class {
+      font-family: -apple-system, '.SFNSText-Regular', 'Helvetica Neue', 'Roboto', 'Segoe UI', sans-serif;
+      font-weight: 400;
+      margin: 0;
+      color: #333333;
+      font-size: 70px;
+      line-height: 75px;
+      margin-bottom: 30px;
+      text-shadow: 4px 4px #fff;
+    }
+    
+    #identity {
+      color: #fff;
+    }
+    /**
+ * See: http://www.css-101.org/articles/ken-burns_effect/css-transition.php
+ */
+    /**
+ * Styling the container (the wrapper)
+ * 
+ * position is used to make this box a containing block (it becomes a reference for its absolutely positioned children). overflow will hide part of the images moving outside of the box.
+ */
+    
+    #slideshow {
+      position: relative;
+      width: 800px;
+      height: 400px;
+      overflow: hidden;
+      margin: auto;
+    }
+    /**
+ * Styling the images
+ *
+ * position:absolute is to put all images in a stack. Dimensions are set to increase the size of these images so their edges do not appear in the parent box when we move them inside the said box.
+ * Because the images are now larger than their parent container, we use top, left and margin values to align them in the center of the box.
+ * Finally, we set the transition (property and duration). Note that duration values are different for opacity and transform as we want the "fade-in" effect to be faster than the "panning" effect.
+ */
+    
+    #slideshow img {
+      position: absolute;
+      width: 800px;
+      height: 400px;
+      top: 50%;
+      left: 50%;
+      margin-left: -400px;
+      margin-top: -200px;
+      opacity: 0;
+      -webkit-transition-property: opacity, -webkit-transform;
+      -webkit-transition-duration: 3s, 10s;
+      -moz-transition-property: opacity, -moz-transform;
+      -moz-transition-duration: 3s, 10s;
+      -ms-transition-property: opacity, -ms-transform;
+      -ms-transition-duration: 3s, 10s;
+      -o-transition-property: opacity, -o-transform;
+      -o-transition-duration: 3s, 10s;
+      transition-property: opacity, transform;
+      transition-duration: 3s, 10s;
+    }
+    /**
+ * We change the point of origin using four corners so images do not move in the same direction. 
+ * This technique allows us to create various paths while applying the same translate() values to all images (see the 'fx' class further below).
+ */
+    
+    #slideshow img {
+      -webkit-transform-origin: bottom left;
+      -moz-transform-origin: bottom left;
+      -ms-transform-origin: bottom left;
+      -o-transform-origin: bottom left;
+      transform-origin: bottom left;
+    }
+    
+    #slideshow:nth-child(2n+1) {
+      -webkit-transform-origin: top right;
+      -moz-transform-origin: top right;
+      -ms-transform-origin: top right;
+      -o-transform-origin: top right;
+      transform-origin: top right;
+    }
+    
+    #slideshow:nth-child(3n+1) {
+      -webkit-transform-origin: top left;
+      -moz-transform-origin: top left;
+      -ms-transform-origin: top left;
+      -o-transform-origin: top left;
+      transform-origin: top left;
+    }
+    
+    #slideshow:nth-child(4n+1) {
+      -webkit-transform-origin: bottom right;
+      -moz-transform-origin: bottom right;
+      -ms-transform-origin: bottom right;
+      -o-transform-origin: bottom right;
+      transform-origin: bottom right;
+    }
+    /**
+ * Because of the stacking context, we need to make sure that the first image (in source) is not hidden by the last one. 
+ * The rule below moves all images past the second one down the stack. 
+ * This is because the second image needs to show on top of the first one when it transitions in.
+ */
+    
+    #slideshow .fx:first-child + img ~ img {
+      z-index: -1;
+    }
+    /**
+ * Because images are styled with a different point of origin, the following rule will create different panning effects.
+ */
+    
+    #slideshow .fx {
+      opacity: 1;
+      -webkit-transform: scale(1.1);
+      -moz-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+      -o-transform: scale(1.1);
+      transform: scale(1.1);
+    }
+    
+    #thing p {
+      padding: 2px 0;
+      font-size: 15px;
+    }
+    
+    #thing b {
+      color: #FFD357;
+    }
+    
+    #thing i {
+      color: #ABEBD9;
+    }
+    
+    #thing {
+      font-family: monospace;
+      margin: 0 auto;
+      max-width: 300px;
+      height: 250px;
+      display: block;
+      text-shadow: 1px 1px 0 black;
+      background-color: #333333;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#333333), to(#000000));
+      background-image: -webkit-linear-gradient(top, #333333, #000000);
+      background-image: linear-gradient(to bottom, #333333, #000000);
+      color: white;
+      padding: 1em;
+      border-color: rgba(255, 255, 255, 0.3);
+      border-width: 3px;
+      border-style: solid;
+      border-radius: 10px;
+    }
+    
+    #thing::before {
+      content: "html";
+      float: right;
+      color: black;
+      text-shadow: -1px 1px 0 #666;
+      font-size: 1.5em;
+      margin: 3px;
+      height: 100%;
+    }
+    
+    #thing {
+      padding: 10px 5%;
+    }
+  </style>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  <script>
+    (function() {
+      // we set the 'fx' class on the first image when the page loads
+      document.getElementById("slideshow").getElementsByTagName("img")[
+        0
+      ].className =
+        "fx";
+    
+      // this calls the kenBurns function every 4 seconds
+      // you can increase or decrease this value to get different effects
+      window.setInterval(kenBurns, 6000);
+    
+      // the third variable is to keep track of where we are in the loop
+      // if it is set to 1 (instead of 0) it is because the first image is styled when the page loads
+      var images = document.getElementById("slideshow").getElementsByTagName("img"),
+        numberOfImages = images.length,
+        i = 1;
+    
+      function kenBurns() {
+        if (i == numberOfImages) {
+          i = 0;
+        }
+        images[i].className = "fx";
+    
+        // we can't remove the class from the previous element or we'd get a bouncing effect so we clean up the one before last
+        // (there must be a smarter way to do this though)
+        if (i === 0) {
+          images[numberOfImages - 2].className = "";
+        }
+        if (i === 1) {
+          images[numberOfImages - 1].className = "";
+        }
+        if (i > 1) {
+          images[i - 2].className = "";
+        }
+        i++;
+      }
+    })();
+  </script>
+
+</head>
+
+<body>
+  <html>
+
+  <head>
+
+    <link href='http://fonts.googleapis.com/css?family=Pacifico|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link href="css/homepage.css" rel="stylesheet" />
+
+  </head>
+
+  <body>
+    <div class="main-content-wrapper">
+      <div class="main-content">
+        <div class="top-panel homepage-panel">
+          <div class="inner-content top-panel-text">
+            <h1 id="bigheader">Nathaniel Smith</h1>
+            <p id="identity">my identity</p>
+          </div>
+        </div>
+
+        <div class="about-wrapper homepage-panel">
+
+          <div class="about inner-content">
+
+
+            <h2 class="h2class">Churches</h2>
+            <img src="http://www.gamernes9.com/hosting/images/projects/identity/church.jpg" />
+
+          </div>
+        </div>
+
+        <div id="otherone" class="link-boxes inner-content homepage-panel">
+          <h2 class="h2class">Hobbies</h2>
+          <div class="link-box-wrapper" id="maybe">
+            <div class="link-box">
+              <a class="link-box link box-1" href="#">
+                <div class="lb-overlay lb-top"></div>
+                <div class="lb-top-text">
+                  <h3>Video Games</h3>
+                  <p>I've always loved playing video games since I was a little kid playing LEGO games and Super Mario Bros. 3.</p>
+                </div>
+
+                <div class="lb-screen"></div>
+              </a>
+            </div>
+          </div>
+          <!--
+        -->
+          <div class="link-box-wrapper">
+            <div class="link-box">
+              <a class="link-box link box-2" href="#">
+                <div class="lb-overlay lb-top"></div>
+                <div class="lb-top-text">
+                  <h3><span class = "reverse">Coding</span></h3>
+                  <p>I take coding as a class and enjoy learning programming, and it could lead to my career in the future.</p>
+                </div>
+
+                <div class="lb-screen"></div>
+              </a>
+            </div>
+          </div>
+          <!--
+        -->
+          <div class="link-box-wrapper">
+            <div class="link-box">
+              <a class="link-box link box-3" href="#">
+                <div class="lb-overlay lb-top"></div>
+                <div class="lb-top-text">
+                  <h3><span class = "reverse">Comics/ Books</span></h3>
+                  <p>I really love reading books and comics in my free time. </p>
+                </div>
+
+                <div class="lb-screen"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div id="pleasework">
+          <div id="slideshowdiv">
+            <div class="about-wrapper homepage-panel">
+              <div id="please">
+                <div class="about inner-content">
+                  <div id="divslide">
+                    <div id="slideshow">
+                      <img src="http://www.gamernes9.com/hosting/images/projects/identity/trinitywar.jpg">
+                      <img src="http://www.gamernes9.com/hosting/images/projects/identity/mario.jpg">
+                      <img src="http://www.gamernes9.com/hosting/images/projects/identity/marvel.jpg">
+                      <img src="http://www.gamernes9.com/hosting/images/projects/identity/jesus.jpeg">
+                      <img src="http://www.gamernes9.com/hosting/images/projects/identity/nes_wallpaper.jpg">
+                      <img src="http://www.gamernes9.com/hosting/images/projects/identity/code.jpg">
+                      <img src="http://www.gamernes9.com/hosting/images/projects/identity/cross.jpg">
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="testdiv">
+          <div class="about-wrapper homepage-panel">
+
+            <div class="about inner-content">
+
+
+              <div id="thing">
+                <p><b>&lt;verse&gt;</b></p>
+                <p style="color:white">‘And remember, I am with you always, to the end of the age’</p>
+                <p style="color:white">Matthew 28:20</p>
+                <p><b>&lt;/verse&gt;</b></p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- Close main content -->
+      </div>
+      <!-- Close main content wrapper -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  </body>
+
+  </html>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+  <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/93930/highlight.pack.js'></script>
+  <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/93930/angular-highlightjs.min.js'></script>
+
+  <script src="js/index.js"></script>
+
+</body>
+
+</html>
