@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Christmas Wishlist</title>
+  <script src="https://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
+  
+  
+      <link rel="stylesheet" href = "style.css">
+
+  
+</head>
+
+<body>
+  <img src="http://res.freestockphotos.biz/pictures/17/17382-illustration-of-a-red-santa-hat-pv.png" id="claus">
+<h1>Nathaniel's Christmas Wishlist</h1>
+<h4>Notes: All Best Buy prices have Gamer's Club Unlocked discount factored in already. Also, feel free to buy preowned versions of these items if they are cheaper. The prices are (currently) the cheapest across Amazon, Best Buy, Target, and the Nintendo eShop.</h4>
+<table class="rwd-table">
+  <tr>
+    <th class="top">Image</th>
+    <th class="top">Item</th>
+    <th class="top">Current Price</th>
+    <th class="top">Retailer</th>
+    <th class="top">Link</th>
+    <th class="top">Remove</th>
+  </tr>
+  <tr class="productRow" id="row1">
+    <td data-th="Image"><img src="http://pisces.bbystatic.com/image2/BestBuy_US/images/products/4901/4901082_sd.jpg;canvasHeight=1000;canvasWidth=1000"></td>
+    <td data-th="Item">Nintendo Selects: Pikmin 3</td>
+    <td data-th="Current Price" class="product-price">$15.99</td>
+    <td data-th="Retailer">Best Buy</td>
+    <td data-th="Link"><a href="https://goo.gl/zheBzQ">https://goo.gl/zheBzQ</a></td>
+    <td data-th="Remove" class="product-removal"><button class="remove-product" id="button1">
+        Remove
+      </button></td>
+  </tr>
+  <tr class="productRow" id="row2">
+    <td data-th="Image"><img src="http://pisces.bbystatic.com/image2/BestBuy_US/images/products/4901/4901086_sd.jpg;canvasHeight=1000;canvasWidth=1000"></td>
+    <td data-th="Item">Nintendo Selects: Donkey Kong Country: Tropical Freeze - Nintendo Wii U</td>
+    <td data-th="Current Price" class="product-price">$15.99</td>
+    <td data-th="Retailer">Best Buy</td>
+    <td data-th="Link"><a href="https://goo.gl/AdM6qg">https://goo.gl/AdM6qg</a></td>
+    <td data-th="Remove" class="product-removal"><button class="remove-product" id="button2">
+        Remove
+      </button></td>
+  </tr>
+  <tr class="productRow" id="row3">
+    <td data-th="Image"><img src="http://scene7.targetimg1.com/is/image/Target/17286358?wid=480&amp;hei=480"></td>
+    <td data-th="Item">God of War III: Remastered (PlayStation 4)</td>
+    <td data-th="Current Price" class="product-price">$14.99</td>
+    <td data-th="Retailer">Target</td>
+    <td data-th="Link"><a href="https://goo.gl/bCuVlF">https://goo.gl/bCuVlF</a></td>
+    <td data-th="Remove" class="product-removal"><button class="remove-product" id="button3">
+        Remove
+      </button></td>
+  </tr>
+  <tr class="productRow" id="row4">
+    <td data-th="Image"><img src="https://images-na.ssl-images-amazon.com/images/I/51mBP7%2BynaL._SS160_.jpg"></td>
+    <td data-th="Item">Super Mario 64 DS</td>
+    <td data-th="Current Price" class="product-price">$29.90 (new)<br>OR<br>$19.44 (used)</td>
+    <td data-th="Retailer">Amazon (new)<br>OR<br>Amazon (used - second item on page)</td>
+    <td data-th="Link"><a href="https://goo.gl/qpTpYS">https://goo.gl/qpTpYS</a>&nbsp;(new)<br>OR<br><a href="https://goo.gl/st3Fv3">https://goo.gl/st3Fv3</a></td>
+    <td data-th="Remove" class="product-removal"><button class="remove-product" id="button4">
+        Remove
+      </button></td>
+  </tr>
+  <tr class="productRow" id="row5">
+    <td data-th="Image"><img src="http://pisces.bbystatic.com/image2/BestBuy_US/images/products/6668/6668053_sa.jpg;canvasHeight=550;canvasWidth=642"></td>
+    <td data-th="Item">Nintendo - Nintendo eShop Prepaid Card ($20)</td>
+    <td data-th="Current Price" class="product-price">$20.00</td>
+    <td data-th="Retailer">Best Buy</td>
+    <td data-th="Link"><a href="https://goo.gl/eytbWs">https://goo.gl/eytbWs</a></td>
+    <td data-th="Remove" class="product-removal"><button class="remove-product" id="button5">
+        Remove
+      </button></td>
+  </tr>
+  <tr class="productRow" id="row6">
+    <td data-th="Image"><img src="https://images-na.ssl-images-amazon.com/images/I/61j1as3xi-L.jpg"></td>
+    <td data-th="Item">Apollo Justice: Ace Attorney</td>
+    <td data-th="Current Price" class="product-price">$24.26</td>
+    <td data-th="Retailer">Amazon</td>
+    <td data-th="Link"><a href="https://goo.gl/RL9eM8">https://goo.gl/RL9eM8</a></td>
+    <td data-th="Remove" class="product-removal"><button class="remove-product" id="button6">
+        Remove
+      </button></td>
+  </tr>
+  <tr class="productRow" id="row7">
+    <td data-th="Image"><img src="http://scene7.targetimg1.com/is/image/Target/15746269?wid=480&amp;hei=480"></td>
+    <td data-th="Item">Professor Layton vs. Phoenix Wright: Ace Attorney (Nintendo 3DS)</td>
+    <td data-th="Current Price" class="product-price">$29.99</td>
+    <td data-th="Retailer">Target</td>
+    <td data-th="Link"><a href="https://goo.gl/690Dgn">https://goo.gl/690Dgn</a></td>
+    <td data-th="Remove" class="product-removal"><button class="remove-product" id="button7">
+        Remove
+      </button></td>
+  </tr>
+  <tr class="productRow" id="row8">
+    <td data-th="Image"><img src="http://media.nintendo.com/nintendo/bin/0sKYdKcm2cl_rukTtOom7zWr-zgYW9RU/_qLpP3hykI4PmYEsoSDhmHEBrUjtx-js.png"></td>
+    <td data-th="Item">Phoenix Wright: Ace Attorney - Dual Destinies</td>
+    <td data-th="Current Price" class="product-price">$29.99 (digital)</td>
+    <td data-th="Retailer">Nintendo eShop</td>
+    <td data-th="Link"><a href="https://goo.gl/n9Rxi3">https://goo.gl/n9Rxi3</a>&nbsp;(digital)</td>
+    <td data-th="Remove" class="product-removal"><button class="remove-product" id="button8">
+        Remove
+      </button></td>
+  </tr>
+  <tr class="productRow" id="row9">
+    <td data-th="Image"><img src="http://pisces.bbystatic.com/image2/BestBuy_US/images/products/9704/9704665_sa.jpg;canvasHeight=550;canvasWidth=642"></td>
+    <td data-th="Item">The Legend of Zelda: A Link Between Worlds - Nintendo 3DS</td>
+    <td data-th="Current Price" class="product-price">$31.99 (new)<br>OR<br>$29.99 (used)</td>
+    <td data-th="Retailer">Best Buy (new)<br>OR<br>Amazon (used - second item on page)</td>
+    <td data-th="Link"><a href="https://goo.gl/uA8lZw">https://goo.gl/uA8lZw</a>&nbsp;(new)<br>OR<br><a href="https://goo.gl/JGmQi2">https://goo.gl/JGmQi2</a>&nbsp;(used)</td>
+    <td data-th="Remove" class="product-removal"><button class="remove-product" id="button9">
+        Remove
+      </button></td>
+  </tr>
+  <tr class="productRow" id="row11">
+    <td data-th="Image"><img src="http://pisces.bbystatic.com/image2/BestBuy_US/images/products/9089/9089021_sa.jpg;canvasHeight=550;canvasWidth=642"></td>
+    <td data-th="Item">Yo-kai Watch - Nintendo 3DS</td>
+    <td data-th="Current Price" class="product-price">$31.99</td>
+    <td data-th="Retailer">Best Buy</td>
+    <td data-th="Link"><a href="https://goo.gl/he9Xbs">https://goo.gl/he9Xbs</a></td>
+    <td data-th="Remove" class="product-removal"><button class="remove-product" id="button11">
+        Remove
+      </button></td>
+  </tr>
+  <tr class="productRow" id="row12">
+    <td data-th="Image"><img src="http://pisces.bbystatic.com/image2/BestBuy_US/images/products/5584/5584573_sa.jpg;canvasHeight=550;canvasWidth=642"></td>
+    <td data-th="Item">New Super Mario Bros. 2 - Nintendo 3DS</td>
+    <td data-th="Current Price" class="product-price">$23.99 (new)<br>OR<br>$23.49 (used)</td>
+    <td data-th="Retailer">Best Buy (new)<br>OR<br>Amazon (used - third item on page)</td>
+    <td data-th="Link"><a href="https://goo.gl/WoYDi0">https://goo.gl/WoYDi0</a>&nbsp;(new)<br>OR<br><a href="https://goo.gl/JMYM0K">https://goo.gl/JMYM0K</a>&nbsp;(used)</td>
+    <td data-th="Remove" class="product-removal"><button class="remove-product" id="button12">
+        Remove
+      </button></td>
+  </tr>
+  <tr class="productRow" id="row13">
+    <td data-th="Image"><img src="http://pisces.bbystatic.com/image2/BestBuy_US/images/products/2856/2856641_sa.jpg;canvasHeight=550;canvasWidth=642"></td>
+    <td data-th="Item">Super Smash Bros. - Nintendo 3DS</td>
+    <td data-th="Current Price" class="product-price">$31.99</td>
+    <td data-th="Retailer">Amazon</td>
+    <td data-th="Link"><a href="https://goo.gl/g2HQUS">https://goo.gl/g2HQUS</a></td>
+    <td data-th="Remove" class="product-removal"><button class="remove-product" id="button13">
+        Remove
+      </button></td>
+  </tr>
+  <tr class="productRow" id="row14">
+    <td data-th="Image"><img src="http://pisces.bbystatic.com/image2/BestBuy_US/images/products/4562/4562224_sa.jpg;canvasHeight=550;canvasWidth=642"></td>
+    <td data-th="Item">New Super Mario Bros. U + New Super Luigi U - Nintendo Wii U</td>
+    <td data-th="Current Price" class="product-price">$47.99 (new)<br>OR<br>$43.27 (used)</td>
+    <td data-th="Retailer">Best Buy (new)<br>OR<br>Amazon (used - second item on page)</td>
+    <td data-th="Link"><a href="https://goo.gl/wiU9rA">https://goo.gl/wiU9rA</a>&nbsp;(new)<br>OR<br><a href="https://goo.gl/BVcj4e">https://goo.gl/BVcj4e</a>&nbsp;(used)</td>
+    <td data-th="Remove" class="product-removal"><button class="remove-product" id="button14">
+        Remove
+      </button></td>
+  </tr>
+  <tr class="productRow" id="row15">
+    <td data-th="Image"><img src="http://pisces.bbystatic.com/image2/BestBuy_US/images/products/7425/7425383_sa.jpg;canvasHeight=550;canvasWidth=642"></td>
+    <td data-th="Item">Super Mario Maker - Nintendo Wii U</td>
+    <td data-th="Current Price" class="product-price">$47.99 (new)<br>OR<br>$45.43 (used)</td>
+    <td data-th="Retailer">Best Buy (new)<br>OR<br>Amazon (used - second item on page)</td>
+    <td data-th="Link"><a href="https://goo.gl/ZxrgSn">https://goo.gl/ZxrgSn</a>&nbsp;(new)<br>OR<br><a href="https://goo.gl/tVsppQ">https://goo.gl/tVsppQ</a>&nbsp;(used)</td>
+    <td data-th="Remove" class="product-removal"><button class="remove-product" id="button15">
+        Remove
+      </button></td>
+  </tr>
+  <tr class="productRow" id="row16">
+    <td data-th="Image"><img src="https://images-na.ssl-images-amazon.com/images/I/81PvcgSLS1L._SL1500_.jpg"></td>
+    <td data-th="Item">Castlevania: Lords of Shadow Mirror Fate - Nintendo 3DS</td>
+    <td data-th="Current Price" class="product-price">$19.93 (new)<br>OR<br>$14.99 (used, no tax)</td>
+    <td data-th="Retailer">Amazon (new)<br>OR<br>Amazon (used - first item on page)</td>
+    <td data-th="Link"><a href="https://goo.gl/zybXhZ">https://goo.gl/zybXhZ</a>&nbsp;(new)<br>OR<br><a href="https://goo.gl/c3XT5e">https://goo.gl/c3XT5e</a></td>
+    <td data-th="Remove" class="product-removal"><button class="remove-product" id="button16">
+        Remove
+      </button></td>
+  </tr>
+  <tr class="productRow" id="row17">
+    <td data-th="Image"><img src="http://pisces.bbystatic.com/image2/BestBuy_US/images/products/8713/8713071_sa.jpg;canvasHeight=500;canvasWidth=355"></td>
+    <td data-th="Item">Xenoblade Chronicles X - Nintendo Wii U</td>
+    <td data-th="Current Price" class="product-price">$47.99 (new)<br>OR<br>$43.55 (used)</td>
+    <td data-th="Retailer">Best Buy (new)<br>OR<br>Amazon (used)</td>
+    <td data-th="Link"><a href="https://goo.gl/AmGfXA">https://goo.gl/AmGfXA</a>&nbsp;(new)<br>OR<br><a href="https://goo.gl/Oq5dQl">https://goo.gl/Oq5dQl</a>&nbsp;(used)</td>
+    <td data-th="Remove" class="product-removal"><button class="remove-product" id="button17">
+        Remove
+      </button></td>
+  </tr>
+  <tr class="productRow" id="row18">
+    <td data-th="Image"><img src="http://pisces.bbystatic.com/image2/BestBuy_US/images/products/7616/7616014_sd.jpg;canvasHeight=550;canvasWidth=642"></td>
+    <td data-th="Item">Monster Hunter 4 Ultimate - Nintendo 3DS</td>
+    <td data-th="Current Price" class="product-price">$23.99 (new)<br>OR<br>$21.21 (new, but currently out of stock)</td>
+    <td data-th="Retailer">Best Buy (new)<br>OR<br>Amazon (new, but currently out of stock - first item on page)</td>
+    <td data-th="Link"><a href="https://goo.gl/8zjpk9">https://goo.gl/8zjpk9</a>&nbsp;(new)<br>OR<br><a href="https://goo.gl/JXaESJ">https://goo.gl/JXaESJ</a>&nbsp;(new, but currently out of stock)</td>
+    <td data-th="Remove" class="product-removal"><button class="remove-product" id="button18">
+        Remove
+      </button></td>
+  </tr>
+  <tr class="productRow" id="row19">
+    <td data-th="Image"><img src="https://images-na.ssl-images-amazon.com/images/I/71wTED%2B8DzL._SL1497_.jpg"></td>
+    <td data-th="Item">Mario Classic Color Amiibo (Super Smash Bros Series)</td>
+    <td data-th="Current Price" class="product-price">$8.14</td>
+    <td data-th="Retailer">Amazon</td>
+    <td data-th="Link"><a href="https://goo.gl/nKJDjg">https://goo.gl/nKJDjg</a></td>
+    <td data-th="Remove" class="product-removal"><button class="remove-product" id="button19">
+        Remove
+      </button></td>
+  </tr>
+  <tr class="productRow" id="row20">
+    <td data-th="Image"><img src="http://pisces.bbystatic.com/image2/BestBuy_US/images/products/7366/7366094_500x500_sa.jpg;canvasHeight=550;canvasWidth=642"></td>
+    <td data-th="Item">Fire Emblem: Awakening - Nintendo 3DS</td>
+    <td data-th="Current Price" class="product-price">$31.99</td>
+    <td data-th="Retailer">Best Buy</td>
+    <td data-th="Link"><a href="https://goo.gl/35lts7">https://goo.gl/35lts7</a></td>
+    <td data-th="Remove" class="product-removal"><button class="remove-product" id="button20">
+        Remove
+      </button></td>
+  </tr>
+</table>
+  <script src='https://code.jquery.com/jquery-3.0.0.min.js'></script>
+
+    <script src="index.js"></script>
+
+</body>
+</html>
