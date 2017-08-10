@@ -1,4 +1,4 @@
-alert("Please note that there are some duplicates; I want to own the movies both digitally and physically so I need both on the items I don't already own.");
+//alert("Please note that there are some duplicates; I want to own the movies both digitally and physically so I need both on the items I don't already own.");
 $('#button1').click(function() {
   $(this).parent().parent().remove();
 });
