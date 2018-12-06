@@ -308,13 +308,13 @@
     SWRO = Rogue One: A Star Wars Story
     SWHS = Han Solo: A Star Wars Story
     -->
-    <div class="soundbite col-xs-12" onclick="playSound('SW1_03');playSound('SW1_04');playSound('SW1_02');playSound('SW1_01');playSound('SW3_28');playSound('SW3_38');playSound('SW3_43');playSound('SW3_44');playSound('SW3_40');playSound('SW3_41');playSound('SW3_42');playSound('SW3_29');">
+    <!-- add a thing that plays every sound at once, once all clips are added. <div class="soundbite col-xs-12" onclick="playSound('SW1_03');playSound('SW1_04');playSound('SW1_02');playSound('SW1_01');playSound('SW3_28');playSound('SW3_38');playSound('SW3_43');playSound('SW3_44');playSound('SW3_40');playSound('SW3_41');playSound('SW3_42');playSound('SW3_29');playSound('SW3_02');">
     <div class="person swlogo"></div>
     <section>
       <h5>EVERY SOUND AT ONCE</h5>
       <h6>Star Wars Prequels</h6>
     </section>
-  </div>
+  </div> -->
   <div class="soundbite SW1 col-xs-12" onclick="playSound('SW1_03');">
     <div class="person qui-gon"></div>
     <section>
@@ -392,6 +392,13 @@
       <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
     </section>
   </div>
+    <div class="soundbite SW3 col-xs-12" onclick="playSound('activaterayshields');">
+    <div class="person grievous"></div>
+    <section>
+      <h5>Activate ray shields.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
   <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_29');">
     <div class="person kenobi"></div>
     <section>
@@ -410,6 +417,13 @@
     <div class="person anakin"></div>
     <section>
       <h5>General Grievous. You're shorter than I expected.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+    <div class="soundbite SW3 col-xs-12" onclick="playSound('jediscum');">
+    <div class="person grievous"></div>
+    <section>
+      <h5>Jedi scum...</h5>
       <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
     </section>
   </div>
@@ -483,12 +497,33 @@
       <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
     </section>
   </div>
-    <div class="soundbite SW3 col-xs-12" onclick="playSound('backaway');">
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('backaway');">
     <div class="person grievous"></div>
     <section>
       <h5>Back away.</h5>
       <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
     </section>
+  </div>
+    <div class="soundbite SW3 col-xs-12" onclick="playSound('youfool');">
+    <div class="person grievous"></div>
+    <section>
+      <h5>You fool.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+    <div class="soundbite SW3 col-xs-12" onclick="playSound('youaredoomed');">
+    <div class="person grievous"></div>
+    <section>
+      <h5>You are doomed.</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+    </section>
+  </div>
+  <div class="soundbite SW3 col-xs-12" onclick="playSound('ggdeath');">
+  <div class="person grievous"></div>
+  <section>
+      <h5>*death noises*</h5>
+      <h6 onclick="var ft = 'SW3'; runFilter(ft);">Star Wars: Revenge of the Sith</h6>
+  </section>
   </div>
   <div class="soundbite SW3 col-xs-12" onclick="playSound('SW3_25');">
     <div class="person kenobi"></div>
@@ -827,6 +862,11 @@
   <audio id="SW1_03" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW1_03.mp3" type="audio/mp3"></audio>
   <audio id="SW1_04" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/SW1_04.mp3" type="audio/mp3"></audio>
   <audio id="backaway" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/backaway.mp3" type="audio/mp3"></audio>
+  <audio id="ggdeath" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/ggdeath.mp3" type="audio/mp3"></audio>
+  <audio id="youaredoomed" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/youaredoomed.mp3" type="audio/mp3"></audio>
+  <audio id="youfool" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/youfool.mp3" type="audio/mp3"></audio>
+  <audio id="jediscum" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/jedisum.mp3" type="audio/mp3"></audio>
+    <audio id="activaterayshields" src="http://www.gamernes9.com/hosting/audio/projects/soundboard/activaterayshields.mp3" type="audio/mp3"></audio>
    <!-- CREDIT BUTTONS --><section id="overlay-shelf"><a href="http://www.gamernes9.com"><div id="GN9" class="no-select btn-popout" data-toggle="popover" data-trigger="hover" data-placement="left" data-content="gamernes9"></div></a><a href="http://www.miclaymon.us"><div id="MIC" class="no-select btn-popout" data-toggle="popover" data-trigger="hover" data-placement="left" data-content="miclaymon"></div></a><style type="text/css">/*shelf*/section#overlay-shelf{width:50px;height:250px;position:fixed;background:transparent;bottom:20px;right:20px;z-index:1000 !important;}/*gamernes9*/#GN9.btn-popout{width:50px;height:50px;position:fixed;border-radius:100%;cursor:pointer;bottom:20px;right:20px;z-index:1000 !important;transition:all 150ms ease-in-out;background: url("http://www.gamernes9.com/hosting/images/projects/jeopardy/GN9_9_bw-cr_256.webp");background-size:100%;background-repeat:no-repeat;background-position:center center;background-attachment:absolute;}#GN9.btn-popout:hover{transition:all 150ms ease-in-out;box-shadow:0px 0px 10px 1px #FFF;background:url("http://www.gamernes9.com/hosting/images/projects/jeopardy/GN9_9_wb-cr_256.webp");background-size:100%;background-repeat:no-repeat;background-position:center center;background-attachment:absolute;}</style></section>
 </body>
 
