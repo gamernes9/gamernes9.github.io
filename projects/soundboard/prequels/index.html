@@ -18,11 +18,13 @@
       display: block;
       padding: 0px !important;
       position: fixed;
-      background: #006;
-      border-bottom: 4px solid #003;
+      background: #111;
+      border-bottom: 4px solid #FFF;
     }
     
     .header h2 {
+          position: absolute;
+    top: 15%;
       color: #FFF;
       float: left;
       clear: left;
@@ -289,7 +291,8 @@
     <h2>♫ Soundboard</h2>
     <!-- eventually include gifBoard -->
     <section class="hidden-xs hidden-sm">
-      <input type="text" name="Search" placeholder="Search" disabled>
+      <!-- eventually add search function // input type="text" name="Search" placeholder="Search" disabled -->
+
       <select name="" id="narrowSound" class="" onchange="var ft = $(this).find(':selected').val().toString(); runFilter(ft);">
           <option value="soundbite">All</option>
             <option value="SW1">Star Wars I: The Phantom Menace</option>
@@ -298,6 +301,7 @@
             <option value="SWRO">Rogue One: A Star Wars Story</option>
             <option value="SWHS" title = "Coming soon!" disabled>Han Solo: A Star Wars Story</option>
         </select>
+        <p style = "color:white;">Additional sounds contributed by Joshua Grimsdale</p>
     </section>
   </div>
 
